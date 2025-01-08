@@ -46,7 +46,7 @@ def realizar_llamada(numero_destino: str, mensaje: str, duracion: int = MIN_DURA
         if not numero_destino.startswith('0034'):
             numero_destino = '0034' + numero_destino.lstrip('34').lstrip('0')
 
-        logger.info(f"=== Iniciando llamada con número visible ===")
+        logger.info("=== Iniciando llamada con número visible ===")
         logger.info(f"Número origen (visible): {origen}")
         logger.info(f"Número destino: {numero_destino}")
         logger.info(f"Duración configurada: {duracion} segundos")
