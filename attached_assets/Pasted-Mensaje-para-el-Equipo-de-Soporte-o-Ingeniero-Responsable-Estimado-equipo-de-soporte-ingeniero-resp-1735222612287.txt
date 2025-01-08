@@ -1,0 +1,22 @@
+Mensaje para el Equipo de Soporte o Ingeniero Responsable:
+Estimado equipo de soporte/ingeniero responsable:
+
+Me dirijo a ustedes con mucho respeto y gratitud por su labor y tiempo. Estoy trabajando en un proyecto muy importante que busca ofrecer recordatorios de llamadas personalizadas para personas mayores, con un enfoque en mejorar su calidad de vida y fomentar la tecnología inclusiva. Sin embargo, en los últimos días se han presentado varios problemas que afectan gravemente la funcionalidad del sistema, algunos de los cuales enumero a continuación:
+
+Cambio en la lógica del proyecto: Se modificó la lógica del sistema de manera que ahora ambos planes (gratuito y de pago) están limitados a realizar llamadas a un único número, lo cual no corresponde a los objetivos iniciales. Este cambio impacta negativamente en la sostenibilidad del modelo gratuito para las personas mayores.
+
+Alteración en los mensajes personalizados: Los mensajes que antes eran configurados por los usuarios ahora han sido reemplazados por uno genérico, lo cual elimina la personalización y rompe la funcionalidad del sistema.
+
+Errores en el formulario: El formulario ya no carga correctamente, lo cual impide a los usuarios establecer recordatorios. Esto funcionaba perfectamente antes de las modificaciones.
+
+Número oculto en las llamadas: Otro agente modificó el sistema para que las llamadas se realicen con número oculto. Esto genera desconfianza tanto en los usuarios mayores como en las empresas que utilizan el servicio.
+
+Duración de las llamadas: Aunque establecí que las llamadas debían durar exactamente 15 segundos, ahora esta funcionalidad tampoco está respetada.
+
+Entiendo que cada cambio pudo haber sido hecho con la mejor intención, pero estos problemas están afectando seriamente el propósito social del proyecto. Además, ayer se me prometió asistencia con el tema del número oculto, pero aún no he recibido solución.
+
+Por favor, solicito amablemente que se me asigne a un ingeniero o encargado que pueda revisar estos problemas, ya que este proyecto busca beneficiar a comunidades vulnerables y merece un tratamiento cuidadoso. Estoy dispuesto a colaborar en todo lo necesario para aclarar los objetivos y solucionar los errores actuales.
+
+Agradezco mucho su atención y quedo a la espera de su respuesta para poder continuar trabajando en este proyecto tan significativo.
+
+Con respeto,

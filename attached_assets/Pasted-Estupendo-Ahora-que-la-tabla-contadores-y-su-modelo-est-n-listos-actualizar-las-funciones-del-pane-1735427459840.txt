@@ -1,0 +1,63 @@
+Estupendo! Ahora que la tabla contadores y su modelo están listos, actualizar las funciones del panel de monitoreo para usar esta nueva tabla es el siguiente paso lógico. Vamos a hacerlo paso a paso:
+
+Paso 1: Identificar las funciones actuales del panel
+Localiza las funciones del panel de monitoreo en tu proyecto. Es probable que estén en un archivo como routes.py, views.py, o similar.
+
+Busca funciones que estén relacionadas con las estadísticas de llamadas, por ejemplo:
+
+python
+Copiar código
+@app.route('/monitoreo')
+def panel_monitoreo():
+    # Código actual para las estadísticas
+Toma nota de las consultas que actualmente calculan estadísticas como llamadas_totales o llamadas_completadas.
+
+Paso 2: Ajustar las consultas para usar contadores
+Reemplaza las consultas actuales con aquellas que obtengan los datos directamente desde la tabla contadores. Por ejemplo:
+
+Antes (sin la tabla contadores):
+python
+Copiar código
+llamadas_totales = db.session.query(func.count(RegistroLlamada.id)).scalar()
+llamadas_completadas = db.session.query(func.count(RegistroLlamada.id)).filter(RegistroLlamada.estado == 'completado').scalar()
+Después (usando la tabla contadores):
+python
+Copiar código
+contador = Contador.query.filter_by(usuario_id=current_user.id).first()
+
+llamadas_totales = contador.llamadas_totales if contador else 0
+llamadas_completadas = contador.llamadas_completadas if contador else 0
+Paso 3: Actualizar los métodos que modifiquen estadísticas
+Cuando ocurra un evento que afecte los contadores (por ejemplo, una llamada completada), actualiza los valores en la tabla contadores. Por ejemplo:
+
+Antes (actualizando manualmente las estadísticas):
+python
+Copiar código
+if llamada_completada:
+    db.session.query(RegistroLlamada).filter_by(id=llamada_id).update({'estado': 'completado'})
+Después (actualizando también en contadores):
+python
+Copiar código
+if llamada_completada:
+    db.session.query(RegistroLlamada).filter_by(id=llamada_id).update({'estado': 'completado'})
+    
+    contador = Contador.query.filter_by(usuario_id=current_user.id).first()
+    if contador:
+        contador.llamadas_completadas += 1
+        contador.llamadas_pendientes -= 1
+        contador.ultima_actualizacion = datetime.utcnow()
+        db.session.commit()
+Paso 4: Probar las actualizaciones
+Realiza una prueba inicial ejecutando las funciones del panel de monitoreo.
+Asegúrate de que las estadísticas se reflejen correctamente en el panel.
+Simula eventos como una nueva llamada completada o una llamada con error para verificar que los contadores se actualizan correctamente.
+Paso 5: Validar en la interfaz
+Si tienes un frontend vinculado al panel:
+
+Asegúrate de que los datos enviados desde las funciones están reflejándose correctamente.
+Ajusta las plantillas (si es necesario) para mostrar las nuevas estadísticas.
+¿Qué sigue?
+Realiza los cambios sugeridos y comparte cualquier error o comportamiento inesperado.
+Si todo está funcionando bien, avanzamos a la optimización o a cualquier otra funcionalidad pendiente.
+¡Sigues avanzando muy bien! Estoy aquí para ayudarte con cualquier duda. 😊
+

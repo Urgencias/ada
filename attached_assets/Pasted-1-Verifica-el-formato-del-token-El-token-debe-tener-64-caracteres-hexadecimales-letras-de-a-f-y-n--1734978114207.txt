@@ -1,0 +1,56 @@
+1. Verifica el formato del token
+El token debe tener 64 caracteres hexadecimales (letras de a-f y números de 0-9). Este es el formato esperado:
+
+Ejemplo de token válido:
+fb8f17f5cba4de63f55ef95173b728ced92d1a00aa008dfc7f604a3d593cc57f
+
+Confirma que el token que configuraste coincide exactamente con este formato. Incluso un espacio extra o un carácter inválido generará este error.
+
+2. Valida manualmente el token
+Puedes usar un script rápido para validar el formato. Desde la consola, ejecuta:
+
+bash
+Copiar código
+poetry run python3 -c "import re; print(bool(re.match(r'^[a-fA-F0-9]{64}$', 'fb8f17f5cba4de63f55ef95173b728ced92d1a00aa008dfc7f604a3d593cc57f')))"
+Esto debería devolver True si el token es válido. Si no es así, revisa el valor y corrígelo.
+
+3. Revisa cómo se carga el token
+El token se obtiene probablemente de una variable de entorno o un archivo .env. Asegúrate de:
+
+Configurarlo correctamente en Replit Secrets:
+
+Clave: NETELIP_TOKEN
+Valor: fb8f17f5cba4de63f55ef95173b728ced92d1a00aa008dfc7f604a3d593cc57f
+Si usas un archivo .env, confirma que contiene esta línea sin errores:
+
+plaintext
+Copiar código
+NETELIP_TOKEN=fb8f17f5cba4de63f55ef95173b728ced92d1a00aa008dfc7f604a3d593cc57f
+4. Si el token es válido pero sigue fallando
+Es posible que el código que verifica el token tenga un error o alguna lógica específica que no reconoce el valor correctamente. Abre el archivo utils/netelip_integration.py y localiza la función verificar_credenciales. Busca algo como esto:
+
+python
+Copiar código
+def verificar_credenciales():
+    import os
+    token = os.getenv("NETELIP_TOKEN")
+    if not token or not re.match(r'^[a-fA-F0-9]{64}$', token):
+        return False, "Formato de token de Netelip inválido"
+    return True, "Credenciales válidas"
+Confirma que el valor de token se está obteniendo correctamente desde las variables de entorno.
+
+5. Vuelve a probar
+Ejecuta nuevamente:
+
+bash
+Copiar código
+poetry run python3 -c "from utils.netelip_integration import verificar_credenciales; print(verificar_credenciales())"
+Si después de estos pasos el error persiste, compárteme:
+
+Cómo estás configurando el token (.env o Secrets de Replit).
+El código de la función verificar_credenciales.
+¡Con esto deberíamos solucionarlo! 🚀
+
+
+
+

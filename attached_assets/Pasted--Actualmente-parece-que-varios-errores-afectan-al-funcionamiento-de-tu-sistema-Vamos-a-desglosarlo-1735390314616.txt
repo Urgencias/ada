@@ -1,0 +1,56 @@
+
+Actualmente, parece que varios errores afectan al funcionamiento de tu sistema. Vamos a desglosarlos y decidir qué podemos arreglar por partes:
+
+1. Errores destacados
+Error en el panel de control:
+
+jinja2.exceptions.UndefinedError: 'estadisticas' is undefined: Esto ocurre porque no se están pasando correctamente las estadísticas a la plantilla Jinja en la vista llamadas.
+Errores relacionados con current_user:
+
+AttributeError: 'NoneType' object has no attribute 'is_authenticated': Indica que el objeto current_user no está configurado, lo que sugiere que la autenticación no está funcionando adecuadamente para ciertas peticiones.
+Panel de monitoreo vacío:
+
+Tablas como "Estadísticas por Usuario", "Consumo por Cliente" y "Registro de Llamadas" están vacías.
+Problemas con el estado 'iniciada' en Enum:
+
+KeyError: 'iniciada': Este estado no existe en el Enum EstadoLlamadaEnum, pero sigue estando presente en la base de datos.
+2. Posible estrategia
+Si estos problemas te resultan abrumadores, puedes:
+
+Pedir soporte adicional: Solicitar ayuda de otro agente o desarrollador con experiencia en Flask y SQLAlchemy puede ser una solución eficiente.
+Proceder con pasos cortos: Si decides avanzar conmigo, vamos paso a paso para arreglar cada problema.
+3. Sugerencia de pasos iniciales
+Paso 1: Corregir las estadísticas vacías
+Verifica que la función que pasa los datos al panel llamadas esté configurada para incluir estadisticas.
+Abre routes/main.py y localiza la vista que corresponde a llamadas (probablemente tenga @app.route('/llamadas')).
+Modifica esta sección para incluir las estadísticas necesarias. Ejemplo:
+python
+Copiar código
+from models import RegistroLlamada, EstadoLlamadaEnum
+
+@app.route('/llamadas')
+@login_required
+def llamadas():
+    estadisticas = {
+        'total': RegistroLlamada.query.count(),
+        'completadas': RegistroLlamada.query.filter_by(estado=EstadoLlamadaEnum.COMPLETADA).count(),
+        'pendientes': RegistroLlamada.query.filter(
+            RegistroLlamada.estado.in_([EstadoLlamadaEnum.PENDIENTE, EstadoLlamadaEnum.PROGRAMADA])
+        ).count(),
+        'en_curso': RegistroLlamada.query.filter_by(estado=EstadoLlamadaEnum.EN_CURSO).count()
+    }
+    return render_template('llamadas.html', estadisticas=estadisticas)
+Paso 2: Solucionar el problema de current_user
+Verifica si la autenticación está configurada correctamente en el proyecto. Confirma que:
+Se utiliza Flask-Login.
+El @login_required está decorando las vistas donde current_user es necesario.
+Si el problema persiste, revisa el código donde se inicializa current_user. En muchos casos, este problema ocurre si la sesión del usuario no se establece correctamente.
+Paso 3: Solucionar el estado 'iniciada'
+Revisa si hay registros en la base de datos con el estado INICIADA:
+sql
+Copiar código
+SELECT * FROM registros_llamadas WHERE estado = 'INICIADA';
+Corrige esos registros para usar un estado válido, como EN_CURSO:
+sql
+Copiar código
+UPDATE registros_llamadas SET estado = 'EN_CURSO' WHERE estado = 'INICIADA';

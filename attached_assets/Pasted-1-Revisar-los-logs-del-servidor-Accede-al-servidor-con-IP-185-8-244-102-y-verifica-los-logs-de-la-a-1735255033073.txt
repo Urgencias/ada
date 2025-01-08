@@ -1,0 +1,57 @@
+1. Revisar los logs del servidor
+Accede al servidor con IP 185.8.244.102 y verifica los logs de la aplicación para identificar el motivo por el cual se envía la señal BYE.
+
+Pasos:
+Accede al servidor usando SSH o el método que prefieras:
+bash
+Copiar código
+ssh usuario@185.8.244.102
+Busca los logs de la aplicación o del sistema de llamadas (por ejemplo, en /var/log/ o donde estén configurados):
+bash
+Copiar código
+tail -n 100 /ruta/a/los/logs/de/llamadas.log
+Qué buscar:
+Códigos de error relacionados con las llamadas.
+Busca cualquier mensaje que indique una razón para enviar la señal BYE.
+Por ejemplo:
+
+Problemas con el formato del mensaje TTS.
+Errores de autenticación con Netelip.
+Límites en la duración de las llamadas configurados en el servidor.
+Códigos específicos de SIP.
+Netelip menciona X-Asterisk-HangupCauseCode: 0, lo que puede significar que el servidor no tiene una razón específica configurada. Busca en los logs más contexto.
+
+2. Validar la duración del mensaje TTS
+Si el mensaje de texto a voz (TTS) tiene una duración incorrecta o vacía, el servidor puede finalizar la llamada automáticamente.
+
+Verifica que el mensaje se esté generando correctamente en tu aplicación:
+Usa una herramienta de depuración para revisar qué mensaje se envía al API de Netelip.
+Confirma que la duración del mensaje coincide con los 15 segundos requeridos.
+3. Revisar la configuración del tiempo de espera
+El servidor podría tener configurado un timeout que está interrumpiendo las llamadas antes de tiempo.
+
+Dónde verificar:
+Archivo de configuración de la aplicación.
+Busca parámetros relacionados con tiempo de espera, como timeout, en tu código o en los archivos de configuración.
+
+Configuración del sistema operativo.
+Si usas un balanceador o proxy SIP, verifica que no esté configurado para cortar las conexiones antes de tiempo.
+
+4. Respuesta al equipo de Netelip
+Mientras revisas los logs del servidor, puedes enviarles un mensaje para mantenerlos informados:
+
+Mensaje al equipo de Netelip:
+
+Hola equipo de Netelip:
+
+Gracias por identificar que el servidor con IP 185.8.244.102 está enviando directamente la señal BYE. Procederé a revisar los logs del servidor para identificar la causa exacta de este comportamiento. Les mantendré informados de los hallazgos.
+
+Por favor, confirmen si tienen alguna configuración adicional en la API que pueda estar afectando la duración de las llamadas o generando este comportamiento.
+
+Un saludo,
+Antonio
+
+Próximos pasos
+Revisar los logs del servidor y compartir cualquier error relevante.
+Verificar la duración y el formato del mensaje TTS.
+Actualizar la configuración del servidor para eliminar cualquier límite de tiempo no deseado.

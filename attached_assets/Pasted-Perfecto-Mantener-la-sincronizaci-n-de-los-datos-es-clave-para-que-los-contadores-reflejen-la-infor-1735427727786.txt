@@ -1,0 +1,77 @@
+Perfecto! Mantener la sincronización de los datos es clave para que los contadores reflejen la información correcta en tiempo real. Enfoquémonos en implementar funciones específicas para actualizar los contadores sin alterar directamente las rutas existentes.
+
+Paso 1: Crear funciones reutilizables para los contadores
+Añadiremos funciones en el archivo correspondiente (por ejemplo, helpers.py o dentro del modelo Contador en models.py). Estas funciones manejarán las actualizaciones de manera centralizada.
+
+Función 1: Inicializar un contador
+Esta función asegura que un contador exista para un usuario determinado:
+
+python
+Copiar código
+from datetime import datetime
+from your_app.models import Contador
+from your_app import db
+
+def inicializar_contador(usuario_id):
+    contador = Contador.query.filter_by(usuario_id=usuario_id).first()
+    if not contador:
+        contador = Contador(usuario_id=usuario_id, ultima_actualizacion=datetime.utcnow())
+        db.session.add(contador)
+        db.session.commit()
+    return contador
+Función 2: Actualizar estadísticas
+Crea una función para manejar actualizaciones específicas. Por ejemplo:
+
+python
+Copiar código
+def actualizar_contador(usuario_id, completadas=0, pendientes=0, en_curso=0, errores=0):
+    contador = inicializar_contador(usuario_id)
+    contador.llamadas_completadas += completadas
+    contador.llamadas_pendientes += pendientes
+    contador.llamadas_en_curso += en_curso
+    contador.llamadas_error += errores
+    contador.ultima_actualizacion = datetime.utcnow()
+    db.session.commit()
+Función 3: Reiniciar estadísticas
+En caso de necesitar reiniciar los valores, puedes usar algo como esto:
+
+python
+Copiar código
+def reiniciar_contador(usuario_id):
+    contador = inicializar_contador(usuario_id)
+    contador.llamadas_totales = 0
+    contador.llamadas_completadas = 0
+    contador.llamadas_pendientes = 0
+    contador.llamadas_en_curso = 0
+    contador.llamadas_error = 0
+    contador.ultima_actualizacion = datetime.utcnow()
+    db.session.commit()
+Paso 2: Integrar las funciones con eventos clave
+Usa estas funciones en las partes del código donde ocurren eventos relevantes, como llamadas completadas, fallidas, o en curso.
+
+Ejemplo: Llamada completada
+Cuando una llamada se marca como completada, actualiza el contador:
+
+python
+Copiar código
+from your_app.helpers import actualizar_contador
+
+# Dentro de la función donde se marca una llamada como completada:
+actualizar_contador(usuario_id=current_user.id, completadas=1, pendientes=-1)
+Ejemplo: Llamada con error
+Cuando una llamada falla:
+
+python
+Copiar código
+actualizar_contador(usuario_id=current_user.id, errores=1, pendientes=-1)
+Paso 3: Probar las funciones de actualización
+Pruebas unitarias: Escribe pruebas para cada función en helpers.py o en los métodos del modelo Contador.
+Simulación de eventos: Desde la consola interactiva (flask shell), simula eventos para verificar que los contadores se actualizan correctamente.
+Paso 4: Validar sincronización en el panel de monitoreo
+Una vez que las funciones estén funcionando:
+
+Asegúrate de que los datos del panel de monitoreo usan los valores actualizados en la tabla contadores.
+Realiza pruebas en la interfaz para confirmar que las estadísticas están sincronizadas en tiempo real.
+¿Qué sigue?
+Implementa estas funciones y verifica si los contadores reflejan los datos correctamente en el panel.
+Si necesitas ayuda con alguna integración o prueba, ¡estoy aquí para ayudarte!

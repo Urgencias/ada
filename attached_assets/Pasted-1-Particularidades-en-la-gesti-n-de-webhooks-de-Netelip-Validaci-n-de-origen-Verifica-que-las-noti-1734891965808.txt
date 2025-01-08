@@ -1,0 +1,36 @@
+1. Particularidades en la gestión de webhooks de Netelip
+Validación de origen: Verifica que las notificaciones de Netelip provienen de direcciones IP confiables o que incluyen una firma criptográfica para evitar spoofing.
+Endpoint seguro: Configura un webhook con HTTPS y autentica mediante tokens o claves API para evitar accesos no autorizados.
+Tipos de eventos: Confirma qué eventos específicos se pueden recibir mediante webhooks (inicio de llamada, finalización, error, etc.). Documenta cómo manejarlos en tu sistema.
+Reintentos: Netelip puede reenviar notificaciones en caso de fallos al primer intento. Asegúrate de manejar estos reintentos correctamente para evitar duplicados.
+2. Mejores prácticas para manejar estados de llamadas
+Estados principales a monitorear:
+
+INITIATED: La llamada ha sido creada.
+RINGING: El teléfono destino está sonando.
+ANSWERED: La llamada ha sido contestada.
+COMPLETED: La llamada ha finalizado.
+FAILED: La llamada no se pudo realizar.
+BUSY: La línea estaba ocupada.
+NO_ANSWER: La llamada no fue contestada.
+Tiempo real y persistencia: Implementa una cola de eventos para procesar los estados en tiempo real y almacénalos en una base de datos para consultas futuras.
+
+Gestión de errores: Configura alertas o acciones específicas para estados críticos como FAILED o NO_ANSWER.
+
+3. Configuraciones específicas en la integración
+Autenticación API: Asegúrate de utilizar un NETELIP_TOKEN y un endpoint de llamada correctamente configurados.
+Número de origen y formato: Verifica que los números de origen y destino cumplan con el formato internacional requerido (ejemplo: 0034XXXXXXXXX).
+Tiempo límite de llamada: Ajusta el timeout según tus necesidades (por ejemplo, 30 segundos para considerar una llamada como no contestada).
+Control de números permitidos: Implementa una validación para que solo se llamen números registrados previamente, reforzando la seguridad.
+¿Necesitamos consultar algo con el técnico?
+Detalles sobre webhooks:
+
+¿Qué eventos exactos están disponibles en la API?
+¿Hay ejemplos de payloads JSON para las notificaciones?
+Mejoras en la gestión de estados:
+
+¿Existen recomendaciones específicas para manejar los reintentos en estados críticos?
+Validaciones y límites:
+
+¿Netelip tiene algún límite en el número de webhooks configurados o eventos enviados por segundo?
+¿Es posible ajustar el formato de las respuestas API o configurarlas para necesidades específicas?

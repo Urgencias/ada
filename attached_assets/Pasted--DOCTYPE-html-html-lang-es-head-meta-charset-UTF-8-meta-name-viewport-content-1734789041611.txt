@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recordatorios</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 10px 5px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+
+        .header img {
+            height: 50px;
+        }
+
+        .header h1 {
+            margin: 0;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .header span {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        .actions {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="https://app.urgencias-ia.com/wp-content/uploads/2024/11/LOGOTIPO-2-e1733177386758.png" alt="Logo">
+        <h1>Chat Amigo</h1>
+        <span>Emovir</span>
+    </header>
+    <main>
+        <h2 style="text-align: center;">Lista de Recordatorios</h2>
+        {% if recordatorios %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Teléfono</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Tipo</th>
+                    <th>Mensaje</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for recordatorio in recordatorios %}
+                <tr>
+                    <td>{{ recordatorio[0] }}</td>
+                    <td>{{ recordatorio[1] }}</td>
+                    <td>{{ recordatorio[2] }}</td>
+                    <td>{{ recordatorio[3] }}</td>
+                    <td>{{ recordatorio[4] }}</td>
+                    <td>{{ recordatorio[5] }}</td>
+                    <td>{{ recordatorio[6] }}</td>
+                    <td>
+                        <a href="/recordatorio/editar/{{ recordatorio[0] }}" class="btn">Editar</a>
+                        <a href="/recordatorio/eliminar/{{ recordatorio[0] }}" class="btn" style="background-color: red;">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p style="text-align: center;">No hay recordatorios creados.</p>
+        {% endif %}
+        <div class="actions">
+            <a href="/recordatorio/nuevo" class="btn">Nuevo Recordatorio</a>
+            <a href="/" class="btn">Volver al Inicio</a>
+        </div>
+    </main>
+</body>
+</html>

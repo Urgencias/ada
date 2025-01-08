@@ -1,0 +1,68 @@
+Paso 1: Identificar el Número Oculto
+Buscar registros duplicados o incorrectos: En la consola o directamente en la base de datos, ejecuta una consulta para identificar posibles números ocultos.
+Si estás usando Django, abre la consola:
+bash
+Copiar código
+python manage.py shell
+Y ejecuta:
+python
+Copiar código
+from your_app.models import Subscription
+
+# Buscar registros con números duplicados
+duplicates = Subscription.objects.values('assigned_number').annotate(count=models.Count('id')).filter(count__gt=1)
+print(list(duplicates))
+Esto mostrará cualquier assigned_number duplicado y cuántas veces aparece.
+Verificar los registros asociados: Si encuentras un número duplicado, busca los registros específicos:
+python
+Copiar código
+hidden_number = "EL_NUMERO_ENCONTRADO"
+subscriptions = Subscription.objects.filter(assigned_number=hidden_number)
+for sub in subscriptions:
+    print(sub.id, sub.user.name, sub.assigned_number)
+
+
+
+Paso 2: Decidir Cómo Resolver el Problema
+Dependiendo de lo que encuentres:
+Si el número oculto no está asociado a ningún usuario válido, podemos eliminarlo directamente.
+Si el número está asociado a varios usuarios por error, decide cuál conservar y elimina los otros.
+
+Paso 3: Eliminar o Corregir el Número Oculto
+Caso 1: Eliminar un Registro Incorrecto
+Si el registro es incorrecto, elimina así:
+python
+Copiar código
+subscription_to_delete = Subscription.objects.get(id=EL_ID_INCORRECTO)
+subscription_to_delete.delete()
+print("Número eliminado correctamente.")
+
+Caso 2: Actualizar el Número Asignado
+Si quieres corregir un número mal asignado:
+python
+Copiar código
+subscription_to_update = Subscription.objects.get(id=EL_ID_CORRECTO)
+subscription_to_update.assigned_number = "123456789"  # Cambia al número correcto
+subscription_to_update.save()
+print("Número actualizado correctamente.")
+
+
+Paso 4: Añadir Validaciones para Evitar Futuras Duplicaciones
+Asegúrate de que no se creen números duplicados en el futuro añadiendo una validación en el modelo.
+En el archivo models.py:
+python
+Copiar código
+from django.core.exceptions import ValidationError
+
+class Subscription(models.Model):
+    # Tu modelo actual
+
+    def clean(self):
+        # Verificar que no haya duplicados
+        if Subscription.objects.filter(assigned_number=self.assigned_number).exclude(id=self.id).exists():
+            raise ValidationError("Este número ya está asignado a otra suscripción.")
+
+Así, cada vez que intentes guardar un número duplicado, el sistema generará un error.
+
+Paso 5: Probar el Sistema
+Después de realizar los cambios, prueba creando, actualizando y eliminando suscripciones para confirmar que el problema se ha resuelto.

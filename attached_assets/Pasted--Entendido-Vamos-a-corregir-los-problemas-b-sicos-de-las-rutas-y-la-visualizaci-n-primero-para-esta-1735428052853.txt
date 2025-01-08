@@ -1,0 +1,56 @@
+¡Entendido! Vamos a corregir los problemas básicos de las rutas y la visualización primero para estabilizar la aplicación. Una vez solucionados, retomaremos la implementación de los contadores. Aquí tienes un plan claro y directo:
+
+Paso 1: Diagnosticar las rutas mal registradas
+El error principal parece estar relacionado con main.ver_recordatorio. Este problema puede ocurrir por:
+
+El nombre del endpoint no coincide con lo registrado en el blueprint.
+Mal registro del blueprint en la aplicación principal.
+Revisión rápida de las rutas
+Archivo del blueprint (main.py): Asegúrate de que la ruta ver_recordatorio esté definida claramente:
+
+python
+Copiar código
+@main.route('/recordatorio/<int:id>')
+def ver_recordatorio(id):
+    # Lógica de la función aquí
+    return render_template('recordatorio.html', id=id)
+Registro del blueprint en app.py o __init__.py: Verifica que el blueprint main esté registrado correctamente:
+
+python
+Copiar código
+from routes.main import main
+app.register_blueprint(main, url_prefix='/')
+Uso de url_for: Si las plantillas usan url_for, verifica que el nombre del endpoint coincide. Por ejemplo:
+
+html
+Copiar código
+<a href="{{ url_for('main.ver_recordatorio', id=recordatorio.id) }}">Ver Recordatorio</a>
+Paso 2: Corregir el error 500 en la página principal
+El error 500 puede deberse a problemas en:
+
+Contexto no proporcionado a la plantilla: Verifica que la función que renderiza la página principal pasa los datos necesarios:
+
+python
+Copiar código
+@main.route('/')
+def index():
+    estadisticas = obtener_estadisticas()
+    return render_template('index.html', estadisticas=estadisticas)
+Problemas en la plantilla (index.html): Asegúrate de que las variables utilizadas en la plantilla están correctamente definidas en el contexto. Por ejemplo:
+
+html
+Copiar código
+{{ estadisticas.llamadas_totales }}
+Paso 3: Validar y ajustar las plantillas
+Asegúrate de que las plantillas base y extendidas están correctamente configuradas:
+
+html
+Copiar código
+{% extends "base.html" %}
+Verifica que no haya errores como:
+
+Llamadas incorrectas a url_for.
+Uso de variables no definidas en el contexto.
+Paso 4: Validar todo el flujo
+Rutas: Confirma que todas las rutas funcionan correctamente con un navegador o herramienta como Postman.
+Plantillas: Inspecciona el renderizado de las páginas principales.

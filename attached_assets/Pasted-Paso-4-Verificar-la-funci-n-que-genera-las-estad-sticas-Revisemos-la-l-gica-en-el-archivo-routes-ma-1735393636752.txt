@@ -1,0 +1,52 @@
+Paso 4: Verificar la función que genera las estadísticas
+Revisemos la lógica en el archivo routes/main.py, específicamente en la función que procesa las estadísticas y los contadores. Sigue estos pasos:
+
+Ubica la función en tu código que alimenta los contadores. Puede ser algo como:
+
+python
+Copiar código
+@app.route('/panel-monitoreo')
+def panel_monitoreo():
+    # Lógica para obtener las estadísticas
+Agrega registros de depuración (logging) para confirmar qué datos se están obteniendo. Por ejemplo:
+
+python
+Copiar código
+import logging
+
+@app.route('/panel-monitoreo')
+def panel_monitoreo():
+    estadisticas = {
+        'total_llamadas': RegistroLlamada.query.count(),
+        'llamadas_completadas': RegistroLlamada.query.filter_by(estado=EstadoLlamadaEnum.COMPLETADA).count(),
+        'llamadas_pendientes': RegistroLlamada.query.filter(
+            RegistroLlamada.estado.in_([EstadoLlamadaEnum.PENDIENTE, EstadoLlamadaEnum.PROGRAMADA])
+        ).count(),
+        'llamadas_en_curso': RegistroLlamada.query.filter_by(estado=EstadoLlamadaEnum.EN_CURSO).count()
+    }
+    logging.info(f"Estadísticas generadas: {estadisticas}")  # Agrega este registro
+    return render_template('panel_monitoreo.html', estadisticas=estadisticas)
+Reinicia la aplicación y revisa los logs. Busca el mensaje Estadísticas generadas: ... en la consola para confirmar si los datos están llegando correctamente.
+
+Paso 5: Diagnosticar el error de Jinja2
+El error jinja2.exceptions.UndefinedError: 'estadisticas' is undefined indica que:
+
+La plantilla panel_monitoreo.html no recibe correctamente los datos desde la función de Python.
+Haz lo siguiente:
+
+Abre la plantilla HTML que da el error (probablemente templates/panel_monitoreo.html) y verifica si utiliza la variable estadisticas. Debería ser algo como:
+
+html
+Copiar código
+<h2>Total llamadas: {{ estadisticas.total_llamadas }}</h2>
+Agrega una verificación simple al inicio de la plantilla para mostrar un mensaje si no hay datos:
+
+html
+Copiar código
+{% if estadisticas %}
+    <h2>Total llamadas: {{ estadisticas.total_llamadas }}</h2>
+{% else %}
+    <p>Error: Estadísticas no disponibles.</p>
+{% endif %}
+Prueba nuevamente el panel y confirma si aparece algún dato o el mensaje de error.
+

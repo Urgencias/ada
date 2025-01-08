@@ -1,0 +1,75 @@
+Tarea 1: Corregir el Dashboard
+Seguimos con los pasos necesarios para que el Dashboard funcione correctamente:
+
+1. Verificar la función de la ruta del Dashboard
+Localiza el código en routes/dashboard.py o donde esté definida la ruta /dashboard. Debe verse algo así:
+
+python
+Copiar código
+@dashboard.route('/dashboard')
+def dashboard():
+    estadisticas = obtener_estadisticas()
+    return render_template('dashboard.html', estadisticas=estadisticas)
+Asegúrate de que obtener_estadisticas() funciona:
+Si no existe o falla, agrega esta versión temporal:
+python
+Copiar código
+def obtener_estadisticas():
+    return {
+        'llamadas_totales': 0,
+        'llamadas_completadas': 0,
+        'llamadas_pendientes': 0
+    }
+2. Revisar la plantilla dashboard.html
+Abre templates/dashboard.html y asegúrate de que todas las variables necesarias (estadisticas.llamadas_totales, etc.) están disponibles.
+Si falta alguna, usa valores predeterminados en el contexto.
+3. Solución rápida para errores desconocidos
+Usa un bloque try-except en la función del Dashboard para capturar errores:
+
+python
+Copiar código
+@dashboard.route('/dashboard')
+def dashboard():
+    try:
+        estadisticas = obtener_estadisticas()
+    except Exception as e:
+        print(f"Error al cargar el Dashboard: {e}")
+        estadisticas = {
+            'llamadas_totales': 0,
+            'llamadas_completadas': 0,
+            'llamadas_pendientes': 0
+        }
+    return render_template('dashboard.html', estadisticas=estadisticas)
+Prueba el Dashboard y confirma si ahora carga correctamente.
+
+Tarea 2: Recuperar la página de Recordatorios
+1. Verificar la ruta de Recordatorios
+Localiza el archivo que define la ruta /recordatorios (por ejemplo, routes/recordatorios.py) y confirma que existe. Debe lucir así:
+
+python
+Copiar código
+@main.route('/recordatorios')
+def recordatorios():
+    return render_template('recordatorios.html')
+2. Verificar la plantilla recordatorios.html
+Asegúrate de que existe en la carpeta templates/.
+Si falta, crea una nueva plantilla con contenido básico para probar:
+html
+Copiar código
+<h1>Sistema de Recordatorios</h1>
+<p>Gestión de llamadas y recordatorios automatizados.</p>
+Tarea 3: Ajustar el menú
+Abre la plantilla base (e.g., templates/base.html) y verifica que el menú tiene enlaces a todas las páginas:
+
+html
+Copiar código
+<ul>
+    <li><a href="{{ url_for('dashboard.dashboard') }}">Dashboard</a></li>
+    <li><a href="{{ url_for('main.recordatorios') }}">Recordatorios</a></li>
+</ul>
+Asegúrate de que cada enlace lleva a la página correcta.
+
+Siguiente paso
+Aplica las correcciones en el Dashboard y verifica si carga correctamente.
+Recupera la página de Recordatorios y ajusta el menú.
+Comparte cualquier error que encuentres, y avanzamos al siguiente paso.

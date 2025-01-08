@@ -1,0 +1,74 @@
+Información que Necesitas Confirmar
+Credenciales de API de Netelip:
+
+API Key (token): fb8f17f5cba4de63f55ef95173b728ced92d1a00aa008dfc7f604a3d593cc57f.
+API Name (api): 3cb20.
+URL del Webhook (si tienes configurado un controlador de llamadas):
+
+Si ya tienes una URL para recibir las notificaciones de estado de llamadas, proporciónala.
+Si no tienes una, puedes usar un entorno local o en la nube para pruebas (como Flask o Ngrok).
+IP del Servidor para Whitelist:
+
+Si no tienes claro cuál es tu IP pública, puedes obtenerla ejecutando este código en Python:
+python
+Copiar código
+import requests
+
+response = requests.get("https://api64.ipify.org?format=json")
+print("Tu IP pública es:", response.json()["ip"])
+Una vez que tengas tu IP pública, asegúrate de añadirla al sistema de Netelip.
+¿Qué Hacer Según las Opciones?
+Opción A: Usar Datos de Prueba Proporcionados
+Puedes usar los números proporcionados (34951223344 como origen y 0034666554433 como destino) con las credenciales que compartiste. Aquí tienes un ejemplo para enviar los datos:
+
+python
+Copiar código
+import requests
+
+url = 'https://api.netelip.com/v1/voice'
+data = {
+    'token': 'fb8f17f5cba4de63f55ef95173b728ced92d1a00aa008dfc7f604a3d593cc57f',  # Token correcto
+    'api': '3cb20',  # Nombre de tu API
+    'src': '34951223344',  # Número de origen
+    'dst': '0034666554433',  # Número de destino
+    'duration': '30',  # Duración de la llamada
+    'typedst': 'pstn',  # Tipo de destino (línea pública)
+}
+
+try:
+    response = requests.post(url=url, data=data, timeout=(5, 5))
+    if response.status_code == 200:
+        print("Llamada aceptada:", response.json())
+    else:
+        print("Error en la llamada:", response.json())
+except requests.RequestException as e:
+    print("Error de conexión:", e)
+Opción B: Esperar Datos Reales de Producción
+Si prefieres esperar, aquí tienes lo que deberías preparar:
+
+URL del Webhook:
+
+Una URL válida para recibir las notificaciones de llamadas. Si no tienes una, podrías configurarla con Flask o cualquier servicio en la nube:
+python
+Copiar código
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    data = request.json
+    print("Datos recibidos:", data)
+    return jsonify({"response": "OK"}), 200
+
+if __name__ == '__main__':
+    app.run(port=5000)
+IP Pública del Servidor:
+
+Usa el código que te proporcioné para obtenerla o busca en Google "¿Cuál es mi IP?".
+Añade esta IP en la configuración de Netelip.
+Recomendación para Continuar
+Confirma que los datos proporcionados (token, API name, números) son correctos.
+Si Netelip sigue rechazando la llamada, verifica:
+Si la IP pública del servidor está autorizada.
+Si hay algún error en la configuración del API en Netelip.

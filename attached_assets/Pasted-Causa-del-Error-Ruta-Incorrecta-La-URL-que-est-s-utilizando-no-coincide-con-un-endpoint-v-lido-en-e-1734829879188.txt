@@ -1,0 +1,65 @@
+Causa del Error
+Ruta Incorrecta: La URL que estás utilizando no coincide con un endpoint válido en el servidor de Netelip.
+Endpoint Mal Configurado: Puede que la versión o estructura de la URL de la API sea incorrecta.
+Problemas en la Solicitud: Los parámetros enviados en la solicitud pueden no estar alineados con lo que espera la API.
+Cómo Solucionarlo
+Verifica la URL del Endpoint:
+
+Confirma que estás utilizando la URL correcta según la documentación oficial de Netelip.
+Ejemplo para la API de voz:
+plaintext
+Copiar código
+https://api.netelip.com/v1/voice
+Prueba la Ruta:
+
+Usa herramientas como Postman o cURL para hacer una prueba directa al endpoint con los mismos parámetros:
+bash
+Copiar código
+curl -X POST "https://api.netelip.com/v1/voice" \
+     -d "token=your_token" \
+     -d "api=your_api_id" \
+     -d "src=34951223344" \
+     -d "dst=0034666554433" \
+     -d "duration=30" \
+     -d "typedst=pstn"
+Revisa los Parámetros Enviados:
+
+Asegúrate de incluir todos los parámetros obligatorios:
+token: Tu clave de autenticación.
+api: El ID del API configurado.
+src: Número de origen (valido y autorizado).
+dst: Número de destino (formato correcto).
+duration: Duración de la llamada (1-60 segundos).
+typedst: Tipo de destino (pstn para líneas públicas).
+Asegúrate de que la Ruta Existe:
+
+Contacta con el soporte de Netelip para confirmar si el endpoint que estás utilizando está activo y configurado para tu cuenta.
+Código de Ejemplo para Revisar
+Asegúrate de que tu código en Python está utilizando correctamente la URL y los parámetros:
+
+python
+Copiar código
+import requests
+
+url = 'https://api.netelip.com/v1/voice'  # Confirmar que esta URL es correcta
+data = {
+    'token': 'tu_token',
+    'api': 'tu_api_id',
+    'src': '34951223344',  # Número de origen válido
+    'dst': '0034666554433',  # Número de destino en formato correcto
+    'duration': '30',  # Duración de la llamada
+    'typedst': 'pstn',  # Tipo de destino
+}
+
+try:
+    response = requests.post(url=url, data=data)
+    if response.status_code == 200:
+        print("Llamada realizada con éxito:", response.json())
+    else:
+        print(f"Error al realizar la llamada: {response.status_code} - {response.json()}")
+except requests.RequestException as e:
+    print("Error de conexión:", e)
+Próximos Pasos
+Verifica la URL exacta con la documentación oficial de Netelip.
+Confirma los parámetros requeridos para la API.
+Si el problema persiste, contacta al soporte de Netelip con el mensaje completo del error para obtener más detalles.

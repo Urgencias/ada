@@ -1,0 +1,54 @@
+El error está aquí:
+
+python
+Copiar código
+flash('Error interno al cambiar el proveedor', 'danger')        
+return redirect(url_for('main.panel_monitoreo'))
+El problema es que ambas líneas están en el mismo nivel de indentación, pero no están dentro de un bloque lógico válido. Esto puede suceder si el código anterior (como un if o try) no está correctamente cerrado o si falta un :.
+
+Cómo Corregirlo
+Revisemos las posibilidades:
+
+1. Revisar el Bloque Anterior
+Si este código pertenece a un bloque condicional (if, try o similar), asegúrate de que tenga una sintaxis correcta. Por ejemplo:
+
+python
+Copiar código
+if algun_error_ocurre:  # Asegúrate de tener los `:`
+    flash('Error interno al cambiar el proveedor', 'danger')
+    return redirect(url_for('main.panel_monitoreo'))
+2. Eliminar Espacios o Saltos Innecesarios
+Asegúrate de que no hay espacios o saltos innecesarios entre las líneas. Debe quedar así:
+
+python
+Copiar código
+flash('Error interno al cambiar el proveedor', 'danger')
+return redirect(url_for('main.panel_monitoreo'))
+3. Revisar el Contexto Completo
+Aquí hay un ejemplo de cómo debería lucir el contexto:
+
+python
+Copiar código
+@app.route('/cambiar-proveedor', methods=['POST'])
+def cambiar_proveedor():
+    try:
+        # Lógica para cambiar el proveedor
+        if not proveedor_valido:
+            flash('Error interno al cambiar el proveedor', 'danger')
+            return redirect(url_for('main.panel_monitoreo'))
+        flash('Proveedor cambiado con éxito', 'success')
+        return redirect(url_for('main.panel_monitoreo'))
+    except Exception as e:
+        flash(f'Ocurrió un error: {str(e)}', 'danger')
+        return redirect(url_for('main.panel_monitoreo'))
+Pasos para Resolver
+Abre el archivo routes/main.py y busca la línea mencionada en el error (line 814).
+Asegúrate de que esa línea:
+Forma parte de un bloque válido (if, try, def, etc.).
+Está correctamente indentada.
+Guarda los cambios y reinicia el servidor para verificar si el problema persiste.
+Si necesitas que revisemos juntos una sección más grande del código, puedes compartirla y te ayudo a ajustarla. 😊
+
+
+
+

@@ -1,0 +1,58 @@
+Corrección definitiva del error "Working outside of application context"
+Verificar inicialización en main.py
+Confirma que el archivo contiene exactamente esto para inicializar Flask y SQLAlchemy:
+
+python
+Copiar código
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///example.db'  # Configuración correcta
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+# Si tienes blueprints, asegúrate de registrarlos aquí
+# from routes import main_routes
+# app.register_blueprint(main_routes)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+Ajustar test_netelip.py para usar app desde main.py
+Verifica que el archivo importe app correctamente y use el contexto explícitamente:
+
+python
+Copiar código
+from main import app  # Importa desde main.py, no app.py
+from models import User  # Importa tus modelos correctamente
+
+def realizar_llamada_prueba(mensaje="Prueba"):
+    with app.app_context():  # Asegúrate de usar el contexto explícito
+        try:
+            print("Iniciando llamada de prueba...")
+            user = User.query.filter_by(username='admin').first()
+            if not user:
+                print("Usuario admin no encontrado.")
+                return
+            # Aquí agrega la lógica para interactuar con Netelip
+            print(f"Llamada al número {user.llamadas_disponibles}")
+        except Exception as e:
+            print(f"Error durante la prueba: {e}")
+Eliminar cualquier referencia residual a app.py en el proyecto
+
+Revisa si otros archivos importan app.py y cámbialos por:
+python
+Copiar código
+from main import app
+Si app.py ya no tiene propósito, elimínalo completamente del proyecto.
+Ejecutar nuevamente la prueba de llamada
+Corre este comando para verificar:
+
+bash
+Copiar código
+python3 -c "from utils.test_netelip import realizar_llamada_prueba; realizar_llamada_prueba('Prueba final con main.py')"
+Verificar logs y resultados
+Confirma si el error desaparece. Si no, podemos inspeccionar directamente cómo se está inicializando la aplicación en main.py.
+
+Dime si funciona esta vez o si necesitas más ajustes. ¡Estamos cerca! 🚀

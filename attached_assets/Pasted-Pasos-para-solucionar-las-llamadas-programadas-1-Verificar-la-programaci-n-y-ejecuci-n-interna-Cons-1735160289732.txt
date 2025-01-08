@@ -1,0 +1,77 @@
+Pasos para solucionar las llamadas programadas
+1. Verificar la programación y ejecución interna
+Consulta si hay llamadas pendientes que no se ejecutaron:
+
+Ejecuta un script para listar los recordatorios con siguiente_llamada vencida:
+python
+Copiar código
+from datetime import datetime
+pendientes = Recordatorio.query.filter(
+    Recordatorio.siguiente_llamada <= datetime.utcnow(),
+    Recordatorio.activo == True
+).all()
+
+for recordatorio in pendientes:
+    print(f"Pendiente: {recordatorio.nombre} para {recordatorio.siguiente_llamada}")
+Ejecuta manualmente una llamada programada:
+
+Prueba iniciar una llamada desde el sistema con un recordatorio pendiente:
+python
+Copiar código
+def realizar_llamada(recordatorio):
+    if not recordatorio.user.puede_realizar_llamada():
+        print("El usuario no tiene permisos o límites excedidos.")
+        return
+
+    nueva_llamada = RegistroLlamada(
+        recordatorio_id=recordatorio.id,
+        estado='iniciada'
+    )
+    db.session.add(nueva_llamada)
+    db.session.commit()
+
+    print(f"Llamada iniciada para {recordatorio.nombre} con ID {nueva_llamada.id}")
+2. Ajustar la duración mínima de la llamada
+Si las llamadas automáticas se cortan a los 1 segundos, asegúrate de que:
+La duración sea validada y forzada a un mínimo:
+
+python
+Copiar código
+if nueva_llamada.duracion < 1:
+    nueva_llamada.duracion = 1  # Duración mínima forzada.
+    db.session.commit()
+La finalización de la llamada ocurra solo tras recibir la señal del proveedor VoIP:
+
+Implementa un estado intermedio como estado='en curso' para evitar marcar la llamada como finalizada prematuramente.
+3. Mejorar la interacción con el proveedor VoIP
+Revisar el flujo SIP/RTP para las llamadas programadas:
+
+Asegúrate de que:
+El ACK se envía correctamente tras el 200 OK de la señal SIP.
+El flujo RTP se establece sin interrupciones.
+Configurar un Keep-Alive SIP:
+
+Esto evitará desconexiones prematuras en redes que bloquean el tráfico inactivo.
+Validar las URLs configuradas en Netelip:
+
+Confirma que las 3 URLs cumplen los requisitos del proveedor y responden correctamente.
+4. Depurar el flujo completo
+Habilita logs detallados en el sistema para capturar cada paso en la ejecución:
+python
+Copiar código
+import logging
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+
+def ejecutar_llamada_programada(recordatorio):
+    logger.debug(f"Ejecutando llamada programada: {recordatorio.id}")
+    try:
+        # Aquí iría la lógica para interactuar con Netelip.
+        logger.debug(f"Llamada iniciada para recordatorio: {recordatorio.id}")
+    except Exception as e:
+        logger.error(f"Error ejecutando la llamada: {e}")
+Estrategia sin llamadas directas
+Ya que las llamadas directas funcionan pero no son necesarias para este flujo, enfócate exclusivamente en:
+
+Verificar las llamadas programadas desde el sistema.
+Asegurar la correcta señalización y conexión RTP al iniciar las llamadas.

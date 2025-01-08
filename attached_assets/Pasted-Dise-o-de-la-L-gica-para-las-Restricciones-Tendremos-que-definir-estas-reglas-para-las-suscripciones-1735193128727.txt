@@ -1,0 +1,130 @@
+Diseño de la Lógica para las Restricciones
+Tendremos que definir estas reglas para las suscripciones gratuitas y de pago:
+
+1. Suscripción Gratuita (personas mayores):
+Puede enviar mensajes solo al número asignado durante la inscripción.
+Límite de 100 llamadas/mensajes al mes.
+No puede enviar mensajes fuera del número registrado.
+2. Suscripción de Pago:
+Llamadas/mensajes ilimitados.
+Sin restricciones sobre los números a los que puede llamar o enviar mensajes.
+Lógica del Sistema
+Pasos principales:
+
+Modelos y Campos:
+
+En la tabla de suscripciones, añadiremos:
+type: Para distinguir entre "gratuita" y "pago".
+assigned_number: Almacena el número único al que los usuarios gratuitos pueden llamar.
+monthly_limit: Almacena el límite de llamadas/mensajes. None para ilimitado (de pago).
+Restricciones en la Lógica de Negocio:
+
+Validar que:
+Los usuarios gratuitos solo pueden usar el número asignado.
+Los usuarios gratuitos no excedan su límite mensual.
+Validación antes de Realizar Llamadas/Mensajes:
+
+En cada solicitud de llamada o mensaje:
+Verificar el tipo de suscripción.
+Aplicar las reglas de validación según el tipo.
+Implementación Paso a Paso
+1. Modelos
+En el archivo models.py:
+
+python
+Copiar código
+from django.db import models
+
+class User(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+
+class Subscription(models.Model):
+    SUBSCRIPTION_TYPES = [
+        ('free', 'Gratuita'),
+        ('paid', 'De Pago'),
+    ]
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    type = models.CharField(max_length=10, choices=SUBSCRIPTION_TYPES)
+    assigned_number = models.CharField(max_length=15, null=True, blank=True)  # Solo para gratuitos
+    monthly_limit = models.PositiveIntegerField(default=100)  # Límite de 100 para gratuitos, None para pagos
+
+class CallLog(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    target_number = models.CharField(max_length=15)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    message = models.TextField()
+2. Validación de Restricciones
+En el servicio que procesa las solicitudes de llamadas o mensajes, agregamos las siguientes reglas.
+
+Archivo: services/call_service.py
+
+python
+Copiar código
+from datetime import datetime, timedelta
+from .models import CallLog, Subscription
+
+def can_make_call(user, target_number):
+    # Obtener la suscripción del usuario
+    subscription = Subscription.objects.get(user=user)
+
+    # 1. Validar restricciones por tipo de suscripción
+    if subscription.type == 'free':
+        # Verificar que el número es el asignado
+        if target_number != subscription.assigned_number:
+            return False, "Los usuarios gratuitos solo pueden llamar al número asignado."
+        
+        # Contar las llamadas realizadas este mes
+        start_of_month = datetime.now().replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+        monthly_calls = CallLog.objects.filter(user=user, timestamp__gte=start_of_month).count()
+        
+        if monthly_calls >= subscription.monthly_limit:
+            return False, "Has alcanzado el límite mensual de 100 llamadas."
+
+    # Para suscripciones pagadas no hay restricciones
+    return True, None
+
+def make_call(user, target_number, message):
+    # Validar si puede realizar la llamada
+    can_call, error = can_make_call(user, target_number)
+    if not can_call:
+        return {"success": False, "error": error}
+
+    # Si la validación pasa, registrar la llamada
+    CallLog.objects.create(user=user, target_number=target_number, message=message)
+    return {"success": True, "message": "Llamada realizada con éxito."}
+3. Prueba del Sistema
+Usaremos una consola o prueba automática para confirmar que todo funciona:
+
+python
+Copiar código
+from your_app.models import User, Subscription
+from your_app.services.call_service import make_call
+
+# Crear usuario gratuito
+user1 = User.objects.create(name="Juan", email="juan@example.com")
+sub_free = Subscription.objects.create(user=user1, type='free', assigned_number="123456789", monthly_limit=100)
+
+# Crear usuario de pago
+user2 = User.objects.create(name="Ana", email="ana@example.com")
+sub_paid = Subscription.objects.create(user=user2, type='paid')
+
+# Intentar llamada gratuita válida
+result = make_call(user1, "123456789", "Recordatorio: Toma tu medicina")
+print(result)  # {"success": True, "message": "Llamada realizada con éxito."}
+
+# Intentar llamada gratuita a otro número
+result = make_call(user1, "987654321", "Mensaje no permitido")
+print(result)  # {"success": False, "error": "Los usuarios gratuitos solo pueden llamar al número asignado."}
+
+# Intentar llamada paga sin restricciones
+result = make_call(user2, "987654321", "Cualquier mensaje")
+print(result)  # {"success": True, "message": "Llamada realizada con éxito."}
+Resumen
+Con esta lógica:
+
+Los usuarios gratuitos estarán restringidos al número asignado y al límite de 100 llamadas mensuales.
+Los usuarios de pago podrán llamar a cualquier número y de forma ilimitada.
+Todo se valida antes de registrar la llamada para garantizar que el sistema no permita violaciones.
+¿Hay algo que quieras ajustar o necesitas más detalles? ¡Estoy aquí para afinarlo todo contigo! 😊

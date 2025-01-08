@@ -1,0 +1,62 @@
+Paso 1: Validar el usuario recién creado
+Primero, asegúrate de que el nuevo usuario (asefoc@hotmail.com) fue agregado correctamente. Ejecuta el siguiente comando SQL para confirmar que aparece en la base de datos:
+
+sql
+Copiar código
+SELECT id, username, email, es_admin FROM users ORDER BY id;
+Resultado esperado:
+
+Debes ver al menos dos usuarios: admin y el nuevo usuario asefoc.
+Paso 2: Revisar las estadísticas en el panel de monitoreo
+El error Error al cargar las estadísticas del panel indica que el backend no está entregando los datos necesarios. Esto puede ser por:
+
+Consultas SQL fallidas.
+Problemas al pasar datos del backend a la plantilla.
+Asegúrate de que los contadores funcionan en el backend:
+Busca en routes/main.py o el archivo correspondiente donde se calculan las estadísticas. Es probable que esté en una función relacionada con el panel (panel_monitoreo o similar).
+
+Debes verificar que:
+
+Las consultas SQL devuelvan resultados válidos.
+Los datos calculados se pasan a la plantilla correctamente.
+Paso 3: Identificar problemas específicos
+El error UndefinedError en la página de "Llamar Esto" (posiblemente relacionado con llamadas) indica que:
+
+Algún dato esperado no se encuentra disponible.
+Variables requeridas para la plantilla no están definidas en el backend.
+Revisa las siguientes secciones en el backend:
+
+Consultas de llamadas recientes en routes/main.py.
+Cualquier función que pase datos a la plantilla de llamadas.
+Por ejemplo:
+
+python
+Copiar código
+llamadas_recientes = RegistroLlamada.query.order_by(
+    RegistroLlamada.fecha_llamada.desc()
+).limit(10).all()
+Asegúrate de que:
+
+La consulta no esté devolviendo None.
+Los datos se envían correctamente a la plantilla HTML.
+Paso 4: Solución rápida para los marcadores por usuario
+El campo "Marcadores por Usuario" vacío en el panel de monitoreo puede solucionarse creando más actividad para los usuarios. Sigue este flujo:
+
+Generar actividad:
+
+Programa un recordatorio para el usuario asefoc desde la página de recordatorios.
+Asegúrate de que se registren llamadas para este usuario.
+Verificar estadísticas:
+
+Revisa las consultas SQL que calculan los "Marcadores por Usuario". Por ejemplo:
+sql
+Copiar código
+SELECT user_id, COUNT(*) as llamadas_totales 
+FROM registros_llamadas 
+GROUP BY user_id;
+Asegúrate de que devuelven datos para el usuario asefoc.
+Paso 5: Correcciones del panel
+Si los errores persisten:
+
+Comparte los logs exactos del servidor donde se muestren las consultas fallidas.
+Compartiré contigo una corrección específica para las funciones del backend que generan estos datos.

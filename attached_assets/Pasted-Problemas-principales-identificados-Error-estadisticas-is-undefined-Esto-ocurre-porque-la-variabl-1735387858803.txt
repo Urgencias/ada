@@ -1,0 +1,96 @@
+Problemas principales identificados:
+Error: estadisticas is undefined:
+Esto ocurre porque la variable estadisticas no se pasa correctamente a la plantilla desde Flask.
+Error en generador SSE (NoneType object has no attribute 'is_authenticated'):
+Esto ocurre porque current_user no está definido en algún momento durante la ejecución del generador.
+Error en el manejo de estados (INICIADA no está definido correctamente):
+Hay discrepancias en los valores de los estados de llamada.
+Llamadas pendientes marcadas como None y problemas con los contadores:
+La lógica SQL o Python no devuelve resultados esperados.
+Plan por pasos:
+Paso 1: Corregir estadisticas is undefined en el panel de administración
+Abre routes/main.py y busca la función admin_panel (o similar).
+
+Asegúrate de que se defina y pase la variable estadisticas correctamente. Ejemplo:
+
+python
+Copiar código
+@main_bp.route('/admin-panel')
+@login_required
+def admin_panel():
+    try:
+        estadisticas = {
+            'total_usuarios': User.query.count(),
+            'total_llamadas': RegistroLlamada.query.count(),
+            'llamadas_completadas': RegistroLlamada.query.filter_by(estado='COMPLETADA').count(),
+            'llamadas_pendientes': RegistroLlamada.query.filter(RegistroLlamada.estado.in_(['PENDIENTE', 'PROGRAMADA'])).count()
+        }
+        return render_template('admin_panel.html', estadisticas=estadisticas)
+    except Exception as e:
+        logger.error(f"Error al cargar el panel de administración: {str(e)}")
+        flash('Error al cargar el panel de administración', 'danger')
+        return redirect(url_for('main.dashboard'))
+Asegúrate de que la plantilla admin_panel.html maneje la variable estadisticas adecuadamente:
+
+html
+Copiar código
+{% if estadisticas %}
+    <h3>Total de usuarios: {{ estadisticas.total_usuarios }}</h3>
+    <h3>Llamadas completadas: {{ estadisticas.llamadas_completadas }}</h3>
+{% else %}
+    <p>No hay estadísticas disponibles.</p>
+{% endif %}
+Paso 2: Solucionar NoneType en el generador SSE
+Busca la función generate dentro de routes/main.py.
+
+Modifica la lógica para manejar casos en los que current_user sea None. Ejemplo:
+
+python
+Copiar código
+def generate():
+    logger.info("Iniciando generador SSE")
+    while True:
+        try:
+            if current_user and current_user.is_authenticated:
+                # Procesar notificaciones para usuarios autenticados
+                data = {'estado': 'ok', 'mensaje': 'Monitoreo actualizado'}
+                yield f"data: {json.dumps(data)}\n\n"
+            else:
+                logger.warning("Usuario no autenticado en generador SSE")
+                yield f"data: {json.dumps({'estado': 'error', 'mensaje': 'Usuario no autenticado'})}\n\n"
+        except Exception as e:
+            logger.error(f"Error en generador SSE: {str(e)}")
+            yield f"data: {json.dumps({'estado': 'error', 'mensaje': str(e)})}\n\n"
+        time.sleep(5)
+Paso 3: Corregir estados de llamada (INICIADA)
+Confirma que todos los valores en el enum EstadoLlamadaEnum están definidos correctamente:
+python
+Copiar código
+class EstadoLlamadaEnum(str, Enum):
+    PENDIENTE = 'PENDIENTE'
+    PROGRAMADA = 'PROGRAMADA'
+    EN_CURSO = 'EN_CURSO'
+    COMPLETADA = 'COMPLETADA'
+    FALLIDA = 'FALLIDA'
+    ERROR = 'ERROR'
+Realiza una migración en la base de datos para corregir los estados inválidos:
+sql
+Copiar código
+UPDATE registros_llamadas SET estado = 'EN_CURSO' WHERE estado = 'INICIADA';
+Paso 4: Verificar los contadores de llamadas pendientes
+Revisa las consultas en panel_monitoreo o donde se calculen los contadores.
+Asegúrate de que los datos se pasen correctamente a la plantilla y maneja casos donde no haya datos disponibles:
+python
+Copiar código
+estadisticas_usuarios = db.session.query(
+    User.username,
+    func.count(RegistroLlamada.id).label('total_llamadas'),
+    func.sum(case([(RegistroLlamada.estado == 'COMPLETADA', 1)], else_=0)).label('completadas'),
+    func.sum(case([(RegistroLlamada.estado == 'PENDIENTE', 1)], else_=0)).label('pendientes')
+).join(Recordatorio).outerjoin(RegistroLlamada).group_by(User.username).all()
+Revisión y pruebas
+Implementa cada paso de forma incremental.
+Reinicia el servidor y prueba las funcionalidades:
+Verifica que las estadísticas se muestren en el panel de administración.
+Confirma que el generador SSE funcione sin errores.
+Asegúrate de que los contadores de llamadas pendientes, completadas y totales sean precisos.

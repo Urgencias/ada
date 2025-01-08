@@ -1,0 +1,58 @@
+Paso 1: Corregir el error del token de Netelip
+Abre el archivo responsable de la integración con Netelip (utils/netelip_integration.py o similar).
+
+Agrega una validación para asegurarte de que el token sea válido antes de usarlo.
+
+python
+Copiar código
+import re
+
+def validar_token_netelip(token):
+    """Verifica que el token tenga un formato hexadecimal válido."""
+    if not token or not re.match(r'^[a-fA-F0-9]{64}$', token):
+        raise ValueError("Formato de token de Netelip inválido")
+
+# Ejemplo de uso
+token = os.environ.get('NETELIP_TOKEN')
+try:
+    validar_token_netelip(token)
+except ValueError as e:
+    logger.error(f"Error en configuración de Netelip: {e}")
+    raise
+Asegúrate de que el token en las variables de entorno (por ejemplo, .env) cumpla con el formato esperado:
+
+Formato válido: 64 caracteres hexadecimales (ejemplo: 69cizi7zc2394b9f84e97e78b8913d0ie1z2i6b58iec943fbz478z13c00d59cz).
+Paso 2: Agregar el método registrar_intento en models.py
+Abre models.py.
+Localiza la clase RegistroLlamada.
+Agrega el método faltante:
+python
+Copiar código
+class RegistroLlamada(db.Model):
+    # Atributos existentes
+
+    def registrar_intento(self):
+        """Incrementa el contador de intentos y programa el siguiente intento."""
+        self.intentos += 1
+        self.siguiente_intento = datetime.utcnow() + timedelta(minutes=5)  # Reintento en 5 minutos
+        db.session.commit()
+Paso 3: Reiniciar y probar
+Reinicia el servidor Flask para aplicar los cambios:
+bash
+Copiar código
+python main.py
+Prueba el flujo de llamadas de Netelip:
+bash
+Copiar código
+python3 -c "from utils.test_netelip import realizar_llamada_prueba; realizar_llamada_prueba('Prueba con token validado')"
+Simula un fallo de Netelip (introduce un token inválido temporalmente) y verifica que:
+El error se captura correctamente.
+Twilio como proveedor de respaldo funciona y usa el método registrar_intento.
+Resultados esperados
+Netelip: El token se valida correctamente, y las llamadas funcionan si el token es válido.
+Twilio: Cuando Netelip falla, el sistema maneja el error, usa el método registrar_intento, y programa un reintento.
+Confirma los resultados o si necesitas más ajustes. 🚀
+
+
+
+

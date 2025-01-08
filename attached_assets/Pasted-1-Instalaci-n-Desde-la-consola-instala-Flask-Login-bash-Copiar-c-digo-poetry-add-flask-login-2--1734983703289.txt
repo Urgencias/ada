@@ -1,0 +1,119 @@
+1. Instalación
+Desde la consola, instala Flask-Login:
+
+bash
+Copiar código
+poetry add flask-login
+2. Configuración básica
+Importa y crea el administrador de inicio de sesión (LoginManager):
+
+python
+Copiar código
+from flask_login import LoginManager
+login_manager = LoginManager()
+login_manager.init_app(app)
+Configura la clave secreta en tu aplicación Flask:
+
+python
+Copiar código
+app.secret_key = "tu_clave_secreta_segura"
+Configura la vista de inicio de sesión (ruta a donde serán redirigidos los usuarios no autenticados):
+
+python
+Copiar código
+login_manager.login_view = "login"
+3. Clase de usuario
+Define tu clase de usuario o modelo (por ejemplo, User) e implementa estos métodos/properties:
+
+is_authenticated: Devuelve True si el usuario está autenticado.
+is_active: Devuelve True si el usuario está activo.
+is_anonymous: Devuelve False (solo para usuarios reales).
+get_id: Devuelve un identificador único para el usuario como string.
+Ejemplo con UserMixin para simplificar:
+
+python
+Copiar código
+from flask_login import UserMixin
+
+class User(UserMixin):
+    def __init__(self, id):
+        self.id = id
+4. Cargar usuarios
+Define una función para cargar usuarios a partir de su ID:
+
+python
+Copiar código
+@login_manager.user_loader
+def load_user(user_id):
+    return User.get(user_id)  # Cambia por tu lógica para obtener el usuario
+5. Ruta de inicio de sesión
+Crea la ruta para que los usuarios puedan iniciar sesión:
+
+python
+Copiar código
+from flask_login import login_user
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    # Supón que tienes un formulario para verificar usuarios
+    user = User.query.filter_by(username=form.username.data).first()
+    if user and user.check_password(form.password.data):
+        login_user(user, remember=form.remember_me.data)  # Inicia sesión
+        return redirect(url_for('index'))  # Redirige al usuario
+    return render_template('login.html', form=form)
+6. Ruta de cierre de sesión
+Crea una ruta para cerrar sesión:
+
+python
+Copiar código
+from flask_login import logout_user
+
+@app.route('/logout')
+def logout():
+    logout_user()  # Cierra sesión del usuario actual
+    return redirect(url_for('login'))  # Redirige a la página de inicio de sesión
+7. Proteger vistas
+Decora las vistas que requieren un usuario autenticado con @login_required:
+
+python
+Copiar código
+from flask_login import login_required
+
+@app.route('/dashboard')
+@login_required
+def dashboard():
+    return render_template('dashboard.html')
+8. (Opcional) "Recuérdame"
+Para permitir que los usuarios permanezcan conectados, usa la opción remember en login_user:
+
+python
+Copiar código
+login_user(user, remember=True)
+Configura la duración de la cookie de "Recuérdame":
+
+python
+Copiar código
+app.config['REMEMBER_COOKIE_DURATION'] = timedelta(days=30)
+9. Protección de sesión
+Habilita protección de sesión para evitar robos de cookies:
+
+python
+Copiar código
+login_manager.session_protection = "strong"
+10. Verifica estado del usuario en plantillas
+Usa current_user en tus plantillas para acceder al usuario actual:
+
+html
+Copiar código
+{% if current_user.is_authenticated %}
+  ¡Hola, {{ current_user.name }}!
+{% else %}
+  <a href="{{ url_for('login') }}">Iniciar sesión</a>
+{% endif %}
+Conclusión
+Con estos pasos implementas la autenticación con Flask-Login de manera básica y segura. 🚀
+¿Necesitas ayuda con un punto específico?
+
+
+
+

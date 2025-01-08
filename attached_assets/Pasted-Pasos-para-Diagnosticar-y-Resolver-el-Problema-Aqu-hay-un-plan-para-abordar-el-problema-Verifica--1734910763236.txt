@@ -1,0 +1,82 @@
+Pasos para Diagnosticar y Resolver el Problema
+Aquí hay un plan para abordar el problema:
+
+Verifica la Configuración Básica:
+
+Asegúrate de que el número de origen está configurado correctamente con Netelip en formato internacional (0034XXXXXXXXX).
+Revisa las credenciales (API_KEY, Usuario SIP, y Contraseña SIP) y confirma que no han cambiado.
+Verifica que el servidor SIP esté configurado como sip.netelip.com y el puerto como 5060.
+Prueba Directa con Netelip:
+
+Usa un cliente SIP como Zoiper o MicroSIP para probar manualmente si las llamadas funcionan.
+Esto descartará problemas con la cuenta o la configuración en Netelip.
+Revisión del Código de Integración:
+
+Asegúrate de que la API de Netelip se esté llamando correctamente desde tu sistema. Por ejemplo:
+Método POST.
+Endpoint correcto (https://api.netelip.com/v1/calls).
+Datos en el payload como el número de origen, destino y mensaje.
+Ejemplo básico en Python:
+
+python
+Copiar código
+import requests
+
+NETELIP_API_URL = "https://api.netelip.com/v1/calls"
+NETELIP_TOKEN = "tu_token_netelip"
+
+payload = {
+    "from": "0034987654321",
+    "to": "0034987123456",
+    "message": "Este es un recordatorio programado."
+}
+headers = {
+    "Authorization": f"Bearer {NETELIP_TOKEN}",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(NETELIP_API_URL, json=payload, headers=headers)
+
+if response.status_code == 200:
+    print("Llamada programada correctamente")
+else:
+    print(f"Error {response.status_code}: {response.text}")
+Monitoreo de Errores:
+
+Si el sistema no responde correctamente, revisa los mensajes de error que devuelve la API de Netelip.
+Por ejemplo:
+404: URL incorrecta.
+401: Problemas de autenticación.
+400: Formato de datos incorrecto.
+Pruebas en un Entorno Simplificado:
+
+En lugar de usar todo el sistema completo, prueba una llamada simple con un script como el anterior para verificar que Netelip responde correctamente.
+Esto confirmará si el problema está en Netelip o en la lógica de programación.
+Plan de Contingencia:
+
+Si Netelip no responde y el soporte técnico no te ofrece una solución rápida, considera volver temporalmente a Twilio mientras resuelves el problema.
+Aunque sea más caro, podría garantizar que no sigas perdiendo tiempo y recursos.
+Mensaje al Agente o Soporte Técnico de Netelip
+Si el problema parece estar en Netelip, puedes usar este mensaje:
+
+Asunto: Problema con la API de Netelip para Programar Llamadas
+
+Hola,
+
+Estoy intentando programar llamadas mediante la API de Netelip, pero no consigo que el sistema realice ninguna llamada. He verificado las configuraciones básicas (credenciales, servidor SIP, formato de números) y probado con este payload:
+
+json
+Copiar código
+{
+   "from": "0034987654321",
+   "to": "0034987123456",
+   "message": "Este es un recordatorio programado."
+}
+A pesar de ello, las llamadas no se realizan. Por favor, ¿pueden verificar si hay algún problema con mi cuenta o confirmar si estoy configurando algo incorrectamente?
+
+Agradezco mucho vuestra ayuda para resolver esto lo antes posible.
+
+Un cordial saludo,
+Antonio
+
+Si necesitas más ayuda con el código, la configuración o el mensaje, estoy aquí para ajustarlo contigo. No te preocupes, Antonio; ¡encontraremos la solución y haremos que funcione! 💪

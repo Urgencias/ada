@@ -1,0 +1,102 @@
+1. Problema en el Panel de Administrador
+Situación:
+Todo está en "0000" en las métricas globales del panel (total de llamadas, usuarios activos, etc.).
+No refleja los datos reales del sistema.
+Posibles Causas:
+Consultas Vacías o Incorrectas: Las consultas que generan estas métricas no están devolviendo datos.
+Error en el Backend: Las funciones del servidor no están procesando los datos correctamente.
+Problema en el Frontend: Aunque los datos lleguen del backend, no se están mostrando en la interfaz.
+2. Diagnóstico Específico del Panel de Administrador
+a. Verificar las Consultas Globales
+Estas métricas suelen depender de datos agregados. Verifica si el código está haciendo algo como esto:
+
+python
+Copiar código
+def obtener_metricas_globales():
+    total_usuarios = db.session.query(Usuario).count()
+    total_llamadas = db.session.query(Llamada).count()
+    llamadas_completadas = db.session.query(Llamada).filter_by(estado='completada').count()
+    llamadas_pendientes = db.session.query(Llamada).filter_by(estado='pendiente').count()
+    return {
+        "usuarios": total_usuarios,
+        "total_llamadas": total_llamadas,
+        "completadas": llamadas_completadas,
+        "pendientes": llamadas_pendientes,
+    }
+Si esta función no devuelve los valores esperados:
+
+Consulta la Base de Datos: Verifica con SQL que las tablas tienen datos válidos.
+
+sql
+Copiar código
+SELECT COUNT(*) FROM usuarios;
+SELECT COUNT(*) FROM llamadas WHERE estado = 'completada';
+Revisa los Modelos: Asegúrate de que los modelos de Usuario y Llamada están configurados correctamente.
+
+b. Validar el Envío al Frontend
+Si el backend funciona, verifica cómo envía los datos al panel. Deberías tener algo como:
+
+python
+Copiar código
+@app.route('/api/admin/metricas')
+def api_admin_metricas():
+    metricas = obtener_metricas_globales()
+    return jsonify(metricas)
+En el frontend:
+
+javascript
+Copiar código
+fetch('/api/admin/metricas')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("total-usuarios").innerText = data.usuarios;
+        document.getElementById("total-llamadas").innerText = data.total_llamadas;
+        document.getElementById("completadas").innerText = data.completadas;
+        document.getElementById("pendientes").innerText = data.pendientes;
+    });
+3. Correcciones en el Panel
+a. Solución para Usuarios Vacíos
+Verifica si la tabla usuarios tiene datos válidos.
+Si los usuarios no se están registrando correctamente, corrige la lógica donde se crean.
+Ejemplo:
+
+python
+Copiar código
+nuevo_usuario = Usuario(nombre="Prueba", email="test@example.com")
+db.session.add(nuevo_usuario)
+db.session.commit()
+b. Solución para Métricas de Llamadas Vacías
+Asegúrate de que las llamadas están siendo registradas correctamente:
+python
+Copiar código
+nueva_llamada = Llamada(usuario_id=1, estado='pendiente')
+db.session.add(nueva_llamada)
+db.session.commit()
+c. Verifica las Consultas en el Backend
+Si las métricas siguen mostrando "0000", revisa cómo se hacen las agregaciones.
+
+Por ejemplo:
+
+python
+Copiar código
+def obtener_usuarios_activos():
+    return db.session.query(Usuario).filter_by(activo=True).count()
+4. Plan para las Tres Páginas
+Panel de Administrador:
+
+Verifica las consultas y corrige el envío de datos globales (total usuarios, llamadas).
+Asegúrate de que las métricas globales se calculan correctamente.
+Monitoreo:
+
+Corrige las consultas de llamadas para reflejar estados como "pendiente", "completada", "fallida".
+Sistema de Recordatorios:
+
+Revisa si los recordatorios están siendo registrados en la base de datos y consulta los totales.
+5. Próximos Pasos
+¿Prefieres empezar revisando el backend (funciones y consultas) o el frontend (visualización)?
+¿Quieres revisar una de las páginas específicas primero?
+¡Dime por dónde quieres comenzar y lo resolvemos juntos! 😊
+
+
+
+

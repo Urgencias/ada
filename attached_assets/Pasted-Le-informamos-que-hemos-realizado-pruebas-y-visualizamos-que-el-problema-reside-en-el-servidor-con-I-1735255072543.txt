@@ -1,0 +1,33 @@
+Le informamos que hemos realizado pruebas y visualizamos que el problema reside en el servidor con IP 185.8.144.102 ya que este nos responde con "BYE" directamente:
+
+ 
+
+194.140.135.105:5060 -> 185.8.244.102:5060
+  INVITE sip:34968972418@apivoice.netelip.com SIP/2.0..Via: SIP/2.0/UDP 194.140.135.105:5060;branch=z9hG4bK3b18ae54..Max-Forwards: 70..From: "95120
+  0000" <sip:951200000@194.140.135.105>;tag=as03b163a0..To: <sip:34968972418@apivoice.netelip.com>..Contact: <sip:951200000@194.140.135.105:5060>..
+  Call-ID: 250665a43cad509b22aaa4b536897bed@194.140.135.105:5060..CSeq: 102 INVITE..User-Agent: Telcom BS..Date: Thu, 26 Dec 2024 10:31:52 GMT..All
+  ow: INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, SUBSCRIBE, NOTIFY, INFO, PUBLISH, MESSAGE..Supported: replaces, timer..X-Called-DDI: 34968972418..C
+  ontent-Type: application/sdp..Content-Length: 424....v=0..o=root 571725785 571725785 IN IP4 194.140.135.105..s=Netelip Media Gateway..c=IN IP4 19
+  4.140.135.105..t=0 0..m=audio 14682 RTP/AVP 8 0 4 18 3 97 101..a=rtpmap:8 PCMA/8000..a=rtpmap:0 PCMU/8000..a=rtpmap:4 G723/8000..a=fmtp:4 annexa=
+  no..a=rtpmap:18 G729/8000..a=fmtp:18 annexb=no..a=rtpmap:3 GSM/8000..a=rtpmap:97 iLBC/8000..a=fmtp:97 mode=30..a=rtpmap:101 telephone-event/8000.
+  .a=fmtp:101 0-16..a=ptime:20..a=sendrecv..                                                                                                                                                                
+
+U 185.8.244.102:5060 -> 194.140.135.105:5060
+  BYE sip:951200000@194.140.135.105:5060 SIP/2.0..Via: SIP/2.0/UDP 185.8.244.102:5060;branch=z9hG4bK0f9a4552;rport..Max-Forwards: 70..From: <sip:34
+  968972418@apivoice.netelip.com>;tag=as1e17dd5b..To: "951200000" <sip:951200000@194.140.135.105>;tag=as03b163a0..Call-ID: 250665a43cad509b22aaa4b5
+  36897bed@194.140.135.105:5060..CSeq: 102 BYE..User-Agent: Netelip API Voice..X-Asterisk-HangupCause: Unknown..X-Asterisk-HangupCauseCode: 0..Cont
+  ent-Length: 0....                                                                                                                                
+
+U 185.8.244.102:5060 -> 194.140.135.105:5060
+  BYE sip:951200000@194.140.135.105:5060 SIP/2.0..Via: SIP/2.0/UDP 185.8.244.102:5060;branch=z9hG4bK0f9a4552;rport..Max-Forwards: 70..From: <sip:34
+  968972418@apivoice.netelip.com>;tag=as1e17dd5b..To: "951200000" <sip:951200000@194.140.135.105>;tag=as03b163a0..Call-ID: 250665a43cad509b22aaa4b5
+  36897bed@194.140.135.105:5060..CSeq: 102 BYE..User-Agent: Netelip API Voice..X-Asterisk-HangupCause: Unknown..X-Asterisk-HangupCauseCode: 0..Cont
+  ent-Length: 0....                      
+
+ 
+
+¿Podría revisar los logs de dicho servidor para obtener más información sobre el motivo de esto?
+
+Un saludo,
+El equipo de netelip.
+

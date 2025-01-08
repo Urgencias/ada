@@ -1,0 +1,52 @@
+ Verifica si el servidor está en ejecución
+Ejecuta este comando en la consola para confirmar si el servidor está corriendo:
+
+bash
+Copiar código
+poetry run flask run
+Qué buscar:
+
+Si muestra un mensaje como Running on http://127.0.0.1:5000/ o similar, el servidor está corriendo.
+Si hay errores, compártelos para analizarlos.
+2. Comprueba los logs
+Revisa los logs de ejecución para identificar problemas específicos:
+
+Busca mensajes de error relacionados con rutas o contexto, como:
+"Working outside of application context"
+ImportError o problemas con módulos faltantes.
+Si ves errores, anótalos.
+
+3. Aclara al agente que el servidor no responde
+Responde al agente con algo como:
+
+El servidor Flask no está funcionando correctamente. Sigo viendo el error "Working outside of application context" en las rutas o peticiones específicas. Por favor, revisa la función generate() y asegúrate de que el contexto de la aplicación esté manejado correctamente.
+
+Pide que el agente:
+
+Confirme si el error ocurre en routes/main.py o en la inicialización en main.py.
+Revise las rutas cargadas (puede usar flask routes en la consola para listar rutas).
+Intente ejecutar un entorno limpio (puede reconstruir dependencias con poetry install).
+4. Plan de prueba rápida
+Verifica que las rutas están registradas correctamente:
+Desde la consola:
+
+bash
+Copiar código
+poetry run flask routes
+Esto muestra todas las rutas cargadas. Confirma que generate u otras rutas problemáticas estén listadas.
+
+Prueba manual del servidor:
+Si el servidor inicia pero no responde bien:
+
+Accede a las rutas directamente en el navegador o con curl:
+bash
+Copiar código
+curl http://127.0.0.1:5000/generate
+Qué decir al agente
+Responde:
+
+El servidor Flask no está funcionando correctamente. Sigo viendo el error "Working outside of application context" en ciertas rutas, posiblemente en routes/main.py. Por favor:
+
+Verifica que generate() esté manejando correctamente el contexto de Flask.
+Revisa si hay problemas con las dependencias o rutas cargadas.
+Confirma si el servidor necesita reiniciarse desde un entorno limpio.

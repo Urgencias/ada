@@ -1,0 +1,65 @@
+Paso 1: Verificar Datos en la Base de Datos
+Confirma que tu usuario tiene recordatorios y llamadas asociadas.
+
+Ejecuta este comando SQL para verificar los datos en las tablas recordatorios y registros_llamadas:
+
+sql
+Copiar código
+SELECT * FROM recordatorios WHERE user_id = <TU_USER_ID>;
+SELECT * FROM registros_llamadas WHERE recordatorio_id IN (
+    SELECT id FROM recordatorios WHERE user_id = <TU_USER_ID>
+);
+Reemplaza <TU_USER_ID> por tu ID de usuario.
+Resultado esperado:
+
+La consulta debería devolver al menos un registro. Si no, los datos no existen o no están correctamente asociados.
+Paso 2: Insertar Datos de Prueba (Si Está Vacío)
+Si no hay datos asociados, agrega manualmente un recordatorio y una llamada para probar:
+
+sql
+Copiar código
+INSERT INTO recordatorios (id, user_id, nombre, telefono, fecha, hora, mensaje, tipo, repeticion)
+VALUES (1, <TU_USER_ID>, 'Prueba Llamada', '123456789', CURDATE(), CURTIME(), 'Mensaje de prueba', 'prueba', '0');
+
+INSERT INTO registros_llamadas (id, recordatorio_id, estado, fecha_llamada, intentos)
+VALUES (1, 1, 'PENDIENTE', CURDATE(), 0);
+Paso 3: Revisar la Lógica en el Código
+Abre el archivo routes/main.py y confirma que la función llamadas() utiliza el ID del usuario autenticado correctamente:
+
+python
+Copiar código
+registros = RegistroLlamada.query.join(
+    Recordatorio, RegistroLlamada.recordatorio_id == Recordatorio.id
+).filter(Recordatorio.user_id == current_user.id).order_by(
+    RegistroLlamada.fecha_llamada.desc()
+).all()
+Si registros está vacío, prueba manualmente la consulta:
+
+python
+Copiar código
+print(registros)  # Verifica si devuelve resultados
+Paso 4: Verifica la Plantilla
+Abre templates/llamadas.html y confirma que la variable registros se recorre correctamente:
+
+html
+Copiar código
+{% for registro in registros %}
+    <tr>
+        <td>{{ registro.id }}</td>
+        <td>{{ registro.fecha_llamada }}</td>
+        <td>{{ registro.estado }}</td>
+    </tr>
+{% endfor %}
+Si registros está vacío, muestra un mensaje amigable:
+
+html
+Copiar código
+{% if registros %}
+    {% for registro in registros %}
+        <!-- Lógica existente -->
+    {% endfor %}
+{% else %}
+    <tr>
+        <td colspan="3">No hay llamadas registradas.</td>
+    </tr>
+{% endif %}

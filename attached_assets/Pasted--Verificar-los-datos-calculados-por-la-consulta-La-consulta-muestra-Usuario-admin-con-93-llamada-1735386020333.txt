@@ -1,0 +1,80 @@
+. Verificar los datos calculados por la consulta
+La consulta muestra:
+
+Usuario admin con:
+93 llamadas totales.
+0 llamadas completadas.
+0 llamadas pendientes.
+Esto indica que:
+
+Hay un problema en el cálculo de los estados (COMPLETADA, PENDIENTE) en la base de datos o en la consulta.
+2. Inspección de los datos subyacentes
+Para asegurarnos de que los datos en las tablas reflejen los estados correctamente:
+
+Consulta 1: Ver registros de llamadas
+Ejecuta:
+
+sql
+Copiar código
+SELECT rl.id, rl.estado, rl.recordatorio_id, rl.fecha_llamada 
+FROM registros_llamadas rl 
+ORDER BY rl.fecha_llamada DESC 
+LIMIT 10;
+Esto verificará si los estados (COMPLETADA, PENDIENTE, etc.) están correctamente registrados en la base de datos.
+
+Consulta 2: Relación con recordatorios
+Ejecuta:
+
+sql
+Copiar código
+SELECT r.id, r.user_id, rl.estado 
+FROM recordatorios r 
+LEFT JOIN registros_llamadas rl ON r.id = rl.recordatorio_id 
+WHERE r.user_id = 2 
+ORDER BY rl.fecha_llamada DESC 
+LIMIT 10;
+Esto confirmará si los recordatorios están correctamente enlazados con los registros de llamadas.
+
+3. Revisar la plantilla HTML
+En el archivo templates/panel_monitoreo.html, revisa si:
+
+Los datos provenientes de la consulta SQL se están pasando correctamente a través de Flask.
+Se están utilizando correctamente las variables en el frontend.
+Ejemplo:
+
+html
+Copiar código
+{% for marcador in marcadores %}
+<tr>
+  <td>{{ marcador.username }}</td>
+  <td>{{ marcador.llamadas_totales }}</td>
+  <td>{{ marcador.completadas }}</td>
+  <td>{{ marcador.pendientes }}</td>
+</tr>
+{% endfor %}
+Si las variables como marcadores no contienen los datos esperados, podría ser un problema en cómo se están enviando desde la función de la ruta en Flask.
+
+4. Plan para corregir
+Paso 1: Corregir los datos en la base de datos (si hay problemas)
+Si las consultas anteriores muestran inconsistencias en los estados o relaciones:
+
+Actualiza los estados para que coincidan con el enum.
+sql
+Copiar código
+UPDATE registros_llamadas 
+SET estado = UPPER(estado) 
+WHERE estado IN ('pendiente', 'completada', 'fallida');
+Paso 2: Actualizar la función de la ruta en Flask
+Revisa la función en routes/main.py que pasa los datos al panel de monitoreo. Asegúrate de que:
+
+La consulta para marcadores sea como la SQL que proporcionaste.
+Los datos se envíen correctamente al renderizado:
+python
+Copiar código
+return render_template('panel_monitoreo.html', marcadores=marcadores)
+Paso 3: Revisar la plantilla
+Confirma que los nombres de las variables coincidan entre el backend (Python) y el frontend (HTML).
+
+Paso 4: Probar el panel
+Reinicia el servidor.
+Accede al panel de monitoreo y confirma que se muestren los datos esperados.

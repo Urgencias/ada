@@ -1,0 +1,89 @@
+Plan para resolver los problemas:
+Paso 1: Corregir el error estadisticas is undefined
+Abre la función que renderiza el panel de administración o monitoreo (panel_administracion o similar) en routes/main.py.
+
+Asegúrate de que se esté calculando correctamente la variable estadisticas y que se pase a la plantilla. Ejemplo:
+
+python
+Copiar código
+@main_bp.route('/admin-panel')
+@login_required
+def admin_panel():
+    try:
+        estadisticas = {
+            'total_usuarios': User.query.count(),
+            'total_llamadas': RegistroLlamada.query.count(),
+            'llamadas_completadas': RegistroLlamada.query.filter_by(estado='COMPLETADA').count(),
+            'llamadas_pendientes': RegistroLlamada.query.filter(RegistroLlamada.estado.in_(['PENDIENTE', 'PROGRAMADA'])).count()
+        }
+
+        return render_template('admin_panel.html', estadisticas=estadisticas)
+
+    except Exception as e:
+        logger.error(f"Error al cargar el panel de administración: {str(e)}")
+        flash('Error al cargar el panel de administración', 'danger')
+        return redirect(url_for('main.dashboard'))
+Guarda los cambios y reinicia el servidor. Luego verifica si el error persiste.
+
+Paso 2: Revisar la plantilla admin_panel.html
+Abre templates/admin_panel.html.
+
+Busca las secciones donde se utiliza estadisticas. Por ejemplo:
+
+html
+Copiar código
+<h2>Estadísticas</h2>
+<p>Usuarios totales: {{ estadisticas.total_usuarios }}</p>
+<p>Llamadas totales: {{ estadisticas.total_llamadas }}</p>
+<p>Completadas: {{ estadisticas.llamadas_completadas }}</p>
+<p>Pendientes: {{ estadisticas.llamadas_pendientes }}</p>
+Si no hay datos o estadisticas está vacío, muestra un mensaje amigable:
+
+html
+Copiar código
+{% if estadisticas %}
+    <!-- Renderizar estadísticas -->
+{% else %}
+    <p>No hay estadísticas disponibles en este momento.</p>
+{% endif %}
+Paso 3: Corregir la página de "Llamadas Esto"
+Abre la función que renderiza esta página (llamadas o similar) en routes/main.py.
+
+Asegúrate de que las consultas SQL relacionadas con los registros de llamadas devuelvan datos válidos. Ejemplo:
+
+python
+Copiar código
+@main_bp.route('/llamadas')
+@login_required
+def llamadas():
+    try:
+        registros = RegistroLlamada.query.join(
+            Recordatorio, RegistroLlamada.recordatorio_id == Recordatorio.id
+        ).join(
+            User, Recordatorio.user_id == User.id
+        ).order_by(
+            RegistroLlamada.fecha_llamada.desc()
+        ).all()
+
+        return render_template('llamadas.html', registros=registros)
+
+    except Exception as e:
+        logger.error(f"Error al cargar el historial de llamadas: {str(e)}")
+        flash('Error al cargar el historial de llamadas', 'danger')
+        return render_template('llamadas.html', registros=[])
+Verifica los datos pasados a la plantilla:
+
+Asegúrate de que registros contiene datos válidos.
+Si no hay datos, maneja el caso en la plantilla:
+html
+Copiar código
+{% if registros %}
+    <!-- Mostrar historial de llamadas -->
+{% else %}
+    <p>No hay registros de llamadas disponibles.</p>
+{% endif %}
+Paso 4: Pruebas y validación
+Reinicia el servidor después de aplicar los cambios.
+Verifica:
+Si los errores estadisticas is undefined y UndefinedError desaparecen.
+Si los datos en las páginas de monitoreo, administración y llamadas se muestran correctamente

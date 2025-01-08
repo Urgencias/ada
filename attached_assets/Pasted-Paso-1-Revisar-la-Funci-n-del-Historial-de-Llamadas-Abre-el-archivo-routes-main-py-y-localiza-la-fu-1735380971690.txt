@@ -1,0 +1,53 @@
+Paso 1: Revisar la Función del Historial de Llamadas
+Abre el archivo routes/main.py y localiza la función que maneja la ruta /llamadas o similar. Debería verse algo así:
+python
+Copiar código
+@main_bp.route('/llamadas')
+@login_required
+def llamadas():
+    registros = RegistroLlamada.query.join(
+        Recordatorio, RegistroLlamada.recordatorio_id == Recordatorio.id
+    ).filter(Recordatorio.user_id == current_user.id).order_by(
+        RegistroLlamada.fecha_llamada.desc()
+    ).all()
+    return render_template('llamadas.html', registros=registros)
+Verifica si:
+Hay referencias a estados como 'pendiente' o 'completada' que podrían causar problemas de Enum.
+Las relaciones (join) entre RegistroLlamada y Recordatorio están configuradas correctamente.
+Paso 2: Prueba la Consulta de la Base de Datos
+Ejecuta manualmente la consulta desde un cliente SQL o un script Python:
+python
+Copiar código
+registros = RegistroLlamada.query.join(
+    Recordatorio, RegistroLlamada.recordatorio_id == Recordatorio.id
+).filter(Recordatorio.user_id == <USER_ID>).order_by(
+    RegistroLlamada.fecha_llamada.desc()
+).all()
+print(registros)
+Reemplaza <USER_ID> por el ID de un usuario válido.
+Confirma si devuelve resultados o lanza errores.
+Paso 3: Verifica los Datos en la Base de Datos
+Asegúrate de que los registros en RegistroLlamada tienen valores válidos para:
+
+recordatorio_id
+estado (debe coincidir con el enum EstadoLlamadaEnum).
+fecha_llamada.
+Si hay datos faltantes o inconsistentes, corrige manualmente o con una consulta SQL:
+
+sql
+Copiar código
+UPDATE registros_llamadas SET estado = 'PENDIENTE' WHERE estado IS NULL;
+Paso 4: Revisa la Plantilla
+Abre templates/llamadas.html.
+Verifica que todas las variables pasadas desde la función llamadas() están correctamente usadas en la plantilla:
+html
+Copiar código
+{% for registro in registros %}
+    <tr>
+        <td>{{ registro.id }}</td>
+        <td>{{ registro.fecha_llamada }}</td>
+        <td>{{ registro.estado }}</td>
+    </tr>
+{% endfor %}
+Confirma que registros no está vacío.
+Asegúrate de que las variables (id, fecha_llamada, estado) existen en el modelo RegistroLlamada.

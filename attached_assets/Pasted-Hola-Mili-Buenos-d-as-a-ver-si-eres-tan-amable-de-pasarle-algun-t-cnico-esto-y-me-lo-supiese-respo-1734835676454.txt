@@ -1,0 +1,51 @@
+Hola Mili 
+
+Buenos días a ver si eres tan amable de pasarle algun técnico esto y me lo supiese responder, te lo agradecería de corazón... 
+
+Nota y que los numeros no salgan ocultos por favor
+
+Preguntas para el Proveedor de Telefonía (Netelip)
+Verificación del API:
+¿El API_NAME configurado (API 3cb20) está correctamente registrado y activo en mi cuenta?
+¿El token (API_TOKEN) es válido y tiene permisos para realizar llamadas?
+Formato de los números:
+¿Cuál es el formato exacto que deben tener los números de origen (src) y destino (dst)?
+Ejemplo:
+¿Deben ser números internacionales sin el símbolo +?
+¿Es necesario algún prefijo adicional?
+Número de origen (src):
+¿El número +34968972418 que uso como src está autorizado en mi cuenta para realizar llamadas a través de la API Voice?
+Destino de las llamadas (typedst):
+¿Está permitido el uso del valor typedst = "pstn" para llamadas a la red pública?
+¿Hay algún límite geográfico o tipo de número que no permita llamar? (Por ejemplo, móviles internacionales, números fijos, etc.).
+Texto a voz (TTS - Text to Speech):
+¿Es posible incluir mensajes de texto a voz en las llamadas mediante API Voice?
+Si es posible, ¿cuál es el comando específico para reproducir mensajes escritos durante la llamada?
+Códigos de error:
+El código 410 indica "Invalid phone number". ¿Qué significa exactamente este error?
+¿Qué debo corregir en los parámetros enviados?
+Duración máxima:
+¿Existe algún límite de duración de las llamadas o de los intentos de conexión que no estemos cumpliendo?
+Restricciones adicionales:
+¿La API Voice requiere que el servidor (IP) desde donde hago las peticiones esté registrado en una lista blanca (whitelist)?
+¿Hay algún parámetro de seguridad adicional que deba configurar (por ejemplo, firma de la solicitud)?
+Objetivo de la conversación
+El proveedor debe validar y confirmar:
+Que los parámetros que estás enviando son correctos.
+Que el número de origen está autorizado.
+Que no hay restricciones con los números de destino.
+Si hay configuración adicional necesaria para el texto a voz (TTS) o para realizar llamadas exitosas.
+
+Un saludo
+Antonio Moreno
+
+De: Mili Pérez <mili.perez@netelip.com>
+Enviado: lunes, 16 de diciembre de 2024 15:30
+Para: Antonio Jose Moreno Ortin <asefoc@hotmail.com>
+Asunto: Instrucciones o presupuesto - netelip
+ 
+Hola Antonio,
+
+¡Ya te tengo localizado! ¿Quieres que te mande las instrucciones o presupuesto?
+
+Tu mandas,

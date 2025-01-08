@@ -1,0 +1,57 @@
+
+Buenas noches. Según la información que veo en tu archivo, el sistema tiene varias verificaciones y estados relacionados con la realización de llamadas. Si antes las llamadas funcionaban y ahora no, podrían estar fallando por los siguientes motivos:
+
+Causas posibles:
+Limite de llamadas alcanzado:
+
+Cada usuario tiene un contador de llamadas disponibles (llamadas_disponibles) y llamadas realizadas (llamadas_realizadas).
+La función puede_realizar_llamada verifica si el usuario puede realizar más llamadas comparando esos valores. Si el contador de llamadas disponibles es menor o igual a las realizadas, las llamadas se bloquearán.
+Problemas con el Recordatorio:
+
+Los recordatorios están configurados para programar llamadas basándose en la repetición (diaria, semanal, etc.).
+Revisa si la fecha/hora de la próxima llamada (siguiente_llamada) está correctamente calculada. Si no se está actualizando bien, las llamadas no se programarán.
+Errores en la interacción con el sistema externo:
+
+La tabla RegistroLlamada contiene campos como estado, error_mensaje y intentos. Si las llamadas están fallando por errores externos o límites en el proveedor de VoIP (por ejemplo, Netelip), estos campos podrían contener pistas del problema.
+Restricciones de usuario o configuración:
+
+Verifica que el usuario tenga los permisos adecuados (ejemplo: email_verificado o pago_verificado).
+En el caso de usuarios con roles administrativos (es_admin), no se aplican límites de llamadas.
+Notificaciones de error:
+
+Si ocurre un error, el sistema genera una notificación a través de la clase NotificacionLlamada. Revisa si estas notificaciones están generándose y qué mensajes indican.
+Recomendaciones para resolución:
+Verifica el límite de llamadas:
+
+Confirma los valores de llamadas_disponibles y llamadas_realizadas del usuario afectado.
+Si es necesario, aumenta el límite o reinicia el contador.
+python
+Copiar código
+user.llamadas_disponibles += 10  # Incrementa el número de llamadas disponibles.
+db.session.commit()
+Valida los recordatorios:
+
+Asegúrate de que el campo siguiente_llamada esté correctamente programado.
+Puedes forzar un recalculo de la próxima llamada:
+python
+Copiar código
+recordatorio.programar_siguiente_llamada()
+db.session.commit()
+Consulta los registros de llamadas:
+
+Verifica los estados en RegistroLlamada para entender por qué fallaron (por ejemplo, errores en la conexión o límites del proveedor).
+Habilita las notificaciones:
+
+Activa el sistema de notificaciones para identificar posibles problemas más fácilmente. Usa:
+python
+Copiar código
+NotificacionLlamada.crear_notificacion(
+    recordatorio_id=recordatorio.id,
+    tipo='error',
+    mensaje='Error en la llamada. Revise la configuración.',
+    nivel='error'
+)
+Logs y monitoreo:
+
+Activa registros de logs adicionales para detectar errores en tiempo real, especialmente si el problema está en la interacción con Netelip.
+Si necesitas asistencia para ejecutar estos pasos o más detalles sobre un punto específico, házmelo saber. 

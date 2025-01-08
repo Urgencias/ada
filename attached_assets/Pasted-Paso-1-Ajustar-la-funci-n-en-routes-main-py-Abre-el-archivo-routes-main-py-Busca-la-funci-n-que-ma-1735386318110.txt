@@ -1,0 +1,92 @@
+Paso 1: Ajustar la función en routes/main.py
+Abre el archivo routes/main.py.
+Busca la función que maneja el panel de monitoreo (panel_monitoreo).
+Asegúrate de reemplazar cualquier consulta anterior con la consulta optimizada confirmada anteriormente.
+Código actualizado:
+python
+Copiar código
+@main_bp.route('/panel-monitoreo')
+@login_required
+def panel_monitoreo():
+    try:
+        # Consulta SQL para obtener estadísticas por usuario
+        marcadores = db.session.execute("""
+            SELECT r.user_id, u.username, COUNT(*) as llamadas_totales,
+                SUM(CASE WHEN rl.estado = 'COMPLETADA' THEN 1 ELSE 0 END) as completadas,
+                SUM(CASE WHEN rl.estado = 'PENDIENTE' THEN 1 ELSE 0 END) as pendientes
+            FROM recordatorios r
+            JOIN users u ON r.user_id = u.id
+            LEFT JOIN registros_llamadas rl ON r.id = rl.recordatorio_id
+            GROUP BY r.user_id, u.username
+        """).fetchall()
+
+        # Procesar los resultados en una lista de diccionarios
+        marcadores = [
+            {
+                'user_id': row.user_id,
+                'username': row.username,
+                'llamadas_totales': row.llamadas_totales,
+                'completadas': row.completadas,
+                'pendientes': row.pendientes
+            } for row in marcadores
+        ]
+
+        # Renderizar la plantilla con los marcadores
+        return render_template('panel_monitoreo.html', marcadores=marcadores)
+
+    except Exception as e:
+        logger.error(f"Error al cargar el panel de monitoreo: {str(e)}")
+        flash('Error al cargar las estadísticas del panel', 'danger')
+        return redirect(url_for('main.dashboard'))
+Guarda los cambios.
+Paso 2: Ajustar la plantilla panel_monitoreo.html
+Abre el archivo templates/panel_monitoreo.html.
+Asegúrate de que el HTML procese la variable marcadores enviada desde Flask.
+Ejemplo de código para mostrar marcadores:
+html
+Copiar código
+<h3>Marcadores por Usuario</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Usuario</th>
+      <th>Llamadas Totales</th>
+      <th>Completadas</th>
+      <th>Pendientes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if marcadores %}
+      {% for marcador in marcadores %}
+        <tr>
+          <td>{{ marcador.username }}</td>
+          <td>{{ marcador.llamadas_totales }}</td>
+          <td>{{ marcador.completadas }}</td>
+          <td>{{ marcador.pendientes }}</td>
+        </tr>
+      {% endfor %}
+    {% else %}
+      <tr>
+        <td colspan="4">No hay datos disponibles para mostrar</td>
+      </tr>
+    {% endif %}
+  </tbody>
+</table>
+Guarda los cambios.
+Paso 3: Reiniciar el servidor y probar
+Reinicia el servidor Flask:
+bash
+Copiar código
+python main.py
+Accede al panel de monitoreo (/panel-monitoreo) y verifica:
+Que los datos de los marcadores se muestran correctamente.
+Si no hay errores en la consola del servidor ni en el navegador.
+Paso 4: Validar los resultados
+Prueba funcionalidad con datos reales:
+
+Crea nuevos usuarios.
+Genera recordatorios y registros de llamadas con distintos estados (COMPLETADA, PENDIENTE).
+Si los datos no se actualizan:
+
+Revisa si la consulta SQL devuelve los resultados esperados directamente en la base de datos.
+Asegúrate de que los datos de recordatorios y registros_llamadas están correctamente relacionados.

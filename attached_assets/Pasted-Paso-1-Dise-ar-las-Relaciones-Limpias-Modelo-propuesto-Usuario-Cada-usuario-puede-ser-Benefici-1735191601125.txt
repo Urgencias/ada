@@ -1,0 +1,96 @@
+Paso 1: Diseñar las Relaciones Limpias
+Modelo propuesto:
+
+Usuario:
+
+Cada usuario puede ser:
+Beneficiario (de varias suscripciones).
+Benefactor (de varias suscripciones, opcionalmente).
+Suscripción:
+
+Cada suscripción debe tener:
+Un beneficiario (obligatorio).
+Un benefactor (opcional).
+Esto se traduce en:
+
+Una tabla para usuarios (users).
+Una tabla para suscripciones (subscriptions) con dos claves foráneas:
+beneficiary_id que apunta a users.
+benefactor_id que también apunta a users (opcional).
+Paso 2: Actualizar el Modelo en el Código
+Dependiendo del framework que uses, implementaremos este diseño. Por ejemplo, si usas Django, los modelos quedarían algo así:
+
+En el archivo models.py:
+python
+Copiar código
+from django.db import models
+
+class User(models.Model):
+    name = models.CharField(max_length=100)  # Puedes agregar más campos según tus necesidades
+
+class Subscription(models.Model):
+    beneficiary = models.ForeignKey(
+        User,
+        related_name='beneficiary_subscriptions',
+        on_delete=models.CASCADE
+    )
+    benefactor = models.ForeignKey(
+        User,
+        related_name='benefactor_subscriptions',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True  # Permitir que sea opcional
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+Explicación del código:
+related_name: Permite acceder a las suscripciones de un usuario como user.beneficiary_subscriptions.all() o user.benefactor_subscriptions.all().
+on_delete: Define qué sucede al eliminar un usuario:
+CASCADE elimina la suscripción si se elimina el beneficiario.
+SET_NULL permite que el benefactor quede en null si se elimina.
+Paso 3: Crear y Aplicar Migraciones
+Generar las migraciones: Ejecuta:
+
+bash
+Copiar código
+python manage.py makemigrations
+Revisar las migraciones: Antes de aplicarlas, revisa el archivo de migración generado para confirmar que las relaciones se configuran correctamente.
+
+Aplicar las migraciones: Ejecuta:
+
+bash
+Copiar código
+python manage.py migrate
+Paso 4: Probar el Modelo
+Para asegurarte de que las relaciones funcionan:
+
+Abre la consola de Django:
+
+bash
+Copiar código
+python manage.py shell
+Prueba las relaciones:
+
+python
+Copiar código
+from your_app.models import User, Subscription
+
+# Crear usuarios
+user1 = User.objects.create(name="Beneficiary User")
+user2 = User.objects.create(name="Benefactor User")
+
+# Crear una suscripción
+subscription = Subscription.objects.create(
+    beneficiary=user1,
+    benefactor=user2
+)
+
+# Verificar las relaciones
+print(subscription.beneficiary.name)  # Beneficiary User
+print(subscription.benefactor.name)   # Benefactor User
+Paso 5: Solucionar Migraciones Duplicadas (si aplica)
+Si previamente intentaste relaciones complejas que están causando conflictos:
+
+Revisa el historial de migraciones en la carpeta migrations/.
+Limpia migraciones antiguas problemáticas:
+Elimina las migraciones incorrectas.
+Vuelve a ejecutar makemigrations y migrate desde cero si es necesario.

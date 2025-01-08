@@ -1,0 +1,61 @@
+Paso 1: Revisa los logs del servidor
+Antes de realizar cambios, necesitamos entender exactamente qué está causando el error. Sigue estos pasos para obtener más información:
+
+Accede a los logs del servidor (puedes hacerlo desde tu consola o panel de administración de la aplicación).
+Carga la página del Dashboard y verifica el mensaje exacto en los logs. Busca errores relacionados con:
+Funciones no definidas.
+Variables no pasadas correctamente.
+Problemas al renderizar la plantilla dashboard.html.
+Ejemplo típico de log:
+plaintext
+Copiar código
+File "routes/dashboard.py", line 12, in dashboard
+    estadisticas = obtener_estadisticas()
+NameError: name 'obtener_estadisticas' is not defined
+Comparte el mensaje del error aquí si no estás seguro de cómo interpretarlo.
+Paso 2: Verifica la función asociada al Dashboard
+Localiza la función que maneja la ruta /dashboard. Probablemente está en un archivo como routes/dashboard.py o similar.
+
+Debería verse algo así:
+
+python
+Copiar código
+@dashboard.route('/dashboard')
+def dashboard():
+    estadisticas = obtener_estadisticas()
+    return render_template('dashboard.html', estadisticas=estadisticas)
+Revisa lo siguiente:
+
+La función obtener_estadisticas está definida y no tiene errores.
+La plantilla dashboard.html existe en la carpeta templates.
+Paso 3: Solución temporal si obtener_estadisticas falla
+Si la función obtener_estadisticas tiene errores, puedes usar valores predeterminados para que el Dashboard cargue:
+
+Código ajustado:
+python
+Copiar código
+@dashboard.route('/dashboard')
+def dashboard():
+    try:
+        estadisticas = obtener_estadisticas() or {
+            'llamadas_totales': 0,
+            'llamadas_completadas': 0,
+            'llamadas_pendientes': 0
+        }
+    except Exception as e:
+        print(f"Error al cargar estadísticas: {e}")
+        estadisticas = {
+            'llamadas_totales': 0,
+            'llamadas_completadas': 0,
+            'llamadas_pendientes': 0
+        }
+    return render_template('dashboard.html', estadisticas=estadisticas)
+Paso 4: Verifica la plantilla dashboard.html
+Abre el archivo dashboard.html y asegúrate de que las variables que espera (estadisticas.llamadas_totales, etc.) están disponibles.
+Si necesitas datos que no están siendo proporcionados, ajusta el contexto en la función del Dashboard.
+Prueba y comparte resultados
+Aplica los cambios sugeridos.
+Recarga la página del Dashboard.
+Si el error persiste, copia aquí el mensaje exacto del log para que podamos avanzar.
+¡Vamos bien! Sigamos con este enfoque paso a paso hasta que el Dashboard cargue correctamente. 😊
+

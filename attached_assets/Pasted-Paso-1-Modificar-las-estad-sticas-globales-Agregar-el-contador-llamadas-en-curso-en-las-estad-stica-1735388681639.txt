@@ -1,0 +1,61 @@
+Paso 1: Modificar las estadísticas globales
+Agregar el contador llamadas_en_curso en las estadísticas globales de manera sencilla:
+
+Código original:
+python
+Copiar código
+'estadisticas': {
+    'total_llamadas': RegistroLlamada.query.count(),
+    'llamadas_completadas': RegistroLlamada.query.filter_by(estado=EstadoLlamadaEnum.COMPLETADA).count(),
+    'llamadas_pendientes': RegistroLlamada.query.filter(
+        RegistroLlamada.estado.in_([EstadoLlamadaEnum.PENDIENTE, EstadoLlamadaEnum.PROGRAMADA])
+    ).count()
+}
+Modificación mínima:
+Agregar el contador llamadas_en_curso:
+
+python
+Copiar código
+'estadisticas': {
+    'total_llamadas': RegistroLlamada.query.count(),
+    'llamadas_completadas': RegistroLlamada.query.filter_by(estado=EstadoLlamadaEnum.COMPLETADA).count(),
+    'llamadas_pendientes': RegistroLlamada.query.filter(
+        RegistroLlamada.estado.in_([EstadoLlamadaEnum.PENDIENTE, EstadoLlamadaEnum.PROGRAMADA])
+    ).count(),
+    'llamadas_en_curso': RegistroLlamada.query.filter_by(estado=EstadoLlamadaEnum.EN_CURSO).count()
+}
+Paso 2: Modificar la consulta SQL de marcadores
+Agregar el contador en_curso en la consulta SQL de estadísticas por usuario:
+
+Código original:
+sql
+Copiar código
+SELECT r.user_id, u.username, COUNT(*) as llamadas_totales,
+    SUM(CASE WHEN rl.estado = 'COMPLETADA' THEN 1 ELSE 0 END) as completadas,
+    SUM(CASE WHEN rl.estado = 'PENDIENTE' THEN 1 ELSE 0 END) as pendientes
+FROM recordatorios r
+JOIN users u ON r.user_id = u.id
+LEFT JOIN registros_llamadas rl ON r.id = rl.recordatorio_id
+GROUP BY r.user_id, u.username;
+Modificación mínima:
+Agregar SUM(CASE WHEN rl.estado = 'EN_CURSO' THEN 1 ELSE 0 END) as en_curso:
+
+sql
+Copiar código
+SELECT r.user_id, u.username, COUNT(*) as llamadas_totales,
+    SUM(CASE WHEN rl.estado = 'COMPLETADA' THEN 1 ELSE 0 END) as completadas,
+    SUM(CASE WHEN rl.estado = 'PENDIENTE' THEN 1 ELSE 0 END) as pendientes,
+    SUM(CASE WHEN rl.estado = 'EN_CURSO' THEN 1 ELSE 0 END) as en_curso
+FROM recordatorios r
+JOIN users u ON r.user_id = u.id
+LEFT JOIN registros_llamadas rl ON r.id = rl.recordatorio_id
+GROUP BY r.user_id, u.username;
+Paso 3: Probar cambios
+Revisar las estadísticas globales: Verifica que ahora se incluye llamadas_en_curso en el objeto estadisticas.
+Verificar los resultados de la consulta SQL:
+Ejecuta la consulta en la base de datos.
+Comprueba que los valores de en_curso se calculen correctamente para cada usuario.
+Paso 4: Confirmar funcionalidad en la interfaz
+Verifica que:
+Los contadores globales incluyan llamadas_en_curso.
+Los marcadores por usuario muestren el nuevo contador en_curso.

@@ -1,0 +1,87 @@
+Problemas Detectados:
+estadisticas is undefined: Esto ocurre porque la variable estadisticas no se pasa correctamente a la plantilla. Esto afecta las páginas de administración y monitoreo.
+
+AttributeError: 'NoneType' object has no attribute 'is_authenticated': El problema está en que current_user no está definido o no tiene una sesión activa.
+
+Las páginas están redirigiendo incorrectamente: Esto puede deberse a errores en la configuración de las rutas o errores al procesar permisos y autenticaciones.
+
+Plan Paso a Paso:
+Paso 1: Verificar que estadisticas se pase correctamente
+Problema: En la función de las rutas de monitoreo o administración, la variable estadisticas no se define o se envía vacía.
+Solución: Revisa la función en routes/main.py que maneja la ruta afectada (por ejemplo, /admin o /monitoreo).
+Modificación:
+python
+Copiar código
+@app.route('/admin')
+@login_required
+def admin_panel():
+    estadisticas = {
+        'total_llamadas': RegistroLlamada.query.count(),
+        'llamadas_completadas': RegistroLlamada.query.filter_by(estado=EstadoLlamadaEnum.COMPLETADA).count(),
+        'llamadas_pendientes': RegistroLlamada.query.filter(
+            RegistroLlamada.estado.in_([EstadoLlamadaEnum.PENDIENTE, EstadoLlamadaEnum.PROGRAMADA])
+        ).count(),
+        'llamadas_en_curso': RegistroLlamada.query.filter_by(estado=EstadoLlamadaEnum.EN_CURSO).count()
+    }
+    return render_template('admin.html', estadisticas=estadisticas)
+Paso 2: Solucionar el error current_user
+Problema: La función generate utiliza current_user, pero no hay un usuario autenticado.
+Solución: Asegúrate de que la ruta que llama a generate esté protegida por el decorador @login_required.
+Modificación:
+python
+Copiar código
+@app.route('/stream')
+@login_required
+def generate():
+    try:
+        if current_user.is_authenticated:
+            # Lógica para generar contenido SSE
+            pass
+        else:
+            abort(401)  # No autorizado
+    except AttributeError:
+        abort(500)  # Error interno
+Paso 3: Verificar y corregir las rutas que redirigen incorrectamente
+Problema: Las páginas de administración están redirigiendo a otras páginas incorrectas.
+Solución:
+Verifica el archivo routes/main.py para asegurarte de que las rutas sean correctas.
+Revisa los decoradores en las funciones y que las rutas estén definidas correctamente, por ejemplo:
+python
+Copiar código
+@app.route('/admin')
+@login_required
+def admin_dashboard():
+    return render_template('admin.html')
+
+@app.route('/monitoreo')
+@login_required
+def monitoring_panel():
+    estadisticas = {
+        'total_llamadas': RegistroLlamada.query.count(),
+        'llamadas_completadas': RegistroLlamada.query.filter_by(estado=EstadoLlamadaEnum.COMPLETADA).count(),
+        'llamadas_pendientes': RegistroLlamada.query.filter(
+            RegistroLlamada.estado.in_([EstadoLlamadaEnum.PENDIENTE, EstadoLlamadaEnum.PROGRAMADA])
+        ).count(),
+        'llamadas_en_curso': RegistroLlamada.query.filter_by(estado=EstadoLlamadaEnum.EN_CURSO).count()
+    }
+    return render_template('monitoring.html', estadisticas=estadisticas)
+Paso 4: Confirmar correcciones
+Estadísticas en la plantilla:
+
+Asegúrate de que la plantilla admin.html y monitoring.html usen la variable estadisticas correctamente:
+html
+Copiar código
+<h3>Total de Llamadas: {{ estadisticas.total_llamadas }}</h3>
+<h3>Llamadas Completadas: {{ estadisticas.llamadas_completadas }}</h3>
+<h3>Llamadas Pendientes: {{ estadisticas.llamadas_pendientes }}</h3>
+<h3>Llamadas En Curso: {{ estadisticas.llamadas_en_curso }}</h3>
+Redirecciones:
+
+Accede a /admin y /monitoreo y confirma que las páginas sean las correctas.
+Autenticación:
+
+Verifica que solo los usuarios autenticados puedan acceder a las rutas protegidas.
+Resultado esperado:
+Las estadísticas se muestran correctamente en el panel de monitoreo y administración.
+No más errores de autenticación.
+Las rutas están configuradas correctamente.

@@ -1,0 +1,108 @@
+Lógica para la Gestión de Mensajes
+1. Usuarios Mayores y Discapacitados
+Límite Mensual: Cada usuario mayor o discapacitado tiene 100 mensajes gratis al mes.
+Renovación Automática: El contador de mensajes se reinicia al inicio de cada mes.
+Restricción de Mensajes: No pueden enviar más de 100 mensajes, a menos que compren créditos adicionales (opcional).
+2. Usuarios Regulares (De Pago)
+Compra de Paquetes de Mensajes: Los usuarios pueden comprar paquetes de mensajes según la siguiente tabla:
+
+Paquete	Precio por Paquete	Precio por Mensaje
+100 mensajes	10 €	0.10 €
+200 mensajes	18 €	0.09 €
+300 mensajes	24 €	0.08 €
+400 mensajes	28 €	0.07 €
+500 mensajes	30 €	0.06 €
+Validación de Créditos: Antes de enviar un mensaje, se verifica que el usuario tenga créditos suficientes.
+
+Descuento Escalonado: A medida que compran más mensajes, el precio unitario disminuye.
+
+Implementación Paso a Paso
+1. Base de Datos
+Tabla usuarios:
+
+sql
+Copiar código
+CREATE TABLE usuarios (
+    id INT PRIMARY KEY,
+    nombre VARCHAR(100),
+    tipo_usuario ENUM('mayor', 'discapacitado', 'regular') NOT NULL,
+    mensajes_disponibles INT DEFAULT 0,
+    fecha_renovacion DATE
+);
+Tabla paquetes:
+
+sql
+Copiar código
+CREATE TABLE paquetes (
+    id INT PRIMARY KEY,
+    cantidad_mensajes INT,
+    precio DECIMAL(5,2)
+);
+Tabla compras:
+
+sql
+Copiar código
+CREATE TABLE compras (
+    id INT PRIMARY KEY,
+    usuario_id INT,
+    paquete_id INT,
+    fecha_compra DATE,
+    mensajes_agregados INT,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
+    FOREIGN KEY (paquete_id) REFERENCES paquetes(id)
+);
+2. Lógica del Sistema
+a) Renovación Automática (Gratis para Mayores/Discapacitados)
+python
+Copiar código
+def renovar_mensajes_gratis():
+    from datetime import datetime
+    hoy = datetime.now().date()
+
+    usuarios_gratis = Usuario.query.filter(
+        Usuario.tipo_usuario.in_(['mayor', 'discapacitado']),
+        Usuario.fecha_renovacion < hoy.replace(day=1)
+    ).all()
+
+    for usuario in usuarios_gratis:
+        usuario.mensajes_disponibles = 100
+        usuario.fecha_renovacion = hoy.replace(day=1)
+    
+    db.session.commit()
+b) Compra de Paquetes (Usuarios Regulares)
+python
+Copiar código
+def comprar_paquete(usuario_id, paquete_id):
+    usuario = Usuario.query.get(usuario_id)
+    paquete = Paquete.query.get(paquete_id)
+
+    if usuario and paquete:
+        usuario.mensajes_disponibles += paquete.cantidad_mensajes
+        compra = Compra(
+            usuario_id=usuario.id,
+            paquete_id=paquete.id,
+            fecha_compra=datetime.now(),
+            mensajes_agregados=paquete.cantidad_mensajes
+        )
+        db.session.add(compra)
+        db.session.commit()
+        return f"Compra exitosa: {paquete.cantidad_mensajes} mensajes agregados."
+    else:
+        return "Error: Usuario o paquete no válido."
+c) Verificar Créditos y Enviar Mensajes
+python
+Copiar código
+def enviar_mensaje(usuario_id, mensaje):
+    usuario = Usuario.query.get(usuario_id)
+
+    if usuario.mensajes_disponibles > 0:
+        usuario.mensajes_disponibles -= 1
+        # Lógica para enviar el mensaje (simulada aquí)
+        db.session.commit()
+        return "Mensaje enviado correctamente."
+    else:
+        return "Error: No tienes créditos suficientes para enviar el mensaje."
+3. Vista para Comprar Paquetes
+Incluye una interfaz que muestre las opciones de paquetes y permita realizar compras.
+
+¿Quieres que trabajemos en implementar este código en un archivo específico o que preparemos un esquema más detallado para el agente? 😊

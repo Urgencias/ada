@@ -1,0 +1,83 @@
+Paso 1: Validar Configuración del Servidor
+Acceder al servidor con IP 185.8.244.102:
+
+Usa SSH o una interfaz de administración remota.
+Asegúrate de contar con los permisos necesarios para realizar configuraciones en el servidor.
+Revisar la configuración del SIP:
+
+Verifica los parámetros en el archivo de configuración SIP. Si utilizas Asterisk, revisa sip.conf o pjsip.conf.
+Paso 2: Analizar Logs del Servidor
+Habilitar logs detallados:
+
+En Asterisk, habilita el nivel de depuración más alto ejecutando:
+bash
+Copiar código
+asterisk -rvvvvv
+sip set debug on
+Si usas PJSIP:
+bash
+Copiar código
+pjsip set logger on
+Realizar una prueba de llamada:
+
+Inicia una llamada desde el origen (194.140.135.105) y analiza el log generado para identificar la causa del BYE.
+Busca palabras clave como "HangupCause" y "HangupCauseCode".
+Verificar mensajes BYE:
+
+En el log se muestra que la causa del hangup no está clara:
+makefile
+Copiar código
+X-Asterisk-HangupCause: Unknown
+X-Asterisk-HangupCauseCode: 0
+Este comportamiento puede deberse a un fallo en la autenticación, codec no compatible, o errores en el SDP.
+Paso 3: Configuración para Mensaje de 15 Segundos
+Configurar un mensaje de 15 segundos:
+
+Verifica que el mensaje de audio (archivo .wav o .gsm) esté cargado correctamente en el servidor.
+Asegúrate de que esté configurado en el dialplan para reproducirse durante 15 segundos.
+Editar el extensions.conf (o el archivo equivalente en tu sistema):
+
+Agrega o modifica la extensión relevante:
+ini
+Copiar código
+[from-netelip]
+exten => 34968972418,1,Answer()
+exten => 34968972418,n,Playback(mensaje-15-segundos) ; Reproduce mensaje
+exten => 34968972418,n,Hangup()
+Verificar compatibilidad del codec:
+
+Confirma que el codec usado en el SDP (por ejemplo, G729, PCMA) esté habilitado en el servidor:
+ini
+Copiar código
+disallow=all
+allow=alaw
+allow=ulaw
+allow=g729
+Paso 4: Verificar Autenticación y Routing
+Validar credenciales SIP:
+
+Revisa que las credenciales configuradas para Netelip sean correctas:
+ini
+Copiar código
+[netelip]
+type=peer
+host=apivoice.netelip.com
+username=tu_usuario
+secret=tu_contraseña
+insecure=port,invite
+context=from-netelip
+Configurar tiempos de respuesta SIP:
+
+Ajusta el tiempo máximo para cortar una llamada:
+ini
+Copiar código
+session-timers=refuse
+session-expires=180
+Paso 5: Pruebas y Monitorización
+Hacer pruebas de llamada:
+
+Realiza una llamada de prueba y confirma que el mensaje de 15 segundos se reproduce correctamente.
+Revisar logs nuevamente:
+
+Si aún se generan BYE, verifica si el error está relacionado con tiempos de espera (timeouts), autenticación o codecs no soportados.
+Paso 6: Escalar si Persiste el Problema

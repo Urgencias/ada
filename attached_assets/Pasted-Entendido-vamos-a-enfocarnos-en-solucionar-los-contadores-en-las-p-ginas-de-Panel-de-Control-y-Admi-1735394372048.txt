@@ -1,0 +1,116 @@
+Entendido, vamos a enfocarnos en solucionar los contadores en las páginas de Panel de Control y Administrador, además de resolver el error en la página de llamadas. Nos aseguraremos de atacar los problemas uno a uno.
+
+Paso 1: Revisar y Corregir los Contadores
+Problema:
+Los contadores en el Panel de Control y la página del Administrador están vacíos.
+Los datos no están siendo calculados o pasados correctamente desde el backend.
+Solución:
+Revisemos y ajustemos la lógica en routes/main.py donde se calculan las estadísticas.
+
+Código sugerido para los contadores:
+Busca la función que renderiza las páginas del Panel de Control y Administrador y ajusta el cálculo de las estadísticas:
+
+python
+Copiar código
+@app.route('/panel-control')
+def panel_control():
+    try:
+        # Calcula las estadísticas
+        total_llamadas = RegistroLlamada.query.count()
+        llamadas_completadas = RegistroLlamada.query.filter_by(estado='COMPLETADA').count()
+        llamadas_pendientes = RegistroLlamada.query.filter_by(estado='PENDIENTE').count()
+        llamadas_en_curso = RegistroLlamada.query.filter_by(estado='EN_CURSO').count()
+
+        # Preparar los datos para la plantilla
+        estadisticas = {
+            'total_llamadas': total_llamadas,
+            'llamadas_completadas': llamadas_completadas,
+            'llamadas_pendientes': llamadas_pendientes,
+            'llamadas_en_curso': llamadas_en_curso,
+        }
+
+        return render_template('panel_control.html', estadisticas=estadisticas)
+    except Exception as e:
+        app.logger.error(f"Error al cargar las estadísticas del panel: {e}")
+        return render_template('panel_control.html', error="Error al cargar las estadísticas.")
+Para la página del Administrador, la lógica debería ser similar. Asegúrate de tener esta estructura en la función correspondiente:
+
+python
+Copiar código
+@app.route('/admin-panel')
+def admin_panel():
+    try:
+        # Calcula las estadísticas para el administrador
+        total_llamadas = RegistroLlamada.query.count()
+        llamadas_completadas = RegistroLlamada.query.filter_by(estado='COMPLETADA').count()
+        llamadas_pendientes = RegistroLlamada.query.filter_by(estado='PENDIENTE').count()
+        llamadas_en_curso = RegistroLlamada.query.filter_by(estado='EN_CURSO').count()
+
+        estadisticas = {
+            'total_llamadas': total_llamadas,
+            'llamadas_completadas': llamadas_completadas,
+            'llamadas_pendientes': llamadas_pendientes,
+            'llamadas_en_curso': llamadas_en_curso,
+        }
+
+        return render_template('admin_panel.html', estadisticas=estadisticas)
+    except Exception as e:
+        app.logger.error(f"Error al cargar las estadísticas del administrador: {e}")
+        return render_template('admin_panel.html', error="Error al cargar las estadísticas.")
+Paso 2: Ajustar las Plantillas HTML
+Panel de Control (panel_control.html)
+Asegúrate de que los contadores sean visibles en la plantilla HTML:
+
+html
+Copiar código
+<div class="estadisticas">
+    <h3>Estadísticas de Llamadas</h3>
+    <ul>
+        <li>Total de llamadas: {{ estadisticas.total_llamadas }}</li>
+        <li>Llamadas completadas: {{ estadisticas.llamadas_completadas }}</li>
+        <li>Llamadas pendientes: {{ estadisticas.llamadas_pendientes }}</li>
+        <li>Llamadas en curso: {{ estadisticas.llamadas_en_curso }}</li>
+    </ul>
+</div>
+Página del Administrador (admin_panel.html)
+La estructura puede ser similar:
+
+html
+Copiar código
+<div class="estadisticas-admin">
+    <h3>Estadísticas Administrativas</h3>
+    <ul>
+        <li>Total de llamadas: {{ estadisticas.total_llamadas }}</li>
+        <li>Llamadas completadas: {{ estadisticas.llamadas_completadas }}</li>
+        <li>Llamadas pendientes: {{ estadisticas.llamadas_pendientes }}</li>
+        <li>Llamadas en curso: {{ estadisticas.llamadas_en_curso }}</li>
+    </ul>
+</div>
+Paso 3: Resolver el Error en la Página de Llamadas
+El error persiste porque probablemente los contadores o el historial no están siendo calculados correctamente. Ajusta la función de la ruta /llamadas en el backend:
+
+python
+Copiar código
+@app.route('/llamadas')
+def llamadas():
+    try:
+        historial = RegistroLlamada.query.all()
+
+        # Calcula estadísticas básicas
+        estadisticas = {
+            'total': len(historial),
+            'completadas': sum(1 for llamada in historial if llamada.estado == 'COMPLETADA'),
+            'pendientes': sum(1 for llamada in historial if llamada.estado == 'PENDIENTE'),
+            'en_curso': sum(1 for llamada in historial if llamada.estado == 'EN_CURSO'),
+        }
+
+        return render_template('llamadas.html', historial=historial, estadisticas=estadisticas)
+    except Exception as e:
+        app.logger.error(f"Error al cargar el historial de llamadas: {e}")
+        return render_template('llamadas.html', error="Error al cargar el historial de llamadas.")
+Paso 4: Validar los Cambios
+Reinicia el servidor Flask.
+Verifica:
+Página de Panel de Control: Los contadores deben estar llenos.
+Página del Administrador: Los contadores deben estar llenos.
+Página de Llamadas: Debe mostrar el historial y los contadores.

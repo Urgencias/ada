@@ -1,0 +1,57 @@
+Unificar inicialización y solucionar error de contexto
+Configurar main.py como punto único de inicialización
+Asegúrate de que main.py contenga lo siguiente:
+
+python
+Copiar código
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///example.db'  # Cambia según tu configuración
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+Modificar test_netelip.py para usar main.py
+Asegúrate de que el archivo use la instancia de Flask desde main.py y no de app.py:
+
+python
+Copiar código
+from main import app  # Usa main.py como el punto principal de inicialización
+from models import User  # Importa los modelos correctamente
+
+def realizar_llamada_prueba(mensaje="Prueba"):
+    with app.app_context():  # Establece el contexto explícito
+        try:
+            print("Iniciando llamada de prueba...")
+            user = User.query.filter_by(username='admin').first()  # Consulta segura a la BD
+            if not user:
+                print("Usuario admin no encontrado.")
+                return
+            # Aquí puedes añadir la lógica para iniciar la llamada con Netelip
+            print(f"Llamada al número {user.llamadas_disponibles}")
+        except Exception as e:
+            print(f"Error durante la prueba: {e}")
+Eliminar cualquier referencia a app.py
+
+Busca en el proyecto referencias a app.py y reemplázalas por:
+python
+Copiar código
+from main import app
+Si app.py ya no es necesario, elimínalo del proyecto para evitar confusiones futuras.
+Ejecutar prueba de llamada
+Una vez ajustados los archivos, ejecuta el siguiente comando:
+
+bash
+Copiar código
+python3 -c "from utils.test_netelip import realizar_llamada_prueba; realizar_llamada_prueba('Prueba usando main.py')"
+Verificar resultados en los logs
+Confirma que ya no aparece el error Working outside of application context y que la llamada se procesa correctamente.
+
+Resumen de acción:
+
+Centralizamos todo en main.py.
+Actualizamos dependencias en test_netelip.py y otros archivos.
+Eliminamos app.py para evitar confusiones.
+Ejecutamos la prueba con logs ajustados.
+Con esto, deberíamos eliminar los problemas de contexto y unificar todo correctamente. Avísame el resultado. 🚀

@@ -1,0 +1,74 @@
+Esquema Completo del Proyecto Basado e
+Carpeta Principal: amigo/
+Archivos principales de Python (fuera de carpetas):
+
+app.py- Configuración principal del servidor Flask.
+inicializar_db.py- Código pa
+insertar_recordatorios.py- Código para insertar nuevos recordatorios en la base de datos.
+configuracion_proveedor.py- Código para manejar la configuración del proveedor de llamadas.
+llamadas_proveedor.py- Código para realizar llamadas mediante un proveedor externo.
+interfaz_usuario.py- Código para gestionar la interacción entre el usuario y el sistema.
+panel_control.py- Control general
+panel_llamadas.py- Gestión de llamadas programadas.
+gestor_csv.py- Gestión de exportación/importación de datos en formato CSV.
+prueba_llamada.py- Pruebas del sistema de llamadas.
+database.py- Conexión y manejo avanzado de la base de datos.
+formulario_recordatorios.py- Módulo para gestionar formularios de recordatorios.
+Archivos de datos:
+
+recordatorios.db- Base de datos SQLite.
+entrada.csv- Ejemplo de entrada de datos.
+salida.csv- Exportación de resultados de recordatorios.
+voice.xml- Configuración para el sistema de llamadas con voz.
+Archivos de configuración:
+
+requirements.txt- Lista de dependencias de Python (Flask, SQLite, etc.).
+pyproject.toml- Configuración de entorno para el proyecto.
+Carpeta: amigo/templates/ (Plantillas HTML)
+Plantillas funcionales:
+dashboard.html- Página principal del
+nuevo_recordatorio.html- Crear nuevos recordatorios.
+editar_recordatorio.html- Editar recordatorios existentes.
+recordatorios.html- Ver lista de recordatorios.
+llamadas.html- Página de gestión de llamadas.
+configuracion.html- Configuración general.
+login.html- Página de inicio de sesión.
+errores.html- Página para manejar y mostrar errores.
+404.html- Página de error personalizada para rutas no encontradas.
+Carpeta: amigo/static/ (Archivos estáticos)
+Estilos:
+style.css- Archivo principal de estilos.
+Petición para el Asistente de Réplica
+Mensaje estructurado:
+Hola, actualmente tenemos problemas importantes en el proyecto debido a la pérdida de múltiples archivos esenciales que estaban presentes inicialmente. Esto ha afectado seriamente la funcionalidad del sistema y necesitamos restaurar el esquema completo del proyecto.
+
+Adjunto un esquema detallado de cómo debería ser la est
+
+Archivos Python clave que faltan:
+
+panel_llamadas.py
+formulario_recordatorios.py
+prueba_llamada.py
+gestor_csv.py
+Otros mencionados en el esquema.
+Plantillas HTML faltantes:
+
+nuevo_recordatorio.html
+editar_recordatorio.html
+llamadas.html
+login.html
+errores.html
+Impacto:
+
+Al faltar
+Solicitud:
+
+Por favor, descansa.
+Si tiene una copia del respaldo anterior
+Gracias de antemano.
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+
+Antonio, los dos códigos que compartiste están retocando el archivo main.py, pero tienen algunas diferencias menores. Vamos a unificarlos para asegurar que el archivo final sea funcional, claro y eficiente.
+
+Unificación del archivo main.py
+Este es el archivo optimizado, que incluye todos los elementos clave de ambos códigos:
+
+python
+Copiar código
+import os
+from flask import Flask
+from extensions import db, login_manager, mail, migrate, csrf, logger
+
+def create_app():
+    app = Flask(__name__)
+    
+    # Configuración de la aplicación
+    app.config.update(
+        SECRET_KEY=os.environ.get("FLASK_SECRET_KEY", "dev_key_123"),
+        SQLALCHEMY_DATABASE_URI=os.environ.get("DATABASE_URL", "sqlite:///instance/recordatorios.db"),
+        SQLALCHEMY_TRACK_MODIFICATIONS=False,
+        SQLALCHEMY_ENGINE_OPTIONS={
+            "pool_pre_ping": True,
+            "pool_recycle": 300,
+        }
+    )
+
+    # Inicializar extensiones con la app
+    db.init_app(app)
+    login_manager.init_app(app)
+    mail.init_app(app)
+    migrate.init_app(app, db)
+    csrf.init_app(app)
+
+    # Configuración de Flask-Login
+    login_manager.login_view = 'auth.login'
+    login_manager.login_message = 'Por favor inicia sesión para acceder a esta página.'
+    login_manager.login_message_category = 'info'
+
+    with app.app_context():
+        # Configurar el cargador de usuarios
+        @login_manager.user_loader
+        def load_user(user_id):
+            from models import User
+            return User.query.get(int(user_id))
+
+        # Registrar rutas
+        from routes import init_routes
+        init_routes(app)
+
+        # Crear tablas en la base de datos
+        db.create_all()
+
+        # Iniciar el scheduler
+        try:
+            from utils.scheduler import start_scheduler
+            start_scheduler(app)
+            logger.info("Scheduler iniciado correctamente.")
+        except Exception as e:
+            logger.error(f"Error al iniciar el scheduler: {e}")
+
+    return app
+
+if __name__ == "__main__":
+    # Crear la aplicación y ejecutar el servidor
+    app = create_app()
+    logger.info("Iniciando servidor Flask...")
+    app.run(host="0.0.0.0", port=3000, debug=True)
+Diferencias importantes incluidas
+Cargador de usuarios: Incluido el decorador @login_manager.user_loader en la configuración de Flask-Login.
+Scheduler: Manejo de excepciones al iniciar el scheduler para evitar errores críticos si falla.
+Unificación de configuración: Asegurada la configuración de SQLAlchemy, rutas, y extensiones.
+Próximos pasos
+Reemplaza el contenido de main.py por el archivo unificado anterior.
+Reinicia el servidor Flask:
+bash
+Copiar código
+pkill python3 || true && python3 main.py
+Verifica la funcionalidad de la aplicación en la web:
+Accede a la dirección pública de Replit o a http://localhost:3000.
+Avísame si hay algo más que ajustar o algún error adicional que resolver. ¡Dejemos todo funcionando perfectamente! 🚀

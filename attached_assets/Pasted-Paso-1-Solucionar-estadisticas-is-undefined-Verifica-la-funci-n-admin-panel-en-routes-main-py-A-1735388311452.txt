@@ -1,0 +1,91 @@
+Paso 1: Solucionar "estadisticas is undefined"
+Verifica la función admin_panel en routes/main.py:
+
+Asegúrate de que la variable estadisticas está correctamente definida y pasada a la plantilla:
+python
+Copiar código
+@main_bp.route('/admin-panel')
+@login_required
+def admin_panel():
+    try:
+        estadisticas = {
+            'total_usuarios': User.query.count(),
+            'total_llamadas': RegistroLlamada.query.count(),
+            'llamadas_completadas': RegistroLlamada.query.filter_by(estado='COMPLETADA').count(),
+            'llamadas_pendientes': RegistroLlamada.query.filter(
+                RegistroLlamada.estado.in_(['PENDIENTE', 'PROGRAMADA'])
+            ).count()
+        }
+        return render_template('admin_panel.html', estadisticas=estadisticas)
+    except Exception as e:
+        logger.error(f"Error al cargar el panel de administración: {str(e)}")
+        flash('Error al cargar el panel de administración', 'danger')
+        return redirect(url_for('main.dashboard'))
+Revisa la plantilla admin_panel.html:
+
+Asegúrate de que la plantilla maneja estadisticas correctamente y tenga una condición para manejar casos en que sea None:
+html
+Copiar código
+{% if estadisticas %}
+    <h3>Total de usuarios: {{ estadisticas.total_usuarios }}</h3>
+    <h3>Llamadas completadas: {{ estadisticas.llamadas_completadas }}</h3>
+    <h3>Llamadas pendientes: {{ estadisticas.llamadas_pendientes }}</h3>
+{% else %}
+    <p>No se pudieron cargar las estadísticas.</p>
+{% endif %}
+Reinicia el servidor y verifica:
+
+Confirma si el panel de administración ahora muestra las estadísticas.
+Paso 2: Resolver "NoneType object has no attribute 'is_authenticated'" en SSE
+Modifica la función generate en routes/main.py:
+
+Maneja el caso cuando current_user no está definido:
+python
+Copiar código
+def generate():
+    logger.info("Iniciando generador SSE")
+    while True:
+        try:
+            if current_user and current_user.is_authenticated:
+                # Datos de monitoreo
+                data = {'estado': 'ok', 'mensaje': 'Monitoreo actualizado'}
+                yield f"data: {json.dumps(data)}\n\n"
+            else:
+                logger.warning("Usuario no autenticado en generador SSE")
+                data = {'estado': 'error', 'mensaje': 'Usuario no autenticado'}
+                yield f"data: {json.dumps(data)}\n\n"
+        except Exception as e:
+            logger.error(f"Error en generador SSE: {str(e)}")
+            data = {'estado': 'error', 'mensaje': 'Error interno'}
+            yield f"data: {json.dumps(data)}\n\n"
+        time.sleep(5)
+Confirma que el monitoreo no se rompe:
+
+Verifica que el sistema continúa funcionando incluso si current_user no está definido.
+Paso 3: Validar estados de llamada (Error al hacer pruebas)
+Actualiza los valores de estado en la base de datos:
+
+Asegúrate de que los valores de estado sean válidos y consistentes:
+sql
+Copiar código
+UPDATE registros_llamadas SET estado = 'EN_CURSO' WHERE estado = 'INICIADA';
+Revisa el enum EstadoLlamadaEnum:
+
+Confirma que tiene todos los valores esperados:
+python
+Copiar código
+class EstadoLlamadaEnum(str, Enum):
+    PENDIENTE = 'PENDIENTE'
+    PROGRAMADA = 'PROGRAMADA'
+    EN_CURSO = 'EN_CURSO'
+    COMPLETADA = 'COMPLETADA'
+    FALLIDA = 'FALLIDA'
+    ERROR = 'ERROR'
+Corrige referencias a estados en el código:
+
+Busca y reemplaza las referencias a INICIADA o valores en minúsculas para usar valores válidos del enum.
+Paso 4: Validar funcionalidad general
+Revisa estos puntos clave después de los cambios:
+El panel de administración debe mostrar estadísticas sin errores.
+El generador SSE debe funcionar sin interrumpirse.
+El sistema de llamadas debe manejar correctamente los estados.

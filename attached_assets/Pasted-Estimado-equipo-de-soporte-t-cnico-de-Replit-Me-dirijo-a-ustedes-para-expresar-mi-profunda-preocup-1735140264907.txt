@@ -1,0 +1,32 @@
+Estimado equipo de soporte técnico de Replit:
+
+Me dirijo a ustedes para expresar mi profunda preocupación por los problemas recientes con mi aplicación de recordatorios mediante llamadas programadas. A continuación, detallo los acontecimientos:
+
+Descripción del Problema:
+
+Estado Inicial: El 24 de diciembre de 2024, mi aplicación funcionaba de manera óptima. Estaba configurada para realizar llamadas programadas con conversión de texto a voz en intervalos de 15 segundos, repitiendo hasta 8 intentos si la llamada no se completaba, y con un rastreador que verificaba cada 3 minutos las llamadas pendientes.
+
+Intervención del Agente: Ese mismo día, alrededor de las 14:40, durante un cambio de turno, un nuevo agente realizó modificaciones que afectaron negativamente el funcionamiento de la aplicación. A pesar de mis solicitudes para que detuviera las alteraciones, el agente continuó, resultando en fallos básicos como la incapacidad de realizar llamadas directas y la desconfiguración de interfaces y funciones.
+
+Intervenciones de Superiores: Posteriormente, alrededor de las 15:30, un superior intervino y permaneció hasta las 19:00, intentando resolver la situación. Dado que era Nochebuena, me sugirió que pasara tiempo con mi familia mientras él aguardaba la asistencia del ingeniero responsable. Regresé a las 21:30 y otro agente intentó ayudarme, pero al no lograr avances, solicité nuevamente la presencia de un superior. Este llegó más tarde y, tras varias horas de conversación, me aseguró que el proyecto sería restaurado a su estado funcional original.
+
+Intentos de Aportar Evidencias:
+
+He intentado adjuntar múltiples imágenes que demuestran el elevado número de llamadas realizadas durante las pruebas. Sin embargo, el sistema no permite cargar estas imágenes ni archivos en formato PDF, lo que dificulta la presentación de las pruebas necesarias para respaldar mi caso.
+
+Solicitudes:
+
+Restauración del Sistema: Solicito que el ingeniero responsable de la configuración original de la aplicación intervenga para restaurarla a su estado funcional previo.
+
+Revisión de Procedimientos: Pido una revisión de los procedimientos internos para garantizar que los agentes no realicen cambios sin el consentimiento del cliente, evitando así situaciones similares en el futuro.
+
+Asistencia para Adjuntar Evidencias: Solicito orientación sobre cómo puedo proporcionar las evidencias necesarias, dado que el sistema actual no permite adjuntar imágenes ni archivos PDF.
+
+Compensación: Dado el tiempo y las funcionalidades perdidas, solicito una compensación adecuada por los inconvenientes causados.
+
+Agradezco de antemano su atención a este asunto y confío en una pronta resolución. Quedo a la espera de su respuesta y estoy disponible para proporcionar cualquier información adicional que sea necesaria.
+
+Atentamente,
+
+Antonio José Moreno Ortín
+

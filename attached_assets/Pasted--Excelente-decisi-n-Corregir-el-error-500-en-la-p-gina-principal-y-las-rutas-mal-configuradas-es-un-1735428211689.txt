@@ -1,0 +1,71 @@
+¡Excelente decisión! Corregir el error 500 en la página principal y las rutas mal configuradas es un paso clave para estabilizar la aplicación. Sigamos un plan detallado para resolverlo.
+
+Paso 1: Diagnóstico del error 500
+Un error 500 generalmente ocurre debido a un problema en:
+
+La ruta o función asociada: La función que renderiza la página principal podría no estar devolviendo el contexto correcto o no estar registrada adecuadamente.
+La plantilla HTML (index.html): Podría estar esperando variables que no se están pasando.
+Acción inmediata: Revisar los logs
+Revisa el stack trace completo en los logs del servidor para identificar el origen del error.
+Presta atención a las líneas donde menciona:
+werkzeug.routing.exceptions.BuildError
+Errores relacionados con url_for o variables no definidas.
+Paso 2: Revisar la ruta de la página principal
+Abre el archivo donde se define la función para la página principal. Probablemente está en routes/main.py.
+
+Busca algo como esto:
+
+python
+Copiar código
+@main.route('/')
+def index():
+    estadisticas = obtener_estadisticas()
+    return render_template('index.html', estadisticas=estadisticas)
+Verifica lo siguiente:
+
+La función obtener_estadisticas existe y devuelve un resultado válido.
+La plantilla index.html está en la carpeta correcta (templates/).
+La función index está registrada en el blueprint main.
+Ajustes comunes:
+Si obtener_estadisticas falla, usa un valor predeterminado para evitar el error:
+python
+Copiar código
+estadisticas = obtener_estadisticas() if obtener_estadisticas() else {}
+Paso 3: Verificar el registro del blueprint
+En el archivo principal de la aplicación (app.py o __init__.py), asegúrate de que el blueprint main esté registrado correctamente:
+
+python
+Copiar código
+from routes.main import main
+app.register_blueprint(main, url_prefix='/')
+Si el registro está duplicado o mal configurado, puede causar errores.
+
+Paso 4: Validar la plantilla index.html
+Abre templates/index.html y revisa su contenido.
+Busca llamadas a variables que podrían estar causando problemas. Por ejemplo:
+html
+Copiar código
+<h1>Llamadas totales: {{ estadisticas.llamadas_totales }}</h1>
+Si estadisticas no se pasa correctamente desde la función, esto puede causar un error.
+Solución temporal:
+Agrega valores predeterminados en el contexto:
+
+python
+Copiar código
+return render_template('index.html', estadisticas={
+    'llamadas_totales': 0,
+    'llamadas_completadas': 0,
+    'llamadas_pendientes': 0
+})
+Paso 5: Pruebas
+Guarda los cambios y reinicia la aplicación.
+Abre la página principal en el navegador para verificar si el error persiste.
+Si todo funciona, prueba navegar a otras rutas para confirmar que no hay más errores.
+¿Qué sigue?
+Realiza estas correcciones y verifica el resultado.
+Si el error persiste, comparte los detalles del stack trace más reciente, y ajustaremos el enfoque.
+¡Confío en que lo resolveremos! Estoy aquí para cualquier duda adicional. 😊
+
+
+
+

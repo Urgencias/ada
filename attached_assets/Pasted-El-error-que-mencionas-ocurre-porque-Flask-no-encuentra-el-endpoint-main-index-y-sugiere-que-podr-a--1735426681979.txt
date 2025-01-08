@@ -1,0 +1,55 @@
+El error que mencionas ocurre porque Flask no encuentra el endpoint main.index y sugiere que podría estar registrado como main_blueprint.index. Esto probablemente se debe a una discrepancia en cómo se registró el blueprint en tu aplicación y cómo se están construyendo las URLs.
+
+Diagnóstico del problema
+Registro del blueprint: Al registrar un blueprint, el nombre que usas para el registro afecta cómo se debe referenciar en las llamadas a url_for.
+Construcción de URLs: En el template base.html, la línea:
+html
+Copiar código
+<a class="navbar-brand" href="{{ url_for('main.index') }}">
+asume que el blueprint fue registrado con el nombre main. Sin embargo, parece que fue registrado con otro nombre (main_blueprint).
+Solución paso a paso
+Paso 1: Revisa el registro del blueprint
+Abre el archivo donde registraste el blueprint main (probablemente app.py o __init__.py). Busca algo como esto:
+
+python
+Copiar código
+from routes.main import main
+
+app.register_blueprint(main, url_prefix='/')
+Aquí, verifica:
+
+Nombre del blueprint: Asegúrate de que el blueprint en main.py tiene el nombre correcto. Por ejemplo:
+
+python
+Copiar código
+main = Blueprint('main', __name__)
+Si el nombre del blueprint en el registro no coincide con 'main', cámbialo a 'main' para que sea consistente.
+
+Si ya está registrado como 'main', verifica si se registró con un nombre diferente como 'main_blueprint':
+
+python
+Copiar código
+main = Blueprint('main_blueprint', __name__)
+Si es así, puedes renombrarlo a 'main' para evitar confusión, o cambiar el template (veremos cómo hacerlo más adelante).
+
+Paso 2: Asegúrate de que las referencias coincidan
+Si decides mantener 'main' como nombre, asegúrate de que todas las referencias a este blueprint usan ese nombre. Por ejemplo:
+
+Cambia en el template base.html:
+html
+Copiar código
+<a class="navbar-brand" href="{{ url_for('main.index') }}">
+Si decides mantener 'main_blueprint', cambia la referencia:
+html
+Copiar código
+<a class="navbar-brand" href="{{ url_for('main_blueprint.index') }}">
+Paso 3: Prueba la solución
+Guarda los cambios en app.py, main.py, y los templates afectados.
+Reinicia la aplicación para que se apliquen los cambios.
+Verifica si el error persiste.
+Si el problema persiste
+Si después de estos ajustes el problema sigue ocurriendo, compárteme:
+
+Cómo registraste el blueprint en app.py.
+El código del blueprint en main.py.
+Cualquier otro error adicional en los logs.

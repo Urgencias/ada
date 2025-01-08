@@ -1,0 +1,42 @@
+1. Confirma el problema actual
+El error "Working outside of application context" indica que hay código ejecutándose fuera del contexto de Flask, lo que ocurre típicamente cuando intentas acceder a cosas como current_app, g, o las extensiones de Flask (por ejemplo, db) sin usar app.app_context().
+2. Instrucciones para el agente
+Dile al agente:
+
+Explica brevemente el problema:
+
+El proyecto muestra el error "Working outside of application context". Sospecho que está ocurriendo en routes/main.py, específicamente en la función generate en la línea 118. Parece que intenta acceder a current_app fuera del contexto.
+
+Pide ayuda para confirmar y corregir:
+
+Necesito verificar si la función está usando correctamente app.app_context(). ¿Podrían revisar esa línea en routes/main.py y el flujo general en main.py para asegurarse de que Flask maneja el contexto correctamente?
+
+3. Opcional: Código general para ajustar el contexto
+Si necesitas probar una corrección antes de enviar al agente, aquí hay un ejemplo básico de cómo garantizar que el contexto esté configurado:
+
+Corrección en main.py:
+Asegúrate de que el servidor Flask esté inicializado correctamente y dentro de un contexto:
+
+python
+Copiar código
+from flask import Flask
+
+app = Flask(__name__)
+
+with app.app_context():
+    # Registra rutas y extensiones aquí
+    from routes import main  # Asegúrate de importar correctamente
+Corrección en routes/main.py:
+Si estás usando current_app directamente, asegúrate de usar el contexto:
+
+python
+Copiar código
+from flask import current_app
+
+def generate():
+    with current_app.app_context():
+        # Código que requiere el contexto de Flask
+4. Responde al agente
+Si no estás seguro de cómo implementar estas correcciones, responde al agente:
+
+Estoy viendo errores relacionados con el contexto de Flask, específicamente "Working outside of application context". El problema parece estar en routes/main.py, función generate (línea 118). ¿Podrían confirmar si está configurado el contexto correctamente y sugerir ajustes en el flujo de inicialización?
