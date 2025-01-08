@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Error {{ error_code }} - {{ error_message }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="error-container text-center my-5">
+                <div class="mb-4">
+                    <h1 class="display-4 text-danger mb-3">{{ error_message }}</h1>
+                    <p class="lead" style="font-size: 1.5rem; line-height: 1.6;">{{ error_description }}</p>
+                </div>
+
+                {% if error_code == 404 %}
+                <div class="alert alert-info" style="font-size: 1.2rem;">
+                    <p>¿Necesita ayuda para encontrar lo que busca? Use los botones de abajo para navegar.</p>
+                </div>
+                {% elif error_code == 500 %}
+                <div class="alert alert-warning" style="font-size: 1.2rem;">
+                    <p>El sistema está teniendo dificultades en este momento. Por favor, espere unos minutos e inténtelo de nuevo.</p>
+                    <p>Si el problema persiste, puede contactar con soporte para recibir ayuda.</p>
+                </div>
+                {% endif %}
+
+                <div class="mt-5">
+                    <a href="{{ url_for('main.dashboard') }}" class="btn btn-primary btn-lg me-3" style="font-size: 1.2rem; padding: 12px 30px;">
+                        <i data-feather="home" class="me-2"></i> Volver al Inicio
+                    </a>
+                    {% if error_code == 401 %}
+                    <a href="{{ url_for('auth.login') }}" class="btn btn-secondary btn-lg" style="font-size: 1.2rem; padding: 12px 30px;">
+                        <i data-feather="log-in" class="me-2"></i> Iniciar Sesión
+                    </a>
+                    {% endif %}
+                </div>
+
+                {% if error_code != 401 %}
+                <div class="mt-4">
+                    <p class="text-muted" style="font-size: 1.1rem;">
+                        Si necesita ayuda adicional, no dude en contactar con nuestro equipo de soporte.
+                    </p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.error-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    transition: transform 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.alert {
+    border-left: 5px solid;
+    padding: 1.5rem;
+}
+
+.alert-info {
+    border-left-color: #0dcaf0;
+}
+
+.alert-warning {
+    border-left-color: #ffc107;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+}
+</style>
+{% endblock %}

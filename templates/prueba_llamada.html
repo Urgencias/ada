@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Prueba del Sistema de Llamadas</h2>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Realizar Llamada de Prueba</h5>
+            <p class="card-text">
+                Ingrese un número de teléfono para probar el sistema. 
+                El sistema acepta diferentes formatos y los normaliza a 0034:
+                <ul>
+                    <li>Con prefijo 0034: 0034612345678</li>
+                    <li>Solo número: 612345678</li>
+                    <li>Con 34: 34612345678</li>
+                </ul>
+            </p>
+
+            <form method="POST" action="{{ url_for('main.realizar_llamada_prueba') }}" id="formPruebaLlamada">
+                <div class="mb-3">
+                    <label for="telefono" class="form-label">Número de Teléfono</label>
+                    <input type="text" 
+                           class="form-control" 
+                           id="telefono" 
+                           name="telefono" 
+                           placeholder="0034xxxxxxxxx"
+                           required>
+                    <div class="form-text">El número será normalizado al formato 0034.</div>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Iniciar Llamada de Prueba
+                </button>
+            </form>
+
+            <div class="mt-3" id="resultadoLlamada"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('formPruebaLlamada').onsubmit = function(e) {
+    e.preventDefault();
+
+    const telefono = document.getElementById('telefono').value;
+
+    fetch("{{ url_for('main.realizar_llamada_prueba') }}", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ telefono: telefono })
+    })
+    .then(response => response.json())
+    .then(data => {
+        const resultadoDiv = document.getElementById('resultadoLlamada');
+        if (data.success) {
+            resultadoDiv.innerHTML = '<div class="alert alert-success">Llamada iniciada correctamente</div>';
+        } else {
+            resultadoDiv.innerHTML = '<div class="alert alert-danger">Error: ' + data.error + '</div>';
+        }
+    })
+    .catch(error => {
+        document.getElementById('resultadoLlamada').innerHTML = 
+            '<div class="alert alert-danger">Error al procesar la solicitud</div>';
+    });
+};
+</script>
+{% endblock %}

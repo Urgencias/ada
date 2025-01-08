@@ -1,0 +1,565 @@
+{% extends "base.html" %}
+
+{% block title %}Panel de Monitoreo{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="display-4 mb-4">Panel de Monitoreo</h1>
+            <div id="status-connection" class="alert alert-info">
+                Conectando al servidor...
+            </div>
+        </div>
+    </div>
+
+    <!-- Estadísticas Básicas -->
+    <div class="row mb-4">
+        <div class="col-md-4 mb-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Total Llamadas</h5>
+                    <h2 class="display-4" id="total-llamadas">{{ estadisticas.total_llamadas }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Llamadas Completadas</h5>
+                    <h2 class="display-4" id="llamadas-completadas">{{ estadisticas.llamadas_completadas }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card bg-warning text-dark">
+                <div class="card-body">
+                    <h5 class="card-title">Llamadas Pendientes</h5>
+                    <h2 class="display-4" id="llamadas-pendientes">{{ estadisticas.llamadas_pendientes }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Marcadores por Usuario -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Marcadores por Usuario</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Usuario</th>
+                                    <th>Estado</th>
+                                    <th>Total</th>
+                                    <th>Completadas</th>
+                                    <th>Pendientes</th>
+                                    <th>En Curso</th>
+                                    <th>Errores</th>
+                                    <th>Última Llamada</th>
+                                </tr>
+                            </thead>
+                            <tbody id="marcadores-usuarios">
+                                {% for usuario in estadisticas_usuarios %}
+                                <tr>
+                                    <td>{{ usuario.username }}</td>
+                                    <td>
+                                        <span class="badge bg-{{ usuario.estado_clase }}">
+                                            {{ usuario.estado }}
+                                        </span>
+                                    </td>
+                                    <td>{{ usuario.total_llamadas }}</td>
+                                    <td>{{ usuario.llamadas_completadas }}</td>
+                                    <td>{{ usuario.llamadas_pendientes }}</td>
+                                    <td>{{ usuario.llamadas_en_curso }}</td>
+                                    <td>
+                                        {% if usuario.llamadas_error > 0 %}
+                                            <span class="badge bg-danger">{{ usuario.llamadas_error }}</span>
+                                        {% else %}
+                                            <span class="badge bg-success">0</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ usuario.ultima_llamada or 'N/A' }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Estado del Sistema -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Estado del Sistema</h5>
+                </div>
+                <div class="card-body">
+                    <div class="diagnostic-card">
+                        <div class="status-indicator" id="db-status">
+                            <span class="status-dot"></span>
+                            <span class="status-text">Verificando base de datos...</span>
+                            <span class="metrics" id="db-latency"></span>
+                        </div>
+                        <div class="status-indicator" id="api-status">
+                            <span class="status-dot"></span>
+                            <span class="status-text">Verificando API...</span>
+                            <span class="metrics" id="api-latency"></span>
+                        </div>
+                    </div>
+                    <div class="system-metrics">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="metric-card">
+                                    <span class="metric-label">CPU</span>
+                                    <span class="metric-value" id="cpu-usage">-</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="metric-card">
+                                    <span class="metric-label">Memoria</span>
+                                    <span class="metric-value" id="memory-usage">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Estado de Proveedores</h5>
+                </div>
+                <div class="card-body">
+                    <div id="netelip-status" class="status-indicator">
+                        <h6>Netelip</h6>
+                        <p class="mb-0">Verificando...</p>
+                    </div>
+                    <div id="twilio-status" class="status-indicator">
+                        <h6>Twilio</h6>
+                        <p class="mb-0">Verificando...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lista de Errores -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">Registro de Errores</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Usuario</th>
+                                    <th>Fecha</th>
+                                    <th>Error</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="errores-recientes">
+                                {% for llamada in llamadas if llamada.estado == EstadoLlamadaEnum.ERROR %}
+                                <tr>
+                                    <td>{{ llamada.id }}</td>
+                                    <td>{{ llamada.recordatorio.user.username }}</td>
+                                    <td>{{ llamada.fecha_llamada.strftime('%Y-%m-%d %H:%M') }}</td>
+                                    <td>{{ llamada.error_mensaje or 'Error desconocido' }}</td>
+                                    <td>
+                                        <span class="badge bg-danger">
+                                            {{ llamada.estado }}
+                                        </span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lista de Llamadas -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Llamadas Recientes</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Estado</th>
+                                    <th>Fecha</th>
+                                    <th>Duración</th>
+                                    <th>Intentos</th>
+                                </tr>
+                            </thead>
+                            <tbody id="llamadas-recientes">
+                                {% for llamada in llamadas %}
+                                <tr>
+                                    <td>{{ llamada.id }}</td>
+                                    <td>
+                                        <span class="badge {% if llamada.estado == 'COMPLETADA' %}bg-success
+                                                          {% elif llamada.estado == 'EN_CURSO' %}bg-info
+                                                          {% elif llamada.estado == 'PENDIENTE' %}bg-warning
+                                                          {% else %}bg-danger{% endif %}">
+                                            {{ llamada.estado }}
+                                        </span>
+                                    </td>
+                                    <td>{{ llamada.fecha_llamada.strftime('%Y-%m-%d %H:%M') }}</td>
+                                    <td>{{ llamada.duracion or 0 }} seg.</td>
+                                    <td>{{ llamada.intentos }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block styles %}
+<style>
+/* Estilos existentes */
+.card {
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.badge {
+    padding: 0.5em 1em;
+    font-size: 0.875em;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    border-top: none;
+    font-weight: 600;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.display-4 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.diagnostic-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: #6c757d;
+}
+
+.status-dot.active {
+    background-color: #28a745;
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+}
+
+.status-dot.warning {
+    background-color: #ffc107;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+}
+
+.status-dot.error {
+    background-color: #dc3545;
+    box-shadow: 0 0 10px rgba(220, 53, 69, 0.5);
+}
+
+.metrics {
+    margin-top: 10px;
+    color: #6c757d;
+}
+
+.system-metrics {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.metric-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+}
+
+.metric-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.metric-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4a90e2;
+}
+
+.status-indicator {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.status-indicator.active {
+    border-left: 4px solid #28a745;
+}
+
+.status-indicator.error {
+    border-left: 4px solid #dc3545;
+}
+
+.status-indicator h6 {
+    color: #495057;
+    margin-bottom: 8px;
+}
+
+.status-indicator small {
+    color: #6c757d;
+    font-weight: normal;
+}
+
+.status-indicator p {
+    color: #212529;
+}
+
+/* Nuevos estilos para marcadores y errores */
+.border-danger {
+    border: 2px solid #dc3545 !important;
+}
+
+#marcadores-usuarios tr:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.badge {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+</style>
+{% endblock styles %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const statusConnection = document.getElementById('status-connection');
+    const tableLlamadas = document.getElementById('llamadas-recientes');
+    const marcadoresUsuarios = document.getElementById('marcadores-usuarios');
+    const erroresRecientes = document.getElementById('errores-recientes');
+
+    let evtSource;
+    let reconnectTimeout;
+
+    function conectarSSE() {
+        evtSource = new EventSource("{{ url_for('notificaciones.monitor_updates') }}");
+
+        evtSource.onopen = function() {
+            statusConnection.className = 'alert alert-success';
+            statusConnection.textContent = 'Conectado al servidor';
+            clearTimeout(reconnectTimeout);
+        };
+
+        evtSource.onerror = function(error) {
+            console.error("Error en la conexión SSE:", error);
+            statusConnection.className = 'alert alert-danger';
+            statusConnection.textContent = 'Error de conexión - Intentando reconectar...';
+
+            evtSource.close();
+
+            reconnectTimeout = setTimeout(() => {
+                conectarSSE();
+            }, 5000);
+        };
+
+        evtSource.onmessage = function(e) {
+            try {
+                const data = JSON.parse(e.data);
+                updatePanel(data);
+            } catch (error) {
+                console.error("Error al procesar datos:", error);
+            }
+        };
+    }
+
+    conectarSSE();
+
+    function updatePanel(data) {
+        // Actualizar estadísticas generales
+        document.getElementById('total-llamadas').textContent = data.estadisticas?.total_llamadas || 0;
+        document.getElementById('llamadas-completadas').textContent = data.estadisticas?.llamadas_completadas || 0;
+        document.getElementById('llamadas-pendientes').textContent = data.estadisticas?.llamadas_pendientes || 0;
+
+        // Actualizar estado del sistema
+        if (data.estado_sistema) {
+            updateSystemStatus(data.estado_sistema);
+        }
+
+        // Actualizar marcadores por usuario si hay datos nuevos
+        if (data.estadisticas_usuarios) {
+            updateMarcadoresUsuarios(data.estadisticas_usuarios);
+        }
+
+        // Actualizar lista de llamadas y errores si hay nuevos
+        if (data.llamadas && data.llamadas.length > 0) {
+            updateCallsList(data.llamadas);
+            updateErroresList(data.llamadas.filter(call => call.estado === 'ERROR'));
+        }
+    }
+
+    function updateSystemStatus(status) {
+        const dbStatus = document.getElementById('db-status');
+        const apiStatus = document.getElementById('api-status');
+
+        updateStatusIndicator(dbStatus, status.database?.estado || 'desconectado');
+        updateStatusIndicator(apiStatus, status.api?.estado || 'desconectado');
+
+        document.getElementById('cpu-usage').textContent = `${status.sistema?.cpu || 0}%`;
+        document.getElementById('memory-usage').textContent = `${status.sistema?.memoria || 0}%`;
+    }
+
+    function updateStatusIndicator(element, status) {
+        const dot = element.querySelector('.status-dot');
+        const text = element.querySelector('.status-text');
+
+        let className = 'status-dot ';
+        let statusText = '';
+
+        switch(status.toLowerCase()) {
+            case 'activo':
+            case 'conectado':
+                className += 'active';
+                statusText = 'Conectado';
+                break;
+            case 'advertencia':
+                className += 'warning';
+                statusText = 'Advertencia';
+                break;
+            case 'error':
+            case 'desconectado':
+                className += 'error';
+                statusText = 'Desconectado';
+                break;
+            default:
+                className += '';
+                statusText = 'Desconocido';
+        }
+
+        dot.className = className;
+        text.textContent = statusText;
+    }
+
+    function updateMarcadoresUsuarios(usuarios) {
+        if (!marcadoresUsuarios) return;
+
+        marcadoresUsuarios.innerHTML = usuarios.map(usuario => `
+            <tr>
+                <td>${usuario.username}</td>
+                <td><span class="badge bg-${usuario.estado_clase}">${usuario.estado}</span></td>
+                <td>${usuario.total_llamadas}</td>
+                <td>${usuario.llamadas_completadas}</td>
+                <td>${usuario.llamadas_pendientes}</td>
+                <td>${usuario.llamadas_en_curso}</td>
+                <td>
+                    ${usuario.llamadas_error > 0 
+                        ? `<span class="badge bg-danger">${usuario.llamadas_error}</span>`
+                        : `<span class="badge bg-success">0</span>`}
+                </td>
+                <td>${usuario.ultima_llamada || 'N/A'}</td>
+            </tr>
+        `).join('');
+    }
+
+    function updateCallsList(calls) {
+        if (!tableLlamadas) return;
+
+        tableLlamadas.innerHTML = calls.map(call => `
+            <tr>
+                <td>${call.id}</td>
+                <td>
+                    <span class="badge ${getStatusClass(call.estado)}">
+                        ${call.estado}
+                    </span>
+                </td>
+                <td>${new Date(call.fecha_llamada).toLocaleString()}</td>
+                <td>${call.duracion || 0} seg.</td>
+                <td>${call.intentos}</td>
+            </tr>
+        `).join('');
+    }
+
+    function updateErroresList(errores) {
+        if (!erroresRecientes) return;
+
+        erroresRecientes.innerHTML = errores.map(error => `
+            <tr>
+                <td>${error.id}</td>
+                <td>${error.recordatorio?.user?.username || 'N/A'}</td>
+                <td>${new Date(error.fecha_llamada).toLocaleString()}</td>
+                <td>${error.error_mensaje || 'Error desconocido'}</td>
+                <td><span class="badge bg-danger">${error.estado}</span></td>
+            </tr>
+        `).join('');
+    }
+
+    function getStatusClass(estado) {
+        switch(estado) {
+            case 'COMPLETADA': return 'bg-success';
+            case 'EN_CURSO': return 'bg-info';
+            case 'PENDIENTE': return 'bg-warning';
+            default: return 'bg-danger';
+        }
+    }
+});
+</script>
+{% endblock %}

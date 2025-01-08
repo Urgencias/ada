@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">Solicitud de Plan Gratuito</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('main.solicitar_plan_gratuito') }}">
+                        <div class="mb-3">
+                            <label for="edad" class="form-label">Edad</label>
+                            <input type="number" class="form-control" id="edad" name="edad" 
+                                   min="0" max="120" required>
+                            <div class="form-text">Si es mayor de 65 años, calificas automáticamente para el plan gratuito.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="condicion_especial" class="form-label">Condición Especial (opcional)</label>
+                            <textarea class="form-control" id="condicion_especial" name="condicion_especial" 
+                                    rows="3" placeholder="Si tiene alguna condición especial que requiera atención particular, descríbala aquí"></textarea>
+                            <div class="form-text">
+                                Este campo es opcional. Si tiene alguna condición especial que requiera atención particular,
+                                puede describirla aquí y será evaluada para el plan gratuito.
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <h5>Importante:</h5>
+                            <ul>
+                                <li>Si es mayor de 65 años, solo necesitamos verificar su edad.</li>
+                                <li>Si tiene una condición especial, necesitaremos verificar la documentación correspondiente.</li>
+                                <li>La información proporcionada será tratada con total confidencialidad.</li>
+                            </ul>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                Solicitar Plan Gratuito
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Llamadas</h1>
+        <a href="{{ url_for('main.dashboard') }}" class="btn btn-primary">
+            <i data-feather="arrow-left"></i> Volver al Dashboard
+        </a>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- Marcadores de Estadísticas -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Total Llamadas</h5>
+                    <h2 class="mb-0">{{ estadisticas.total }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Completadas</h5>
+                    <h2 class="mb-0">{{ estadisticas.completadas }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Pendientes</h5>
+                    <h2 class="mb-0">{{ estadisticas.pendientes }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h5 class="card-title">En Curso</h5>
+                    <h2 class="mb-0">{{ estadisticas.en_curso }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Historial de Llamadas -->
+    <div class="row">
+        {% for llamada in llamadas %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <h5 class="card-title mb-0">{{ llamada.recordatorio.nombre }}</h5>
+                        <span class="badge {% if llamada.estado == EstadoLlamadaEnum.COMPLETADA %}bg-success
+                                         {% elif llamada.estado == EstadoLlamadaEnum.PENDIENTE %}bg-warning
+                                         {% elif llamada.estado == EstadoLlamadaEnum.EN_CURSO %}bg-info
+                                         {% else %}bg-secondary{% endif %}">
+                            {{ llamada.estado.name }}
+                        </span>
+                    </div>
+
+                    <div class="mb-3">
+                        <p class="card-text">
+                            <i data-feather="phone" class="me-2"></i>
+                            {{ llamada.recordatorio.telefono }}
+                        </p>
+                        <p class="card-text">
+                            <i data-feather="calendar" class="me-2"></i>
+                            {{ llamada.fecha_llamada.strftime('%d/%m/%Y %H:%M') }}
+                        </p>
+                        <p class="card-text">
+                            <i data-feather="clock" class="me-2"></i>
+                            Duración: {% if llamada.duracion %}{{ llamada.duracion }} seg{% else %}-{% endif %}
+                        </p>
+                        {% if llamada.notas %}
+                        <p class="card-text">
+                            <i data-feather="file-text" class="me-2"></i>
+                            {{ llamada.notas }}
+                        </p>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-flex justify-content-end gap-2">
+                        <a href="{{ url_for('main.realizar_llamada_prueba', recordatorio_id=llamada.recordatorio.id) }}" 
+                           class="btn btn-sm btn-outline-success">
+                            <i data-feather="phone-call"></i> Llamar
+                        </a>
+                        <a href="{{ url_for('main.editar_recordatorio', recordatorio_id=llamada.recordatorio.id) }}" 
+                           class="btn btn-sm btn-outline-primary">
+                            <i data-feather="edit"></i> Editar
+                        </a>
+                        <button onclick="confirmarEliminarLlamada({{ llamada.id }})" 
+                                class="btn btn-sm btn-outline-danger">
+                            <i data-feather="trash-2"></i> Eliminar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        {% if not llamadas %}
+        <div class="col-12">
+            <div class="alert alert-info text-center">
+                <i data-feather="info" class="me-2"></i>
+                No hay registros de llamadas
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+function confirmarEliminarLlamada(id) {
+    if (confirm('¿Estás seguro de que deseas eliminar este registro de llamada?')) {
+        fetch(`/eliminar-llamada/${id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                location.reload();
+            } else {
+                alert('Error al eliminar el registro');
+            }
+        });
+    }
+}
+
+// Inicializar iconos de Feather
+document.addEventListener('DOMContentLoaded', function() {
+    feather.replace();
+});
+</script>
+{% endblock %}

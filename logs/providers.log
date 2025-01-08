@@ -1,0 +1,1588 @@
+2024-12-24 09:17:24,212 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 09:17:24,212 - utils.call_providers - INFO - [__init__] Proveedor principal: twilio
+2024-12-24 09:17:24,212 - utils.call_providers - INFO - [__init__] Twilio configurado: True
+2024-12-24 09:17:24,212 - utils.call_providers - INFO - [__init__] Netelip disponible como backup: True
+2024-12-24 09:17:24,212 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 09:17:24,212 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 09:17:24,212 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 09:17:24,212 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 09:19:13,307 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 09:19:13,307 - utils.call_providers - INFO - [__init__] Proveedor principal: twilio
+2024-12-24 09:19:13,307 - utils.call_providers - INFO - [__init__] Twilio configurado: True
+2024-12-24 09:19:13,307 - utils.call_providers - INFO - [__init__] Netelip disponible como backup: True
+2024-12-24 09:19:13,308 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 09:19:13,308 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 09:19:13,308 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 09:19:13,308 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 09:19:14,556 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 09:19:14,556 - utils.call_providers - INFO - [__init__] Proveedor principal: twilio
+2024-12-24 09:19:14,556 - utils.call_providers - INFO - [__init__] Twilio configurado: True
+2024-12-24 09:19:14,556 - utils.call_providers - INFO - [__init__] Netelip disponible como backup: True
+2024-12-24 09:19:14,556 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 09:19:14,557 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 09:19:14,557 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 09:19:14,557 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 09:20:16,749 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 09:20:16,749 - utils.call_providers - INFO - [__init__] Proveedor principal: twilio
+2024-12-24 09:20:16,750 - utils.call_providers - INFO - [__init__] Twilio configurado: True
+2024-12-24 09:20:16,750 - utils.call_providers - INFO - [__init__] Netelip disponible como backup: True
+2024-12-24 09:20:16,750 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 09:20:16,750 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 09:20:16,750 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 09:20:16,750 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 09:20:18,043 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 09:20:18,044 - utils.call_providers - INFO - [__init__] Proveedor principal: twilio
+2024-12-24 09:20:18,044 - utils.call_providers - INFO - [__init__] Twilio configurado: True
+2024-12-24 09:20:18,044 - utils.call_providers - INFO - [__init__] Netelip disponible como backup: True
+2024-12-24 09:20:18,044 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 09:20:18,044 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 09:20:18,044 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 09:20:18,044 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 09:22:23,828 - utils.call_providers - INFO - [realizar_llamada] === Iniciando nueva llamada ===
+2024-12-24 09:22:23,857 - utils.call_providers - INFO - [realizar_llamada] Destinatario: Prueba de Ada
+2024-12-24 09:22:23,858 - utils.call_providers - INFO - [realizar_llamada] Intento: 1/3
+2024-12-24 09:22:23,858 - utils.call_providers - INFO - [realizar_llamada] Proveedor actual: twilio
+2024-12-24 09:22:23,858 - utils.call_providers - DEBUG - [_validar_numero_telefono] Validando número de teléfono: 0034640523789
+2024-12-24 09:22:23,858 - utils.call_providers - DEBUG - [_validar_numero_telefono] Número validado correctamente: 0034640523789
+2024-12-24 09:22:23,858 - utils.call_providers - DEBUG - [_limpiar_llamadas_bloqueadas] Iniciando limpieza de llamadas bloqueadas
+2024-12-24 09:22:23,858 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 49 bloqueada temporalmente
+2024-12-24 09:22:23,858 - utils.call_providers - DEBUG - [_validar_credenciales_twilio] Validando credenciales de Twilio
+2024-12-24 09:22:23,858 - utils.call_providers - DEBUG - [_validar_credenciales_twilio] Credenciales de Twilio validadas correctamente
+2024-12-24 09:22:23,859 - utils.call_providers - INFO - [realizar_llamada] Intentando llamada con Twilio
+2024-12-24 09:22:23,859 - utils.call_providers - DEBUG - [_realizar_llamada_twilio] Iniciando llamada con Twilio
+2024-12-24 09:22:23,859 - utils.call_providers - DEBUG - [_formatear_numero_twilio] Número formateado para Twilio: 34640523789
+2024-12-24 09:22:24,249 - utils.call_providers - INFO - [_realizar_llamada_twilio] Llamada Twilio iniciada exitosamente. SID: CA2bac467104a411cc08631e79b92448a7
+2024-12-24 09:22:24,249 - utils.call_providers - INFO - [realizar_llamada] Llamada Twilio completada con éxito
+2024-12-24 09:22:24,334 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 49 desbloqueada
+2024-12-24 09:26:48,309 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 09:26:48,310 - utils.call_providers - INFO - [__init__] Proveedor principal: twilio
+2024-12-24 09:26:48,310 - utils.call_providers - INFO - [__init__] Twilio configurado: True
+2024-12-24 09:26:48,310 - utils.call_providers - INFO - [__init__] Netelip disponible como backup: True
+2024-12-24 09:26:48,310 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 09:26:48,311 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 09:26:48,311 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 09:26:48,311 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 09:27:16,712 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 09:27:16,713 - utils.call_providers - INFO - [__init__] Proveedor principal: twilio
+2024-12-24 09:27:16,713 - utils.call_providers - INFO - [__init__] Twilio configurado: True
+2024-12-24 09:27:16,713 - utils.call_providers - INFO - [__init__] Netelip disponible como backup: True
+2024-12-24 09:27:16,713 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 09:27:16,713 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 09:27:16,713 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 09:27:16,713 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 09:27:18,024 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 09:27:18,024 - utils.call_providers - INFO - [__init__] Proveedor principal: twilio
+2024-12-24 09:27:18,024 - utils.call_providers - INFO - [__init__] Twilio configurado: True
+2024-12-24 09:27:18,024 - utils.call_providers - INFO - [__init__] Netelip disponible como backup: True
+2024-12-24 09:27:18,025 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 09:27:18,025 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 09:27:18,025 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 09:27:18,025 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 09:32:09,558 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 09:32:09,558 - utils.call_providers - INFO - [__init__] Proveedor principal: twilio
+2024-12-24 09:32:09,559 - utils.call_providers - INFO - [__init__] Twilio configurado: True
+2024-12-24 09:32:09,559 - utils.call_providers - INFO - [__init__] Netelip disponible como backup: True
+2024-12-24 09:32:09,559 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 09:32:09,559 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 09:32:09,559 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 09:32:09,559 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 09:32:10,906 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 09:32:10,906 - utils.call_providers - INFO - [__init__] Proveedor principal: twilio
+2024-12-24 09:32:10,906 - utils.call_providers - INFO - [__init__] Twilio configurado: True
+2024-12-24 09:32:10,906 - utils.call_providers - INFO - [__init__] Netelip disponible como backup: True
+2024-12-24 09:32:10,906 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 09:32:10,906 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 09:32:10,907 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 09:32:10,907 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 09:38:43,328 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 09:38:43,329 - utils.call_providers - INFO - [__init__] Proveedor principal: twilio
+2024-12-24 09:38:43,329 - utils.call_providers - INFO - [__init__] Twilio configurado: True
+2024-12-24 09:38:43,329 - utils.call_providers - INFO - [__init__] Netelip disponible como backup: True
+2024-12-24 09:38:43,329 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 09:38:43,329 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 09:38:43,329 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 09:38:43,329 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 09:39:29,178 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 09:39:29,178 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 09:39:29,178 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 09:39:29,178 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 09:39:29,178 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 09:39:29,178 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 09:39:29,179 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 09:39:29,179 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:17:23,537 - utils.call_providers - INFO - [realizar_llamada] === Iniciando nueva llamada ===
+2024-12-24 10:17:23,567 - utils.call_providers - INFO - [realizar_llamada] Destinatario: EMOVIR
+2024-12-24 10:17:23,567 - utils.call_providers - INFO - [realizar_llamada] Intento: 1/3
+2024-12-24 10:17:23,567 - utils.call_providers - INFO - [realizar_llamada] Proveedor actual: netelip
+2024-12-24 10:17:23,567 - utils.call_providers - DEBUG - [_validar_numero_telefono] Validando número de teléfono: 0034640523789
+2024-12-24 10:17:23,568 - utils.call_providers - DEBUG - [_validar_numero_telefono] Número validado correctamente: 0034640523789
+2024-12-24 10:17:23,568 - utils.call_providers - DEBUG - [_limpiar_llamadas_bloqueadas] Iniciando limpieza de llamadas bloqueadas
+2024-12-24 10:17:23,568 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 52 bloqueada temporalmente
+2024-12-24 10:17:23,568 - utils.call_providers - DEBUG - [_validar_credenciales] Validando credenciales de Netelip
+2024-12-24 10:17:23,568 - utils.call_providers - DEBUG - [_validar_credenciales] Credenciales de Netelip validadas correctamente
+2024-12-24 10:17:23,568 - utils.call_providers - INFO - [realizar_llamada] Intentando llamada con Netelip
+2024-12-24 10:17:23,569 - utils.call_providers - DEBUG - [_realizar_llamada_netelip] Iniciando llamada con Netelip
+2024-12-24 10:17:23,569 - utils.call_providers - DEBUG - [_formatear_numero_telefono] Número formateado: 0034640523789
+2024-12-24 10:17:23,569 - utils.call_providers - INFO - [_realizar_llamada_netelip] Intentando llamada con Netelip al número 0034640523789
+2024-12-24 10:17:24,052 - utils.call_providers - ERROR - [_realizar_llamada_netelip] Error inesperado en Netelip: Lo sentimos, hubo un problema al realizar la llamada. Por favor, inténtelo de nuevo en unos momentos.
+2024-12-24 10:17:24,053 - utils.call_providers - ERROR - [_realizar_llamada_netelip] Stacktrace completo:
+Traceback (most recent call last):
+  File "/home/runner/ReminderTracker/utils/netelip_integration.py", line 119, in realizar_llamada
+    raise NetelipCallError(
+utils.netelip_integration.NetelipCallError: Error en la solicitud HTTP: 404
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/ReminderTracker/utils/call_providers.py", line 315, in _realizar_llamada_netelip
+    exito, id_llamada, error = realizar_llamada_netelip(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/ReminderTracker/utils/netelip_integration.py", line 139, in realizar_llamada
+    raise NetelipCallError(
+utils.netelip_integration.NetelipCallError: Lo sentimos, hubo un problema al realizar la llamada. Por favor, inténtelo de nuevo en unos momentos.
+2024-12-24 10:17:24,053 - utils.call_providers - ERROR - [_registrar_error] Error en llamada: Error inesperado en Netelip: Lo sentimos, hubo un problema al realizar la llamada. Por favor, inténtelo de nuevo en unos momentos.
+2024-12-24 10:17:24,053 - utils.call_providers - INFO - [_registrar_error] Programado reintento 2 para llamada 52
+2024-12-24 10:17:24,368 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 52 desbloqueada
+2024-12-24 10:19:24,087 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:19:24,087 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:19:24,087 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:19:24,087 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:19:24,088 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:19:24,088 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:19:24,088 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:19:24,088 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:19:25,411 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:19:25,411 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:19:25,411 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:19:25,412 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:19:25,412 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:19:25,412 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:19:25,412 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:19:25,412 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:25:14,377 - utils.call_providers - INFO - [realizar_llamada] === Iniciando nueva llamada ===
+2024-12-24 10:25:14,405 - utils.call_providers - INFO - [realizar_llamada] Destinatario: EMOVIR
+2024-12-24 10:25:14,406 - utils.call_providers - INFO - [realizar_llamada] Intento: 1/3
+2024-12-24 10:25:14,406 - utils.call_providers - INFO - [realizar_llamada] Proveedor actual: netelip
+2024-12-24 10:25:14,406 - utils.call_providers - DEBUG - [_validar_numero_telefono] Validando número de teléfono: 0034640523789
+2024-12-24 10:25:14,406 - utils.call_providers - DEBUG - [_validar_numero_telefono] Número validado correctamente: 0034640523789
+2024-12-24 10:25:14,407 - utils.call_providers - DEBUG - [_limpiar_llamadas_bloqueadas] Iniciando limpieza de llamadas bloqueadas
+2024-12-24 10:25:14,407 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 54 bloqueada temporalmente
+2024-12-24 10:25:14,407 - utils.call_providers - DEBUG - [_validar_credenciales] Validando credenciales de Netelip
+2024-12-24 10:25:14,407 - utils.call_providers - DEBUG - [_validar_credenciales] Credenciales de Netelip validadas correctamente
+2024-12-24 10:25:14,407 - utils.call_providers - INFO - [realizar_llamada] Intentando llamada con Netelip
+2024-12-24 10:25:14,408 - utils.call_providers - DEBUG - [_realizar_llamada_netelip] Iniciando llamada con Netelip
+2024-12-24 10:25:14,408 - utils.call_providers - DEBUG - [_formatear_numero_telefono] Número formateado: 0034640523789
+2024-12-24 10:25:14,408 - utils.call_providers - INFO - [_realizar_llamada_netelip] Intentando llamada con Netelip al número 0034640523789
+2024-12-24 10:25:14,891 - utils.call_providers - ERROR - [_realizar_llamada_netelip] Error inesperado en Netelip: Lo sentimos, hubo un problema al realizar la llamada. Por favor, inténtelo de nuevo en unos momentos.
+2024-12-24 10:25:14,891 - utils.call_providers - ERROR - [_realizar_llamada_netelip] Stacktrace completo:
+Traceback (most recent call last):
+  File "/home/runner/ReminderTracker/utils/netelip_integration.py", line 119, in realizar_llamada
+    raise NetelipCallError(
+utils.netelip_integration.NetelipCallError: Error en la solicitud HTTP: 404
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/ReminderTracker/utils/call_providers.py", line 315, in _realizar_llamada_netelip
+    exito, id_llamada, error = realizar_llamada_netelip(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/ReminderTracker/utils/netelip_integration.py", line 139, in realizar_llamada
+    raise NetelipCallError(
+utils.netelip_integration.NetelipCallError: Lo sentimos, hubo un problema al realizar la llamada. Por favor, inténtelo de nuevo en unos momentos.
+2024-12-24 10:25:14,893 - utils.call_providers - ERROR - [_registrar_error] Error en llamada: Error inesperado en Netelip: Lo sentimos, hubo un problema al realizar la llamada. Por favor, inténtelo de nuevo en unos momentos.
+2024-12-24 10:25:14,893 - utils.call_providers - INFO - [_registrar_error] Programado reintento 2 para llamada 54
+2024-12-24 10:25:15,210 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 54 desbloqueada
+2024-12-24 10:27:42,505 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:27:42,505 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:27:42,505 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:27:42,505 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:27:42,505 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:27:42,505 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:27:42,505 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:27:42,505 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:28:29,620 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:28:29,620 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:28:29,621 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:28:29,621 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:28:29,621 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:28:29,621 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:28:29,621 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:28:29,621 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:28:30,898 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:28:30,898 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:28:30,898 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:28:30,899 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:28:30,899 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:28:30,899 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:28:30,899 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:28:30,899 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:29:00,809 - utils.call_providers - INFO - [realizar_llamada] === Iniciando nueva llamada ===
+2024-12-24 10:29:00,837 - utils.call_providers - INFO - [realizar_llamada] Destinatario: EMOVIR
+2024-12-24 10:29:00,838 - utils.call_providers - INFO - [realizar_llamada] Intento: 1/3
+2024-12-24 10:29:00,838 - utils.call_providers - INFO - [realizar_llamada] Proveedor actual: netelip
+2024-12-24 10:29:00,838 - utils.call_providers - DEBUG - [_validar_numero_telefono] Validando número de teléfono: 0034640523789
+2024-12-24 10:29:00,838 - utils.call_providers - DEBUG - [_validar_numero_telefono] Número validado correctamente: 0034640523789
+2024-12-24 10:29:00,838 - utils.call_providers - DEBUG - [_limpiar_llamadas_bloqueadas] Iniciando limpieza de llamadas bloqueadas
+2024-12-24 10:29:00,838 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 55 bloqueada temporalmente
+2024-12-24 10:29:00,839 - utils.call_providers - DEBUG - [_validar_credenciales] Validando credenciales de Netelip
+2024-12-24 10:29:00,839 - utils.call_providers - DEBUG - [_validar_credenciales] Credenciales de Netelip validadas correctamente
+2024-12-24 10:29:00,839 - utils.call_providers - INFO - [realizar_llamada] Intentando llamada con Netelip
+2024-12-24 10:29:00,839 - utils.call_providers - DEBUG - [_realizar_llamada_netelip] Iniciando llamada con Netelip
+2024-12-24 10:29:00,839 - utils.call_providers - DEBUG - [_formatear_numero_telefono] Número formateado: 0034640523789
+2024-12-24 10:29:00,839 - utils.call_providers - INFO - [_realizar_llamada_netelip] Intentando llamada con Netelip al número 0034640523789
+2024-12-24 10:29:01,321 - utils.call_providers - ERROR - [_realizar_llamada_netelip] Fallo en llamada Netelip: Error HTTP 404: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+</body></html>
+
+2024-12-24 10:29:01,322 - utils.call_providers - ERROR - [_registrar_error] Error en llamada: Error en llamada Netelip: Error HTTP 404: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+</body></html>
+
+2024-12-24 10:29:01,322 - utils.call_providers - INFO - [_registrar_error] Programado reintento 2 para llamada 55
+2024-12-24 10:29:01,634 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 55 desbloqueada
+2024-12-24 10:30:24,965 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:30:24,966 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:30:24,966 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:30:24,967 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:30:24,967 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:30:24,967 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:30:24,967 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:30:24,967 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:30:26,576 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:30:26,576 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:30:26,576 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:30:26,576 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:30:26,576 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:30:26,577 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:30:26,577 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:30:26,577 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:31:59,340 - utils.call_providers - INFO - [realizar_llamada] === Iniciando nueva llamada ===
+2024-12-24 10:31:59,368 - utils.call_providers - INFO - [realizar_llamada] Destinatario: EMOVIR
+2024-12-24 10:31:59,368 - utils.call_providers - INFO - [realizar_llamada] Intento: 1/3
+2024-12-24 10:31:59,369 - utils.call_providers - INFO - [realizar_llamada] Proveedor actual: netelip
+2024-12-24 10:31:59,369 - utils.call_providers - DEBUG - [_validar_numero_telefono] Validando número de teléfono: 0034640523789
+2024-12-24 10:31:59,369 - utils.call_providers - DEBUG - [_validar_numero_telefono] Número validado correctamente: 0034640523789
+2024-12-24 10:31:59,369 - utils.call_providers - DEBUG - [_limpiar_llamadas_bloqueadas] Iniciando limpieza de llamadas bloqueadas
+2024-12-24 10:31:59,369 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 57 bloqueada temporalmente
+2024-12-24 10:31:59,370 - utils.call_providers - DEBUG - [_validar_credenciales] Validando credenciales de Netelip
+2024-12-24 10:31:59,370 - utils.call_providers - DEBUG - [_validar_credenciales] Credenciales de Netelip validadas correctamente
+2024-12-24 10:31:59,370 - utils.call_providers - INFO - [realizar_llamada] Intentando llamada con Netelip
+2024-12-24 10:31:59,370 - utils.call_providers - DEBUG - [_realizar_llamada_netelip] Iniciando llamada con Netelip
+2024-12-24 10:31:59,370 - utils.call_providers - DEBUG - [_formatear_numero_telefono] Número formateado: 0034640523789
+2024-12-24 10:31:59,370 - utils.call_providers - INFO - [_realizar_llamada_netelip] Intentando llamada con Netelip al número 0034640523789
+2024-12-24 10:31:59,861 - utils.call_providers - ERROR - [_realizar_llamada_netelip] Fallo en llamada Netelip: Credenciales inválidas: Error de API: 404
+2024-12-24 10:31:59,861 - utils.call_providers - ERROR - [_registrar_error] Error en llamada: Error en llamada Netelip: Credenciales inválidas: Error de API: 404
+2024-12-24 10:31:59,861 - utils.call_providers - INFO - [_registrar_error] Programado reintento 2 para llamada 57
+2024-12-24 10:32:00,169 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 57 desbloqueada
+2024-12-24 10:33:12,772 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:33:12,773 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:33:12,773 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:33:12,773 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:33:12,773 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:33:12,773 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:33:12,773 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:33:12,773 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:33:14,077 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:33:14,078 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:33:14,078 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:33:14,078 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:33:14,078 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:33:14,078 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:33:14,078 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:33:14,078 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:36:25,039 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:36:25,039 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:36:25,039 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:36:25,039 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:36:25,040 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:36:25,040 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:36:25,040 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:36:25,040 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:36:26,354 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:36:26,355 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:36:26,355 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:36:26,355 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:36:26,355 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:36:26,355 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:36:26,355 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:36:26,355 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:36:51,385 - utils.call_providers - INFO - [realizar_llamada] === Iniciando nueva llamada ===
+2024-12-24 10:36:51,413 - utils.call_providers - INFO - [realizar_llamada] Destinatario: EMOVIR
+2024-12-24 10:36:51,413 - utils.call_providers - INFO - [realizar_llamada] Intento: 1/3
+2024-12-24 10:36:51,413 - utils.call_providers - INFO - [realizar_llamada] Proveedor actual: netelip
+2024-12-24 10:36:51,414 - utils.call_providers - DEBUG - [_validar_numero_telefono] Validando número de teléfono: 0034640523789
+2024-12-24 10:36:51,414 - utils.call_providers - DEBUG - [_validar_numero_telefono] Número validado correctamente: 0034640523789
+2024-12-24 10:36:51,414 - utils.call_providers - DEBUG - [_limpiar_llamadas_bloqueadas] Iniciando limpieza de llamadas bloqueadas
+2024-12-24 10:36:51,414 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 58 bloqueada temporalmente
+2024-12-24 10:36:51,414 - utils.call_providers - DEBUG - [_validar_credenciales] Validando credenciales de Netelip
+2024-12-24 10:36:51,414 - utils.call_providers - DEBUG - [_validar_credenciales] Credenciales de Netelip validadas correctamente
+2024-12-24 10:36:51,414 - utils.call_providers - INFO - [realizar_llamada] Intentando llamada con Netelip
+2024-12-24 10:36:51,414 - utils.call_providers - DEBUG - [_realizar_llamada_netelip] Iniciando llamada con Netelip
+2024-12-24 10:36:51,414 - utils.call_providers - DEBUG - [_formatear_numero_telefono] Número formateado: 0034640523789
+2024-12-24 10:36:51,414 - utils.call_providers - INFO - [_realizar_llamada_netelip] Intentando llamada con Netelip al número 0034640523789
+2024-12-24 10:36:51,765 - utils.call_providers - ERROR - [_realizar_llamada_netelip] Fallo en llamada Netelip: Credenciales inválidas: Error de API: 404
+2024-12-24 10:36:51,766 - utils.call_providers - ERROR - [_registrar_error] Error en llamada: Error en llamada Netelip: Credenciales inválidas: Error de API: 404
+2024-12-24 10:36:51,766 - utils.call_providers - INFO - [_registrar_error] Programado reintento 2 para llamada 58
+2024-12-24 10:36:52,069 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 58 desbloqueada
+2024-12-24 10:38:51,076 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:38:51,080 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:38:51,081 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:38:51,081 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:38:51,082 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:38:51,082 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:38:51,082 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:38:51,083 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:38:52,574 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:38:52,574 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:38:52,574 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:38:52,574 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:38:52,574 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:38:52,574 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:38:52,574 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:38:52,574 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:39:33,193 - utils.call_providers - INFO - [realizar_llamada] === Iniciando nueva llamada ===
+2024-12-24 10:39:33,224 - utils.call_providers - INFO - [realizar_llamada] Destinatario: EMOVIR
+2024-12-24 10:39:33,225 - utils.call_providers - INFO - [realizar_llamada] Intento: 1/3
+2024-12-24 10:39:33,225 - utils.call_providers - INFO - [realizar_llamada] Proveedor actual: netelip
+2024-12-24 10:39:33,225 - utils.call_providers - DEBUG - [_validar_numero_telefono] Validando número de teléfono: 0034640523789
+2024-12-24 10:39:33,225 - utils.call_providers - DEBUG - [_validar_numero_telefono] Número validado correctamente: 0034640523789
+2024-12-24 10:39:33,226 - utils.call_providers - DEBUG - [_limpiar_llamadas_bloqueadas] Iniciando limpieza de llamadas bloqueadas
+2024-12-24 10:39:33,226 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 59 bloqueada temporalmente
+2024-12-24 10:39:33,226 - utils.call_providers - DEBUG - [_validar_credenciales] Validando credenciales de Netelip
+2024-12-24 10:39:33,226 - utils.call_providers - DEBUG - [_validar_credenciales] Credenciales de Netelip validadas correctamente
+2024-12-24 10:39:33,227 - utils.call_providers - INFO - [realizar_llamada] Intentando llamada con Netelip
+2024-12-24 10:39:33,228 - utils.call_providers - DEBUG - [_realizar_llamada_netelip] Iniciando llamada con Netelip
+2024-12-24 10:39:33,228 - utils.call_providers - DEBUG - [_formatear_numero_telefono] Número formateado: 0034640523789
+2024-12-24 10:39:33,228 - utils.call_providers - INFO - [_realizar_llamada_netelip] Intentando llamada con Netelip al número 0034640523789
+2024-12-24 10:39:33,587 - utils.call_providers - ERROR - [_realizar_llamada_netelip] Fallo en llamada Netelip: Credenciales inválidas: Error de API: 404
+2024-12-24 10:39:33,589 - utils.call_providers - ERROR - [_registrar_error] Error en llamada: Error en llamada Netelip: Credenciales inválidas: Error de API: 404
+2024-12-24 10:39:33,589 - utils.call_providers - INFO - [_registrar_error] Programado reintento 2 para llamada 59
+2024-12-24 10:39:33,910 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 59 desbloqueada
+2024-12-24 10:40:52,524 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:40:52,524 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:40:52,525 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:40:52,525 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:40:52,525 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:40:52,525 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:40:52,525 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:40:52,525 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:40:53,929 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:40:53,930 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:40:53,930 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:40:53,930 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:40:53,930 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:40:53,930 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:40:53,930 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:40:53,930 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:41:34,606 - utils.call_providers - INFO - [realizar_llamada] === Iniciando nueva llamada ===
+2024-12-24 10:41:34,635 - utils.call_providers - INFO - [realizar_llamada] Destinatario: EMOVIR
+2024-12-24 10:41:34,635 - utils.call_providers - INFO - [realizar_llamada] Intento: 1/3
+2024-12-24 10:41:34,635 - utils.call_providers - INFO - [realizar_llamada] Proveedor actual: netelip
+2024-12-24 10:41:34,636 - utils.call_providers - DEBUG - [_validar_numero_telefono] Validando número de teléfono: 0034640523789
+2024-12-24 10:41:34,636 - utils.call_providers - DEBUG - [_validar_numero_telefono] Número validado correctamente: 0034640523789
+2024-12-24 10:41:34,636 - utils.call_providers - DEBUG - [_limpiar_llamadas_bloqueadas] Iniciando limpieza de llamadas bloqueadas
+2024-12-24 10:41:34,636 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 60 bloqueada temporalmente
+2024-12-24 10:41:34,636 - utils.call_providers - DEBUG - [_validar_credenciales] Validando credenciales de Netelip
+2024-12-24 10:41:34,637 - utils.call_providers - DEBUG - [_validar_credenciales] Credenciales de Netelip validadas correctamente
+2024-12-24 10:41:34,637 - utils.call_providers - INFO - [realizar_llamada] Intentando llamada con Netelip
+2024-12-24 10:41:34,637 - utils.call_providers - DEBUG - [_realizar_llamada_netelip] Iniciando llamada con Netelip
+2024-12-24 10:41:34,637 - utils.call_providers - DEBUG - [_formatear_numero_telefono] Número formateado: 0034640523789
+2024-12-24 10:41:34,637 - utils.call_providers - INFO - [_realizar_llamada_netelip] Intentando llamada con Netelip al número 0034640523789
+2024-12-24 10:41:38,360 - utils.call_providers - ERROR - [_realizar_llamada_netelip] Fallo en llamada Netelip: Error HTTP: 404
+2024-12-24 10:41:38,361 - utils.call_providers - ERROR - [_registrar_error] Error en llamada: Error en llamada Netelip: Error HTTP: 404
+2024-12-24 10:41:38,361 - utils.call_providers - INFO - [_registrar_error] Programado reintento 2 para llamada 60
+2024-12-24 10:41:38,665 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 60 desbloqueada
+2024-12-24 10:42:17,073 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:42:17,073 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:42:17,073 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:42:17,073 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:42:17,073 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:42:17,074 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:42:17,074 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:42:17,074 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:42:18,406 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:42:18,407 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:42:18,407 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:42:18,407 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:42:18,407 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:42:18,407 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:42:18,407 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:42:18,407 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:42:40,004 - utils.call_providers - INFO - [realizar_llamada] === Iniciando nueva llamada ===
+2024-12-24 10:42:40,033 - utils.call_providers - INFO - [realizar_llamada] Destinatario: EMOVIR
+2024-12-24 10:42:40,033 - utils.call_providers - INFO - [realizar_llamada] Intento: 1/3
+2024-12-24 10:42:40,033 - utils.call_providers - INFO - [realizar_llamada] Proveedor actual: netelip
+2024-12-24 10:42:40,034 - utils.call_providers - DEBUG - [_validar_numero_telefono] Validando número de teléfono: 0034640523789
+2024-12-24 10:42:40,034 - utils.call_providers - DEBUG - [_validar_numero_telefono] Número validado correctamente: 0034640523789
+2024-12-24 10:42:40,034 - utils.call_providers - DEBUG - [_limpiar_llamadas_bloqueadas] Iniciando limpieza de llamadas bloqueadas
+2024-12-24 10:42:40,034 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 61 bloqueada temporalmente
+2024-12-24 10:42:40,034 - utils.call_providers - DEBUG - [_validar_credenciales] Validando credenciales de Netelip
+2024-12-24 10:42:40,035 - utils.call_providers - DEBUG - [_validar_credenciales] Credenciales de Netelip validadas correctamente
+2024-12-24 10:42:40,035 - utils.call_providers - INFO - [realizar_llamada] Intentando llamada con Netelip
+2024-12-24 10:42:40,035 - utils.call_providers - DEBUG - [_realizar_llamada_netelip] Iniciando llamada con Netelip
+2024-12-24 10:42:40,035 - utils.call_providers - DEBUG - [_formatear_numero_telefono] Número formateado: 0034640523789
+2024-12-24 10:42:40,035 - utils.call_providers - INFO - [_realizar_llamada_netelip] Intentando llamada con Netelip al número 0034640523789
+2024-12-24 10:42:46,631 - utils.call_providers - ERROR - [_realizar_llamada_netelip] Fallo en llamada Netelip: Error en respuesta: Status 404
+2024-12-24 10:42:46,631 - utils.call_providers - ERROR - [_registrar_error] Error en llamada: Error en llamada Netelip: Error en respuesta: Status 404
+2024-12-24 10:42:46,631 - utils.call_providers - INFO - [_registrar_error] Programado reintento 2 para llamada 61
+2024-12-24 10:42:46,937 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 61 desbloqueada
+2024-12-24 10:44:06,604 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:44:06,605 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:44:06,606 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:44:06,606 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:44:06,606 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:44:06,607 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:44:06,607 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:44:06,607 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:44:07,957 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:44:07,958 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:44:07,958 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:44:07,958 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:44:07,958 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:44:07,958 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:44:07,958 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:44:07,959 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:44:34,215 - utils.call_providers - INFO - [realizar_llamada] === Iniciando nueva llamada ===
+2024-12-24 10:44:34,246 - utils.call_providers - INFO - [realizar_llamada] Destinatario: EMOVIR
+2024-12-24 10:44:34,246 - utils.call_providers - INFO - [realizar_llamada] Intento: 1/3
+2024-12-24 10:44:34,247 - utils.call_providers - INFO - [realizar_llamada] Proveedor actual: netelip
+2024-12-24 10:44:34,247 - utils.call_providers - DEBUG - [_validar_numero_telefono] Validando número de teléfono: 0034640523789
+2024-12-24 10:44:34,247 - utils.call_providers - DEBUG - [_validar_numero_telefono] Número validado correctamente: 0034640523789
+2024-12-24 10:44:34,247 - utils.call_providers - DEBUG - [_limpiar_llamadas_bloqueadas] Iniciando limpieza de llamadas bloqueadas
+2024-12-24 10:44:34,247 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 62 bloqueada temporalmente
+2024-12-24 10:44:34,247 - utils.call_providers - DEBUG - [_validar_credenciales] Validando credenciales de Netelip
+2024-12-24 10:44:34,247 - utils.call_providers - DEBUG - [_validar_credenciales] Credenciales de Netelip validadas correctamente
+2024-12-24 10:44:34,248 - utils.call_providers - INFO - [realizar_llamada] Intentando llamada con Netelip
+2024-12-24 10:44:34,248 - utils.call_providers - DEBUG - [_realizar_llamada_netelip] Iniciando llamada con Netelip
+2024-12-24 10:44:34,248 - utils.call_providers - DEBUG - [_formatear_numero_telefono] Número formateado: 0034640523789
+2024-12-24 10:44:34,248 - utils.call_providers - INFO - [_realizar_llamada_netelip] Intentando llamada con Netelip al número 0034640523789
+2024-12-24 10:44:40,894 - utils.call_providers - ERROR - [_realizar_llamada_netelip] Fallo en llamada Netelip: Error de conexión con el servicio de llamadas
+2024-12-24 10:44:40,895 - utils.call_providers - ERROR - [_registrar_error] Error en llamada: Error en llamada Netelip: Error de conexión con el servicio de llamadas
+2024-12-24 10:44:40,896 - utils.call_providers - INFO - [_registrar_error] Programado reintento 2 para llamada 62
+2024-12-24 10:44:41,203 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 62 desbloqueada
+2024-12-24 10:46:05,031 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:46:05,031 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:46:05,031 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:46:05,031 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:46:05,031 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:46:05,032 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:46:05,032 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:46:05,032 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:46:06,373 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:46:06,374 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:46:06,374 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:46:06,374 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:46:06,374 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:46:06,374 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:46:06,374 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:46:06,374 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:46:38,803 - utils.call_providers - INFO - [realizar_llamada] === Iniciando nueva llamada ===
+2024-12-24 10:46:38,833 - utils.call_providers - INFO - [realizar_llamada] Destinatario: EMOVIR
+2024-12-24 10:46:38,833 - utils.call_providers - INFO - [realizar_llamada] Intento: 1/3
+2024-12-24 10:46:38,833 - utils.call_providers - INFO - [realizar_llamada] Proveedor actual: netelip
+2024-12-24 10:46:38,833 - utils.call_providers - DEBUG - [_validar_numero_telefono] Validando número de teléfono: 0034640523789
+2024-12-24 10:46:38,833 - utils.call_providers - DEBUG - [_validar_numero_telefono] Número validado correctamente: 0034640523789
+2024-12-24 10:46:38,833 - utils.call_providers - DEBUG - [_limpiar_llamadas_bloqueadas] Iniciando limpieza de llamadas bloqueadas
+2024-12-24 10:46:38,833 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 63 bloqueada temporalmente
+2024-12-24 10:46:38,834 - utils.call_providers - DEBUG - [_validar_credenciales] Validando credenciales de Netelip
+2024-12-24 10:46:38,834 - utils.call_providers - DEBUG - [_validar_credenciales] Credenciales de Netelip validadas correctamente
+2024-12-24 10:46:38,834 - utils.call_providers - INFO - [realizar_llamada] Intentando llamada con Netelip
+2024-12-24 10:46:38,834 - utils.call_providers - DEBUG - [_realizar_llamada_netelip] Iniciando llamada con Netelip
+2024-12-24 10:46:38,834 - utils.call_providers - DEBUG - [_formatear_numero_telefono] Número formateado: 0034640523789
+2024-12-24 10:46:38,834 - utils.call_providers - INFO - [_realizar_llamada_netelip] Intentando llamada con Netelip al número 0034640523789
+2024-12-24 10:46:45,427 - utils.call_providers - ERROR - [_realizar_llamada_netelip] Fallo en llamada Netelip: Error en la configuración del servicio de llamadas
+2024-12-24 10:46:45,428 - utils.call_providers - ERROR - [_registrar_error] Error en llamada: Error en llamada Netelip: Error en la configuración del servicio de llamadas
+2024-12-24 10:46:45,428 - utils.call_providers - INFO - [_registrar_error] Programado reintento 2 para llamada 63
+2024-12-24 10:46:45,752 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 63 desbloqueada
+2024-12-24 10:47:55,314 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:47:55,314 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:47:55,314 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:47:55,314 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:47:55,314 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:47:55,314 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:47:55,315 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:47:55,315 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:47:56,649 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:47:56,650 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:47:56,650 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:47:56,650 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:47:56,650 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:47:56,651 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:47:56,651 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:47:56,651 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:48:49,954 - utils.call_providers - INFO - [realizar_llamada] === Iniciando nueva llamada ===
+2024-12-24 10:48:49,983 - utils.call_providers - INFO - [realizar_llamada] Destinatario: EMOVIR
+2024-12-24 10:48:49,983 - utils.call_providers - INFO - [realizar_llamada] Intento: 1/3
+2024-12-24 10:48:49,984 - utils.call_providers - INFO - [realizar_llamada] Proveedor actual: netelip
+2024-12-24 10:48:49,984 - utils.call_providers - DEBUG - [_validar_numero_telefono] Validando número de teléfono: 0034640523789
+2024-12-24 10:48:49,984 - utils.call_providers - DEBUG - [_validar_numero_telefono] Número validado correctamente: 0034640523789
+2024-12-24 10:48:49,984 - utils.call_providers - DEBUG - [_limpiar_llamadas_bloqueadas] Iniciando limpieza de llamadas bloqueadas
+2024-12-24 10:48:49,984 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 64 bloqueada temporalmente
+2024-12-24 10:48:49,984 - utils.call_providers - DEBUG - [_validar_credenciales] Validando credenciales de Netelip
+2024-12-24 10:48:49,984 - utils.call_providers - DEBUG - [_validar_credenciales] Credenciales de Netelip validadas correctamente
+2024-12-24 10:48:49,984 - utils.call_providers - INFO - [realizar_llamada] Intentando llamada con Netelip
+2024-12-24 10:48:49,984 - utils.call_providers - DEBUG - [_realizar_llamada_netelip] Iniciando llamada con Netelip
+2024-12-24 10:48:49,984 - utils.call_providers - DEBUG - [_formatear_numero_telefono] Número formateado: 0034640523789
+2024-12-24 10:48:49,984 - utils.call_providers - INFO - [_realizar_llamada_netelip] Intentando llamada con Netelip al número 0034640523789
+2024-12-24 10:48:57,291 - utils.call_providers - ERROR - [_realizar_llamada_netelip] Fallo en llamada Netelip: URL del servicio no encontrada
+2024-12-24 10:48:57,292 - utils.call_providers - ERROR - [_registrar_error] Error en llamada: Error en llamada Netelip: URL del servicio no encontrada
+2024-12-24 10:48:57,292 - utils.call_providers - INFO - [_registrar_error] Programado reintento 2 para llamada 64
+2024-12-24 10:48:57,604 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 64 desbloqueada
+2024-12-24 10:50:07,825 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:50:07,825 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:50:07,826 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:50:07,826 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:50:07,826 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:50:07,826 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:50:07,826 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:50:07,826 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:50:09,179 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:50:09,180 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:50:09,180 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:50:09,180 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:50:09,180 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:50:09,180 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:50:09,180 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:50:09,180 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:54:20,144 - utils.call_providers - INFO - [realizar_llamada] === Iniciando nueva llamada ===
+2024-12-24 10:54:20,173 - utils.call_providers - INFO - [realizar_llamada] Destinatario: EMOVIR
+2024-12-24 10:54:20,173 - utils.call_providers - INFO - [realizar_llamada] Intento: 1/3
+2024-12-24 10:54:20,173 - utils.call_providers - INFO - [realizar_llamada] Proveedor actual: netelip
+2024-12-24 10:54:20,174 - utils.call_providers - DEBUG - [_validar_numero_telefono] Validando número de teléfono: 0034640523789
+2024-12-24 10:54:20,174 - utils.call_providers - DEBUG - [_validar_numero_telefono] Número validado correctamente: 0034640523789
+2024-12-24 10:54:20,174 - utils.call_providers - DEBUG - [_limpiar_llamadas_bloqueadas] Iniciando limpieza de llamadas bloqueadas
+2024-12-24 10:54:20,174 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 65 bloqueada temporalmente
+2024-12-24 10:54:20,175 - utils.call_providers - DEBUG - [_validar_credenciales] Validando credenciales de Netelip
+2024-12-24 10:54:20,175 - utils.call_providers - DEBUG - [_validar_credenciales] Credenciales de Netelip validadas correctamente
+2024-12-24 10:54:20,175 - utils.call_providers - INFO - [realizar_llamada] Intentando llamada con Netelip
+2024-12-24 10:54:20,175 - utils.call_providers - DEBUG - [_realizar_llamada_netelip] Iniciando llamada con Netelip
+2024-12-24 10:54:20,175 - utils.call_providers - DEBUG - [_formatear_numero_telefono] Número formateado: 0034640523789
+2024-12-24 10:54:20,175 - utils.call_providers - INFO - [_realizar_llamada_netelip] Intentando llamada con Netelip al número 0034640523789
+2024-12-24 10:54:27,243 - utils.call_providers - ERROR - [_realizar_llamada_netelip] Fallo en llamada Netelip: URL del servicio no encontrada
+2024-12-24 10:54:27,244 - utils.call_providers - ERROR - [_registrar_error] Error en llamada: Error en llamada Netelip: URL del servicio no encontrada
+2024-12-24 10:54:27,244 - utils.call_providers - INFO - [_registrar_error] Programado reintento 2 para llamada 65
+2024-12-24 10:54:27,545 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 65 desbloqueada
+2024-12-24 10:56:09,273 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:56:09,274 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:56:09,274 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:56:09,274 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:56:09,274 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:56:09,274 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:56:09,274 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:56:09,274 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:56:54,033 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:56:54,033 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:56:54,033 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:56:54,033 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:56:54,033 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:56:54,033 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:56:54,033 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:56:54,034 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:56:55,344 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 10:56:55,344 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 10:56:55,344 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 10:56:55,345 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 10:56:55,345 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 10:56:55,345 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 10:56:55,345 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 10:56:55,345 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 10:57:19,103 - utils.call_providers - INFO - [realizar_llamada] === Iniciando nueva llamada ===
+2024-12-24 10:57:19,133 - utils.call_providers - INFO - [realizar_llamada] Destinatario: EMOVIR
+2024-12-24 10:57:19,133 - utils.call_providers - INFO - [realizar_llamada] Intento: 1/3
+2024-12-24 10:57:19,133 - utils.call_providers - INFO - [realizar_llamada] Proveedor actual: netelip
+2024-12-24 10:57:19,133 - utils.call_providers - DEBUG - [_validar_numero_telefono] Validando número de teléfono: 0034640523789
+2024-12-24 10:57:19,134 - utils.call_providers - DEBUG - [_validar_numero_telefono] Número validado correctamente: 0034640523789
+2024-12-24 10:57:19,134 - utils.call_providers - DEBUG - [_limpiar_llamadas_bloqueadas] Iniciando limpieza de llamadas bloqueadas
+2024-12-24 10:57:19,134 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 66 bloqueada temporalmente
+2024-12-24 10:57:19,134 - utils.call_providers - DEBUG - [_validar_credenciales] Validando credenciales de Netelip
+2024-12-24 10:57:19,134 - utils.call_providers - DEBUG - [_validar_credenciales] Credenciales de Netelip validadas correctamente
+2024-12-24 10:57:19,134 - utils.call_providers - INFO - [realizar_llamada] Intentando llamada con Netelip
+2024-12-24 10:57:19,135 - utils.call_providers - DEBUG - [_realizar_llamada_netelip] Iniciando llamada con Netelip
+2024-12-24 10:57:19,135 - utils.call_providers - DEBUG - [_formatear_numero_telefono] Número formateado: 0034640523789
+2024-12-24 10:57:19,135 - utils.call_providers - INFO - [_realizar_llamada_netelip] Intentando llamada con Netelip al número 0034640523789
+2024-12-24 10:57:19,746 - utils.call_providers - ERROR - [_realizar_llamada_netelip] Fallo en llamada Netelip: Error desconocido en la respuesta
+2024-12-24 10:57:19,746 - utils.call_providers - ERROR - [_registrar_error] Error en llamada: Error en llamada Netelip: Error desconocido en la respuesta
+2024-12-24 10:57:19,747 - utils.call_providers - INFO - [_registrar_error] Programado reintento 2 para llamada 66
+2024-12-24 10:57:20,056 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 66 desbloqueada
+2024-12-24 11:03:46,833 - utils.call_providers - INFO - [realizar_llamada] === Iniciando nueva llamada ===
+2024-12-24 11:03:46,862 - utils.call_providers - INFO - [realizar_llamada] Destinatario: EMOVIR
+2024-12-24 11:03:46,862 - utils.call_providers - INFO - [realizar_llamada] Intento: 1/3
+2024-12-24 11:03:46,862 - utils.call_providers - INFO - [realizar_llamada] Proveedor actual: netelip
+2024-12-24 11:03:46,862 - utils.call_providers - DEBUG - [_validar_numero_telefono] Validando número de teléfono: 0034640523789
+2024-12-24 11:03:46,862 - utils.call_providers - DEBUG - [_validar_numero_telefono] Número validado correctamente: 0034640523789
+2024-12-24 11:03:46,863 - utils.call_providers - DEBUG - [_limpiar_llamadas_bloqueadas] Iniciando limpieza de llamadas bloqueadas
+2024-12-24 11:03:46,863 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 68 bloqueada temporalmente
+2024-12-24 11:03:46,863 - utils.call_providers - DEBUG - [_validar_credenciales] Validando credenciales de Netelip
+2024-12-24 11:03:46,863 - utils.call_providers - DEBUG - [_validar_credenciales] Credenciales de Netelip validadas correctamente
+2024-12-24 11:03:46,863 - utils.call_providers - INFO - [realizar_llamada] Intentando llamada con Netelip
+2024-12-24 11:03:46,863 - utils.call_providers - DEBUG - [_realizar_llamada_netelip] Iniciando llamada con Netelip
+2024-12-24 11:03:46,863 - utils.call_providers - DEBUG - [_formatear_numero_telefono] Número formateado: 0034640523789
+2024-12-24 11:03:46,863 - utils.call_providers - INFO - [_realizar_llamada_netelip] Intentando llamada con Netelip al número 0034640523789
+2024-12-24 11:03:47,463 - utils.call_providers - ERROR - [_realizar_llamada_netelip] Fallo en llamada Netelip: Error desconocido en la respuesta
+2024-12-24 11:03:47,464 - utils.call_providers - ERROR - [_registrar_error] Error en llamada: Error en llamada Netelip: Error desconocido en la respuesta
+2024-12-24 11:03:47,464 - utils.call_providers - INFO - [_registrar_error] Programado reintento 2 para llamada 68
+2024-12-24 11:03:47,765 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 68 desbloqueada
+2024-12-24 11:07:17,701 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 11:07:17,701 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 11:07:17,701 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 11:07:17,701 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 11:07:17,701 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 11:07:17,702 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 11:07:17,702 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 11:07:17,702 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 11:07:19,017 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 11:07:19,017 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 11:07:19,018 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 11:07:19,018 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 11:07:19,018 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 11:07:19,018 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 11:07:19,018 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 11:07:19,018 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 11:07:57,189 - utils.call_providers - INFO - [realizar_llamada] === Iniciando nueva llamada ===
+2024-12-24 11:07:57,219 - utils.call_providers - INFO - [realizar_llamada] Destinatario: EMOVIR
+2024-12-24 11:07:57,219 - utils.call_providers - INFO - [realizar_llamada] Intento: 1/3
+2024-12-24 11:07:57,219 - utils.call_providers - INFO - [realizar_llamada] Proveedor actual: netelip
+2024-12-24 11:07:57,220 - utils.call_providers - DEBUG - [_validar_numero_telefono] Validando número de teléfono: 0034640523789
+2024-12-24 11:07:57,220 - utils.call_providers - DEBUG - [_validar_numero_telefono] Número validado correctamente: 0034640523789
+2024-12-24 11:07:57,220 - utils.call_providers - DEBUG - [_limpiar_llamadas_bloqueadas] Iniciando limpieza de llamadas bloqueadas
+2024-12-24 11:07:57,220 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 69 bloqueada temporalmente
+2024-12-24 11:07:57,220 - utils.call_providers - DEBUG - [_validar_credenciales] Validando credenciales de Netelip
+2024-12-24 11:07:57,220 - utils.call_providers - DEBUG - [_validar_credenciales] Credenciales de Netelip validadas correctamente
+2024-12-24 11:07:57,220 - utils.call_providers - INFO - [realizar_llamada] Intentando llamada con Netelip
+2024-12-24 11:07:57,221 - utils.call_providers - DEBUG - [_realizar_llamada_netelip] Iniciando llamada con Netelip
+2024-12-24 11:07:57,221 - utils.call_providers - DEBUG - [_formatear_numero_telefono] Número formateado: 0034640523789
+2024-12-24 11:07:57,221 - utils.call_providers - INFO - [_realizar_llamada_netelip] Intentando llamada con Netelip al número 0034640523789
+2024-12-24 11:07:57,814 - utils.call_providers - ERROR - [_realizar_llamada_netelip] Fallo en llamada Netelip: Error desconocido en la respuesta
+2024-12-24 11:07:57,815 - utils.call_providers - ERROR - [_registrar_error] Error en llamada: Error en llamada Netelip: Error desconocido en la respuesta
+2024-12-24 11:07:57,815 - utils.call_providers - INFO - [_registrar_error] Programado reintento 2 para llamada 69
+2024-12-24 11:07:58,128 - utils.call_providers - DEBUG - [realizar_llamada] Llamada 69 desbloqueada
+2024-12-24 11:08:16,643 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 11:08:16,644 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 11:08:16,644 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 11:08:16,644 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 11:08:16,644 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 11:08:16,644 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 11:08:16,644 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 11:08:16,644 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 11:08:58,376 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 11:08:58,376 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 11:08:58,376 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 11:08:58,377 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 11:08:58,377 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 11:08:58,377 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 11:08:58,377 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 11:08:58,377 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 11:08:59,685 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 11:08:59,685 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 11:08:59,685 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 11:08:59,685 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 11:08:59,685 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 11:08:59,686 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 11:08:59,686 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 11:08:59,686 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 11:51:38,700 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 11:51:38,702 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 11:51:38,703 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 11:51:38,703 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 11:51:38,703 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 11:51:38,703 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 11:51:38,703 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 11:51:38,703 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 11:52:38,607 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 11:52:38,609 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 11:52:38,610 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 11:52:38,612 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 11:52:38,614 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 11:52:38,615 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 11:52:38,615 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 11:52:38,615 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 11:53:32,036 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 11:53:32,036 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 11:53:32,036 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 11:53:32,036 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 11:53:32,036 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 11:53:32,037 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 11:53:32,037 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 11:53:32,037 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 11:53:33,568 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 11:53:33,568 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 11:53:33,568 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 11:53:33,568 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 11:53:33,568 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 11:53:33,568 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 11:53:33,568 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 11:53:33,568 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 11:59:22,016 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 11:59:22,016 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 11:59:22,016 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 11:59:22,016 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 11:59:22,016 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 11:59:22,016 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 11:59:22,017 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 11:59:22,017 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:01:02,226 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:01:02,226 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:01:02,226 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:01:02,226 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:01:02,226 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:01:02,226 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:01:02,227 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:01:02,227 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:01:14,406 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:01:14,406 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:01:14,406 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:01:14,407 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:01:14,407 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:01:14,407 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:01:14,407 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:01:14,407 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:01:15,632 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:01:15,632 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:01:15,633 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:01:15,633 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:01:15,633 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:01:15,633 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:01:15,633 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:01:15,633 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:10:00,431 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:10:00,431 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:10:00,431 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:10:00,431 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:10:00,431 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:10:00,431 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:10:00,431 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:10:00,431 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:10:00,432 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:10:00,432 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:10:08,996 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:10:08,996 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:10:08,996 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:10:08,996 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:10:08,996 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:10:08,996 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:10:08,997 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:10:08,997 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:10:08,997 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:10:08,997 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:10:10,222 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:10:10,223 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:10:10,223 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:10:10,223 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:10:10,223 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:10:10,223 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:10:10,223 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:10:10,224 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:10:10,224 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:10:10,224 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:19:41,665 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:19:41,665 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:19:41,665 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:19:41,665 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:19:41,665 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:19:41,665 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:19:41,665 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:19:41,666 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:19:41,666 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:19:41,666 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:20:43,721 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:20:43,723 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:20:43,723 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:20:43,723 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:20:43,723 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:20:43,723 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:20:43,723 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:20:43,724 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:20:43,724 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:20:43,724 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:20:45,456 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:20:45,456 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:20:45,456 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:20:45,456 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:20:45,457 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:20:45,457 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:20:45,457 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:20:45,457 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:20:45,457 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:20:45,457 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:25:50,705 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:25:50,708 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:25:50,708 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:25:50,709 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:25:50,709 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:25:50,709 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:25:50,709 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:25:50,710 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:25:50,710 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:25:50,710 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:26:04,066 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:26:04,066 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:26:04,067 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:26:04,067 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:26:04,067 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:26:04,067 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:26:04,067 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:26:04,067 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:26:04,067 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:26:04,068 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:26:05,370 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:26:05,371 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:26:05,371 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:26:05,371 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:26:05,371 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:26:05,371 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:26:05,371 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:26:05,371 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:26:05,371 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:26:05,371 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:27:35,038 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:27:35,038 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:27:35,038 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:27:35,038 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:27:35,039 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:27:35,039 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:27:35,039 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:27:35,039 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:27:35,039 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:27:35,039 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:27:36,333 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:27:36,333 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:27:36,333 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:27:36,333 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:27:36,333 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:27:36,333 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:27:36,333 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:27:36,334 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:27:36,334 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:27:36,334 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:28:33,162 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:28:33,162 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:28:33,162 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:28:33,162 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:28:33,163 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:28:33,163 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:28:33,163 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:28:33,163 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:28:33,163 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:28:33,163 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:28:41,313 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:28:41,313 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:28:41,313 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:28:41,313 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:28:41,313 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:28:41,313 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:28:41,313 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:28:41,314 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:28:41,314 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:28:41,314 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:28:42,542 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:28:42,543 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:28:42,543 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:28:42,543 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:28:42,543 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:28:42,543 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:28:42,543 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:28:42,543 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:28:42,544 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:28:42,544 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:30:14,043 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:30:14,043 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:30:14,043 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:30:14,043 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:30:14,044 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:30:14,044 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:30:14,044 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:30:14,044 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:30:14,044 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:30:14,044 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:30:22,308 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:30:22,310 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:30:22,310 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:30:22,311 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:30:22,311 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:30:22,311 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:30:22,311 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:30:22,311 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:30:22,311 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:30:22,311 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:30:23,739 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:30:23,739 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:30:23,739 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:30:23,739 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:30:23,739 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:30:23,740 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:30:23,740 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:30:23,740 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:30:23,740 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:30:23,740 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:31:48,751 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:31:48,752 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:31:48,752 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:31:48,752 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:31:48,752 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:31:48,752 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:31:48,752 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:31:48,752 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:31:48,752 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:31:48,753 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:31:49,971 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:31:49,971 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:31:49,971 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:31:49,971 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:31:49,971 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:31:49,971 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:31:49,971 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:31:49,971 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:31:49,972 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:31:49,972 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:33:20,948 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:33:20,949 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:33:20,949 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:33:20,949 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:33:20,949 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:33:20,949 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:33:20,949 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:33:20,949 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:33:20,949 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:33:20,950 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:34:33,025 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:34:33,025 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:34:33,025 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:34:33,026 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:34:33,026 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:34:33,026 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:34:33,026 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:34:33,026 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:34:33,026 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:34:33,026 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:34:34,392 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:34:34,392 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:34:34,392 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:34:34,393 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:34:34,393 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:34:34,393 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:34:34,393 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:34:34,393 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:34:34,393 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:34:34,394 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:59:03,872 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:59:03,873 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:59:03,873 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:59:03,874 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:59:03,874 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:59:03,874 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:59:03,874 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:59:03,874 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:59:03,874 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:59:03,874 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:59:11,782 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:59:11,783 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:59:11,783 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:59:11,783 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:59:11,783 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:59:11,783 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:59:11,783 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:59:11,783 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:59:11,783 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:59:11,784 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:59:42,478 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:59:42,479 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:59:42,479 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:59:42,479 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:59:42,479 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:59:42,479 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:59:42,479 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:59:42,479 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:59:42,479 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:59:42,479 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 12:59:43,719 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 12:59:43,719 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 12:59:43,719 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 12:59:43,719 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 12:59:43,719 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 12:59:43,719 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 12:59:43,719 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 12:59:43,720 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 12:59:43,720 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 12:59:43,720 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 13:13:42,297 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 13:13:42,297 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 13:13:42,298 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 13:13:42,298 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 13:13:42,298 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 13:13:42,298 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 13:13:42,298 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 13:13:42,298 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 13:13:42,298 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 13:13:42,298 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 13:14:17,082 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 13:14:17,082 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 13:14:17,082 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 13:14:17,082 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 13:14:17,082 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 13:14:17,083 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 13:14:17,083 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 13:14:17,083 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 13:14:17,083 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 13:14:17,083 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 13:14:18,324 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 13:14:18,325 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 13:14:18,325 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 13:14:18,325 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 13:14:18,325 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 13:14:18,325 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 13:14:18,325 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 13:14:18,325 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 13:14:18,325 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 13:14:18,326 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 13:15:28,474 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 13:15:28,474 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 13:15:28,474 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 13:15:28,474 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 13:15:28,474 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 13:15:28,474 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 13:15:28,475 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 13:15:28,475 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 13:15:28,475 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 13:15:28,475 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 13:15:29,766 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 13:15:29,767 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 13:15:29,767 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 13:15:29,767 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 13:15:29,767 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 13:15:29,767 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 13:15:29,767 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 13:15:29,767 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 13:15:29,767 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 13:15:29,767 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 13:18:10,115 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 13:18:10,115 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 13:18:10,115 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 13:18:10,115 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 13:18:10,115 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 13:18:10,116 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 13:18:10,116 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 13:18:10,116 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 13:18:10,116 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 13:18:10,116 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 13:19:09,863 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 13:19:09,865 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 13:19:09,865 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 13:19:09,865 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 13:19:09,865 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 13:19:09,865 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 13:19:09,865 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 13:19:09,865 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 13:19:09,866 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 13:19:09,866 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 13:19:11,182 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 13:19:11,182 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 13:19:11,182 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 13:19:11,182 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 13:19:11,182 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 13:19:11,183 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 13:19:11,183 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 13:19:11,183 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 13:19:11,183 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 13:19:11,183 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 13:22:04,208 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 13:22:04,209 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 13:22:04,209 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 13:22:04,209 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 13:22:04,209 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 13:22:04,209 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 13:22:04,209 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 13:22:04,209 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 13:22:04,210 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 13:22:04,210 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 13:22:05,647 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 13:22:05,648 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 13:22:05,648 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 13:22:05,648 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 13:22:05,648 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 13:22:05,648 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 13:22:05,648 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 13:22:05,649 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 13:22:05,649 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 13:22:05,649 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 13:23:10,551 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 13:23:10,553 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 13:23:10,553 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 13:23:10,553 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 13:23:10,553 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 13:23:10,553 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 13:23:10,554 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 13:23:10,554 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 13:23:10,554 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 13:23:10,554 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 13:23:12,156 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 13:23:12,157 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 13:23:12,157 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 13:23:12,157 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 13:23:12,158 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 13:23:12,158 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 13:23:12,158 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 13:23:12,158 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 13:23:12,158 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 13:23:12,158 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 13:43:31,610 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 13:43:31,612 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 13:43:31,612 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 13:43:31,612 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 13:43:31,613 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 13:43:31,613 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 13:43:31,613 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 13:43:31,613 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 13:43:31,613 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 13:43:31,613 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 13:44:52,992 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 13:44:52,992 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 13:44:52,992 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 13:44:52,992 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 13:44:52,993 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 13:44:52,993 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 13:44:52,993 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 13:44:52,993 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 13:44:52,993 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 13:44:52,993 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 13:44:54,598 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 13:44:54,598 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 13:44:54,599 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 13:44:54,599 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 13:44:54,599 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 13:44:54,599 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 13:44:54,599 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 13:44:54,599 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 13:44:54,599 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 13:44:54,599 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 13:55:38,225 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 13:55:38,226 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 13:55:38,226 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 13:55:38,226 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 13:55:38,226 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 13:55:38,226 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 13:55:38,226 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 13:55:38,226 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 13:55:38,226 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 13:55:38,226 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:01:02,792 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:01:02,792 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:01:02,792 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:01:02,792 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:01:02,793 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:01:02,793 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:01:02,793 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:01:02,793 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:01:02,793 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:01:02,793 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:01:04,247 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:01:04,247 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:01:04,247 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:01:04,248 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:01:04,248 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:01:04,248 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:01:04,248 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:01:04,248 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:01:04,248 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:01:04,248 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:01:05,543 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:01:05,544 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:01:05,544 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:01:05,544 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:01:05,544 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:01:05,544 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:01:05,545 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:01:05,545 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:01:05,545 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:01:05,545 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:02:19,272 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:02:19,272 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:02:19,272 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:02:19,272 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:02:19,272 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:02:19,273 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:02:19,273 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:02:19,273 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:02:19,273 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:02:19,273 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:02:24,235 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:02:24,235 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:02:24,235 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:02:24,235 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:02:24,236 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:02:24,236 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:02:24,236 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:02:24,236 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:02:24,236 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:02:24,236 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:02:25,705 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:02:25,706 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:02:25,706 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:02:25,706 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:02:25,706 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:02:25,706 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:02:25,706 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:02:25,706 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:02:25,707 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:02:25,707 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:02:26,964 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:02:26,965 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:02:26,965 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:02:26,966 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:02:26,966 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:02:26,966 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:02:26,966 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:02:26,966 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:02:26,966 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:02:26,966 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:03:38,192 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:03:38,193 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:03:38,193 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:03:38,193 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:03:38,193 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:03:38,193 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:03:38,193 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:03:38,193 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:03:38,193 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:03:38,194 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:03:39,606 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:03:39,606 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:03:39,606 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:03:39,606 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:03:39,606 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:03:39,606 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:03:39,606 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:03:39,606 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:03:39,607 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:03:39,607 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:03:40,862 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:03:40,862 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:03:40,862 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:03:40,862 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:03:40,862 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:03:40,862 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:03:40,862 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:03:40,863 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:03:40,863 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:03:40,863 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:05:07,179 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:05:07,179 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:05:07,179 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:05:07,179 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:05:07,180 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:05:07,180 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:05:07,180 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:05:07,180 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:05:07,180 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:05:07,180 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:05:08,623 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:05:08,623 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:05:08,623 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:05:08,623 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:05:08,624 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:05:08,624 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:05:08,624 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:05:08,624 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:05:08,624 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:05:08,624 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:05:09,887 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:05:09,888 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:05:09,888 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:05:09,888 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:05:09,888 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:05:09,888 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:05:09,888 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:05:09,888 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:05:09,888 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:05:09,888 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:08:47,824 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:08:47,826 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:08:47,826 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:08:47,827 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:08:47,827 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:08:47,827 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:08:47,827 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:08:47,827 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:08:47,827 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:08:47,827 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:09:20,763 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:09:20,763 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:09:20,763 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:09:20,763 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:09:20,763 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:09:20,764 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:09:20,764 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:09:20,764 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:09:20,764 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:09:20,764 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:22:32,070 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:22:32,070 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:22:32,071 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:22:32,071 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:22:32,071 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:22:32,071 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:22:32,071 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:22:32,071 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:22:32,071 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:22:32,072 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:23:10,090 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:23:10,091 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:23:10,091 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:23:10,092 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:23:10,092 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:23:10,092 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:23:10,092 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:23:10,092 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:23:10,093 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:23:10,093 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:23:11,302 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:23:11,302 - utils.call_providers - INFO - [__init__] Proveedor principal: netelip
+2024-12-24 14:23:11,302 - utils.call_providers - INFO - [__init__] Netelip configurado: True
+2024-12-24 14:23:11,302 - utils.call_providers - INFO - [__init__] Twilio disponible como backup: True
+2024-12-24 14:23:11,302 - utils.call_providers - INFO - [__init__] Configuración de tiempos:
+2024-12-24 14:23:11,302 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 14:23:11,302 - utils.call_providers - INFO - [__init__] - Tiempo espera entre intentos: 300s
+2024-12-24 14:23:11,303 - utils.call_providers - INFO - [__init__] - Tiempo máximo bloqueo: 600s
+2024-12-24 14:23:11,303 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:23:11,303 - utils.call_providers - INFO - [__init__] - Duración mínima de llamada: 15s
+2024-12-24 14:25:32,681 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:25:32,682 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:25:32,682 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:25:32,682 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:25:32,682 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:25:32,682 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:26:34,026 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:26:34,026 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:26:34,026 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:26:34,027 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:26:34,027 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:26:34,027 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:27:10,055 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:27:10,055 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:27:10,055 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:27:10,056 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:27:10,056 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:27:10,056 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:28:11,974 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:28:11,975 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:28:11,975 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:28:11,975 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:28:11,975 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:28:11,975 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:29:31,785 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:29:31,785 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:29:31,785 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:29:31,786 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:29:31,786 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:29:31,786 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:29:33,204 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:29:33,204 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:29:33,204 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:29:33,204 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:29:33,205 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:29:33,205 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:33:44,627 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:33:44,627 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:33:44,628 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:33:44,628 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:33:44,628 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:33:44,628 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:33:45,881 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:33:45,882 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:33:45,882 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:33:45,882 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:33:45,882 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:33:45,882 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:36:07,731 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:36:07,732 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:36:07,732 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:36:07,732 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:36:07,732 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:36:07,732 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:37:46,969 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:37:46,970 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:37:46,970 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:37:46,970 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:37:46,971 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:37:46,971 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:39:43,185 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:39:43,185 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:39:43,186 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:39:43,186 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:39:43,186 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:39:43,186 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:39:44,372 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:39:44,372 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:39:44,373 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:39:44,373 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:39:44,373 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:39:44,373 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:43:10,493 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:43:10,496 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:43:10,496 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:43:10,496 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:43:10,496 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:43:10,496 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:43:11,818 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:43:11,818 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:43:11,818 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:43:11,818 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:43:11,818 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:43:11,818 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:45:44,526 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:45:44,528 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:45:44,528 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:45:44,528 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:45:44,528 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:45:44,528 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:46:50,011 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:46:50,012 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:46:50,013 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:46:50,013 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:46:50,013 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:46:50,013 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:46:51,946 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:46:51,947 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:46:51,947 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:46:51,947 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:46:51,947 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:46:51,947 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:49:11,261 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:49:11,262 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:49:11,262 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:49:11,262 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:49:11,262 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:49:11,262 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:49:56,966 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:49:56,966 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:49:56,966 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:49:56,966 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:49:56,967 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:49:56,967 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:49:58,330 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:49:58,330 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:49:58,330 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:49:58,330 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:49:58,330 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:49:58,330 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 14:53:16,582 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 14:53:16,583 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 14:53:16,583 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 14:53:16,583 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 14:53:16,584 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 14:53:16,584 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:03:05,388 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:03:05,388 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:03:05,389 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 15:03:05,389 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:03:05,389 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 15:03:05,392 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:05:35,559 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:05:35,560 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:05:35,560 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 15:05:35,560 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:05:35,561 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 15:05:35,561 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:05:36,880 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:05:36,880 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:05:36,881 - utils.call_providers - INFO - [__init__] - Máximo intentos: 8
+2024-12-24 15:05:36,881 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:05:36,881 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 5
+2024-12-24 15:05:36,881 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:07:17,089 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:07:17,089 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:07:17,089 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 15:07:17,089 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:07:17,090 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 10
+2024-12-24 15:07:17,090 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:12:33,576 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:12:33,580 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:12:33,580 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 15:12:33,580 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:12:33,580 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 10
+2024-12-24 15:12:33,580 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:17:57,804 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:17:57,805 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:17:57,805 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 15:17:57,805 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:17:57,805 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 10
+2024-12-24 15:17:57,806 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:17:59,116 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:17:59,116 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:17:59,116 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 15:17:59,116 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:17:59,116 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 10
+2024-12-24 15:17:59,116 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:20:20,296 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:20:20,296 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:20:20,296 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 15:20:20,296 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:20:20,296 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 10
+2024-12-24 15:20:20,296 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:20:53,078 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:20:53,078 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:20:53,078 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 15:20:53,078 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:20:53,078 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 10
+2024-12-24 15:20:53,079 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:20:54,336 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:20:54,336 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:20:54,337 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 15:20:54,337 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:20:54,337 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 10
+2024-12-24 15:20:54,337 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:23:09,953 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:23:09,954 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:23:09,954 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 15:23:09,954 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:23:09,955 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 10
+2024-12-24 15:23:09,955 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:24:36,186 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:24:36,186 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:24:36,186 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 15:24:36,186 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:24:36,186 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 10
+2024-12-24 15:24:36,186 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:26:12,255 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:26:12,256 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:26:12,256 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 15:26:12,256 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:26:12,256 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 10
+2024-12-24 15:26:12,256 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:32:08,470 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:32:08,470 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:32:08,470 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 15:32:08,471 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:32:08,471 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 10
+2024-12-24 15:32:08,471 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:33:04,754 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:33:04,754 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:33:04,754 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 15:33:04,754 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:33:04,754 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 10
+2024-12-24 15:33:04,755 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:33:28,457 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:33:28,457 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:33:28,457 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 15:33:28,457 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:33:28,457 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 10
+2024-12-24 15:33:28,457 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:33:29,871 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:33:29,871 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:33:29,871 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 15:33:29,872 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:33:29,872 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 10
+2024-12-24 15:33:29,872 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s
+2024-12-24 15:35:57,672 - utils.call_providers - INFO - [__init__] === Inicialización del Gestor de Proveedores ===
+2024-12-24 15:35:57,673 - utils.call_providers - INFO - [__init__] Configuración de reintentos:
+2024-12-24 15:35:57,673 - utils.call_providers - INFO - [__init__] - Máximo intentos: 3
+2024-12-24 15:35:57,673 - utils.call_providers - INFO - [__init__] - Tiempo entre reintentos: 180s
+2024-12-24 15:35:57,673 - utils.call_providers - INFO - [__init__] - Máximo llamadas simultáneas: 10
+2024-12-24 15:35:57,674 - utils.call_providers - INFO - [__init__] - Duración mínima llamada: 15s

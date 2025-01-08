@@ -1,0 +1,316 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Recordatorio{% endblock %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-timepicker@0.5.2/css/bootstrap-timepicker.min.css">
+<style>
+/* Contenedor principal del formulario */
+.form-container {
+    background: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+/* Títulos y encabezados */
+.form-title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-shadow: none;
+}
+
+/* Etiquetas de campos */
+.form-label {
+    font-size: 1.4rem;
+    color: #34495e;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+/* Campos de entrada */
+.form-control, .form-select {
+    font-size: 1.3rem;
+    padding: 1rem;
+    border: 2px solid #bdc3c7;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #2c3e50;
+    height: auto;
+    box-shadow: none;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+    background-color: #ffffff;
+}
+
+/* Texto de ayuda */
+.form-text {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin-top: 0.5rem;
+}
+
+/* Botones */
+.btn {
+    font-size: 1.3rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+}
+
+/* Datepicker personalizado */
+.datepicker {
+    font-size: 1.3rem;
+    padding: 1rem;
+    background: #ffffff;
+}
+
+.datepicker-dropdown {
+    font-size: 1.3rem;
+    padding: 1rem;
+    border: 2px solid #bdc3c7;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+/* Timepicker personalizado */
+.bootstrap-timepicker-widget {
+    font-size: 1.3rem;
+    padding: 1rem;
+    border: 2px solid #bdc3c7;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+/* Grupo de inputs */
+.input-group-text {
+    font-size: 1.3rem;
+    background-color: #f8f9fa;
+    border: 2px solid #bdc3c7;
+    border-radius: 0 10px 10px 0;
+    padding: 0.5rem 1rem;
+}
+
+/* Espaciado entre grupos de campos */
+.form-group {
+    margin-bottom: 2rem;
+}
+
+/* Iconos */
+.feather {
+    width: 24px;
+    height: 24px;
+    stroke: #34495e;
+    stroke-width: 2;
+    vertical-align: middle;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="form-title">
+                    <i data-feather="edit-3" class="me-3"></i>
+                    Editar Recordatorio
+                </h1>
+                <div>
+                    <a href="{{ url_for('main.dashboard') }}" class="btn btn-secondary me-2">
+                        <i data-feather="arrow-left" class="me-2"></i>
+                        Volver
+                    </a>
+                    <a href="{{ url_for('main.nuevo_recordatorio') }}" class="btn btn-primary">
+                        <i data-feather="plus" class="me-2"></i>
+                        Nuevo Recordatorio
+                    </a>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <form method="POST" class="needs-validation" novalidate>
+                    {{ form.csrf_token }}
+                    <div class="row g-4">
+                        <!-- Nombre -->
+                        <div class="col-md-6 form-group">
+                            <label for="nombre" class="form-label">
+                                <i data-feather="user" class="me-2"></i>
+                                Nombre del destinatario
+                            </label>
+                            {{ form.nombre(class="form-control") }}
+                            <div class="form-text">
+                                <i data-feather="info" class="me-2"></i>
+                                Persona que recibirá la llamada
+                            </div>
+                        </div>
+
+                        <!-- Teléfono -->
+                        <div class="col-md-6 form-group">
+                            <label for="telefono" class="form-label">
+                                <i data-feather="phone" class="me-2"></i>
+                                Número de teléfono
+                            </label>
+                            {{ form.telefono }}
+                            <div class="form-text">
+                                <i data-feather="info" class="me-2"></i>
+                                Introduzca 9 dígitos después de 0034
+                            </div>
+                        </div>
+
+                        <!-- Fecha -->
+                        <div class="col-md-6 form-group">
+                            <label for="fecha" class="form-label">
+                                <i data-feather="calendar" class="me-2"></i>
+                                ¿Qué día empezamos?
+                            </label>
+                            <div class="input-group">
+                                {{ form.fecha(class="form-control datepicker") }}
+                                <span class="input-group-text">
+                                    <i data-feather="calendar"></i>
+                                </span>
+                            </div>
+                            <div class="form-text">
+                                <i data-feather="info" class="me-2"></i>
+                                Seleccione el día de la primera llamada
+                            </div>
+                        </div>
+
+                        <!-- Hora -->
+                        <div class="col-md-6 form-group">
+                            <label for="hora" class="form-label">
+                                <i data-feather="clock" class="me-2"></i>
+                                ¿A qué hora llamamos?
+                            </label>
+                            <div class="input-group">
+                                {{ form.hora(class="form-control timepicker") }}
+                                <span class="input-group-text">
+                                    <i data-feather="clock"></i>
+                                </span>
+                            </div>
+                            <div class="form-text">
+                                <i data-feather="info" class="me-2"></i>
+                                Seleccione la hora para todas las llamadas
+                            </div>
+                        </div>
+
+                        <!-- Tipo -->
+                        <div class="col-md-6 form-group">
+                            <label for="tipo" class="form-label">
+                                <i data-feather="tag" class="me-2"></i>
+                                ¿Qué tipo de recordatorio es?
+                            </label>
+                            {{ form.tipo }}
+                            <div class="form-text">
+                                <i data-feather="info" class="me-2"></i>
+                                Elija el tipo de actividad a recordar
+                            </div>
+                        </div>
+
+                        <!-- Repetición -->
+                        <div class="col-md-6 form-group">
+                            <label for="repeticion" class="form-label">
+                                <i data-feather="repeat" class="me-2"></i>
+                                ¿Con qué frecuencia llamamos?
+                            </label>
+                            {{ form.repeticion }}
+                            <div class="form-text">
+                                <i data-feather="info" class="me-2"></i>
+                                Seleccione cada cuánto tiempo se repite la llamada
+                            </div>
+                        </div>
+
+                        <!-- Mensaje -->
+                        <div class="col-12 form-group">
+                            <label for="mensaje" class="form-label">
+                                <i data-feather="message-circle" class="me-2"></i>
+                                Mensaje para la llamada
+                            </label>
+                            {{ form.mensaje }}
+                            <div class="form-text">
+                                <i data-feather="info" class="me-2"></i>
+                                Escriba el mensaje que Ada dirá durante la llamada
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-5">
+                        <a href="{{ url_for('main.dashboard') }}" class="btn btn-secondary">
+                            <i data-feather="x" class="me-2"></i>
+                            Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i data-feather="save" class="me-2"></i>
+                            Guardar Cambios
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-timepicker@0.5.2/js/bootstrap-timepicker.min.js"></script>
+<script src="https://unpkg.com/feather-icons"></script>
+<script>
+$(document).ready(function() {
+    // Inicializar datepicker con configuración para mejor visibilidad
+    $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true,
+        todayHighlight: true,
+        language: 'es',
+        startDate: 'today',
+        templates: {
+            leftArrow: '<i data-feather="chevron-left"></i>',
+            rightArrow: '<i data-feather="chevron-right"></i>'
+        }
+    });
+
+    // Inicializar timepicker con configuración para mejor visibilidad
+    $('.timepicker').timepicker({
+        showMeridian: false,
+        defaultTime: false,
+        minuteStep: 5,
+        showSeconds: false,
+        showInputs: false,
+        disableFocus: true
+    });
+
+    // Reemplazar los iconos
+    feather.replace();
+});
+</script>
+{% endblock %}

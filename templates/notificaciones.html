@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Notificaciones de Llamadas</h2>
+
+    <div class="notifications-container">
+        {% if notificaciones %}
+            {% for notif in notificaciones %}
+                <div class="alert alert-{{ notif.nivel }} alert-dismissible fade show notification-item" 
+                     role="alert" 
+                     id="notification-{{ notif.id }}">
+                    <strong>{{ notif.tipo | title }}</strong>
+                    <p>{{ notif.mensaje }}</p>
+                    <small class="text-muted">
+                        {{ notif.fecha_creacion.strftime('%d/%m/%Y %H:%M:%S') }}
+                    </small>
+                    <button type="button" 
+                            class="btn-close" 
+                            data-bs-dismiss="alert" 
+                            aria-label="Close"
+                            onclick="marcarComoLeida('{{ notif.id }}')">
+                    </button>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="alert alert-info">
+                No hay notificaciones nuevas
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+function marcarComoLeida(notificacionId) {
+    fetch(`/notificaciones/marcar_leida/${notificacionId}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la respuesta del servidor');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                const notification = document.getElementById(`notification-${notificacionId}`);
+                if (notification) {
+                    notification.remove();
+                }
+                // Si no hay más notificaciones, mostrar mensaje
+                const container = document.querySelector('.notifications-container');
+                if (!container.querySelector('.notification-item')) {
+                    container.innerHTML = '<div class="alert alert-info">No hay notificaciones nuevas</div>';
+                }
+            } else {
+                console.error('Error al marcar notificación como leída');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error al marcar la notificación como leída');
+        });
+}
+
+// Actualizar notificaciones cada 30 segundos
+setInterval(() => {
+    fetch('/notificaciones')
+        .then(response => response.text())
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const newNotifications = doc.querySelector('.notifications-container');
+            if (newNotifications) {
+                document.querySelector('.notifications-container').innerHTML = newNotifications.innerHTML;
+            }
+        })
+        .catch(error => console.error('Error actualizando notificaciones:', error));
+}, 30000);
+</script>
+
+<style>
+.notification-item {
+    margin-bottom: 1rem;
+    border-left: 4px solid;
+}
+.alert-success { border-left-color: #28a745; }
+.alert-warning { border-left-color: #ffc107; }
+.alert-danger { border-left-color: #dc3545; }
+.alert-info { border-left-color: #17a2b8; }
+</style>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 text-center mb-4">
+            <h2>Selecciona tu Plan de Llamadas</h2>
+            <p class="text-muted">Todos los planes incluyen acceso al sistema de recordatorios</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-6">
+            {% if codigo_promocional %}
+            <div class="alert alert-success">
+                <i class="fas fa-tag"></i> Código promocional aplicado: {{ codigo_promocional }}
+                ({{ descuento }}% de descuento)
+            </div>
+            {% endif %}
+            
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('aplicar_codigo') }}">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="codigo" 
+                                   placeholder="¿Tienes un código de referido?">
+                            <button class="btn btn-outline-primary" type="submit">Aplicar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        {% for paquete in paquetes %}
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    <h4>{{ paquete.nombre }}</h4>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h3 class="text-center mb-3">{{ "%.2f"|format(paquete.precio) }}€</h3>
+                    {% if descuento %}
+                    <p class="text-center text-success">
+                        <del>{{ "%.2f"|format(paquete.precio) }}€</del>
+                        {{ "%.2f"|format(paquete.precio * (1 - descuento/100)) }}€
+                    </p>
+                    {% endif %}
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success"></i> {{ paquete.cantidad_llamadas }} llamadas</li>
+                        <li><i class="fas fa-check text-success"></i> Soporte 24/7</li>
+                        <li><i class="fas fa-check text-success"></i> Panel de control</li>
+                    </ul>
+                    <div class="mt-auto">
+                        <form action="{{ url_for('iniciar_pago') }}" method="POST" class="text-center">
+                            <input type="hidden" name="paquete_id" value="{{ paquete.id }}">
+                            <button type="submit" class="btn btn-primary btn-block">
+                                Seleccionar Plan
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6 text-center">
+            <div class="card">
+                <div class="card-body">
+                    <h5>¿Necesitas más llamadas o tienes dudas?</h5>
+                    <p>Contacta directamente con nosotros:</p>
+                    <a href="tel:640523789" class="btn btn-success">
+                        <i class="fas fa-phone"></i> Llamar al 640523789
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

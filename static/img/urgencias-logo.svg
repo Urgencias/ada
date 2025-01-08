@@ -1,0 +1,14 @@
+<svg width="90" height="90" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .logo-circle {
+            fill: #ffffff;
+        }
+        .logo-text {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            fill: #0d6efd;
+        }
+    </style>
+    <circle class="logo-circle" cx="45" cy="45" r="40"/>
+    <text class="logo-text" x="45" y="52" text-anchor="middle" font-size="14">URGENCIAS-IA</text>
+</svg>

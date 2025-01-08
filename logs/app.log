@@ -1,0 +1,189 @@
+2024-12-23 00:54:51,221 INFO routes : Inicializando rutas de la aplicación
+2024-12-23 00:54:51,301 INFO utils.call_providers : GestorProveedores inicializado - Modo Netelip único
+2024-12-23 00:54:51,304 INFO utils.call_providers : Netelip token presente: True
+2024-12-23 00:54:51,305 INFO utils.call_providers : Netelip API ID configurado: True
+2024-12-23 00:54:51,318 INFO routes : Rutas inicializadas correctamente
+2024-12-23 00:54:51,318 INFO __main__ : Rutas inicializadas correctamente
+2024-12-23 00:54:51,763 INFO __main__ : Tablas de base de datos creadas correctamente
+2024-12-23 00:54:51,768 INFO utils.scheduler : Iniciando scheduler para verificación de llamadas perdidas
+2024-12-23 00:54:51,770 INFO __main__ : Scheduler de verificación de llamadas iniciado
+2024-12-23 00:54:51,772 INFO calls : Sistema de monitoreo de llamadas inicializado
+2024-12-23 00:54:51,790 WARNING werkzeug :  * Debugger is active!
+2024-12-23 00:54:51,793 INFO werkzeug :  * Debugger PIN: 107-836-647
+2024-12-23 00:55:01,770 INFO utils.scheduler : Iniciando ciclo de verificación de llamadas perdidas
+2024-12-23 00:55:01,771 INFO utils.scheduler : Iniciando verificación programada de llamadas perdidas
+2024-12-23 00:55:01,794 ERROR utils.panel_llamadas : Error al obtener llamadas pendientes: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2024-12-23 00:55:01,795 DEBUG utils.scheduler : Conexión a base de datos verificada, 0 llamadas pendientes
+2024-12-23 00:55:01,796 INFO utils.scheduler : Verificación de llamadas completada
+2024-12-23 00:55:22,976 INFO werkzeug :  * Detected change in '/home/runner/ReminderTracker/utils/formulario_recordatorios.py', reloading
+2024-12-23 00:55:24,020 INFO routes : Inicializando rutas de la aplicación
+2024-12-23 00:55:24,104 INFO utils.call_providers : GestorProveedores inicializado - Modo Netelip único
+2024-12-23 00:55:24,105 INFO utils.call_providers : Netelip token presente: True
+2024-12-23 00:55:24,105 INFO utils.call_providers : Netelip API ID configurado: True
+2024-12-23 00:55:24,123 INFO routes : Rutas inicializadas correctamente
+2024-12-23 00:55:24,125 INFO __main__ : Rutas inicializadas correctamente
+2024-12-23 00:55:24,539 INFO __main__ : Tablas de base de datos creadas correctamente
+2024-12-23 00:55:24,547 INFO utils.scheduler : Iniciando scheduler para verificación de llamadas perdidas
+2024-12-23 00:55:24,553 INFO __main__ : Scheduler de verificación de llamadas iniciado
+2024-12-23 00:55:24,553 INFO calls : Sistema de monitoreo de llamadas inicializado
+2024-12-23 00:55:24,590 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.196.37:5000
+2024-12-23 00:55:24,590 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-12-23 00:55:24,591 INFO werkzeug :  * Restarting with stat
+2024-12-23 00:55:25,218 INFO routes : Inicializando rutas de la aplicación
+2024-12-23 00:55:25,306 INFO utils.call_providers : GestorProveedores inicializado - Modo Netelip único
+2024-12-23 00:55:25,309 INFO utils.call_providers : Netelip token presente: True
+2024-12-23 00:55:25,309 INFO utils.call_providers : Netelip API ID configurado: True
+2024-12-23 00:55:25,326 INFO routes : Rutas inicializadas correctamente
+2024-12-23 00:55:25,330 INFO __main__ : Rutas inicializadas correctamente
+2024-12-23 00:55:25,752 INFO __main__ : Tablas de base de datos creadas correctamente
+2024-12-23 00:55:25,756 INFO utils.scheduler : Iniciando scheduler para verificación de llamadas perdidas
+2024-12-23 00:55:25,757 INFO __main__ : Scheduler de verificación de llamadas iniciado
+2024-12-23 00:55:25,757 INFO calls : Sistema de monitoreo de llamadas inicializado
+2024-12-23 00:55:25,778 WARNING werkzeug :  * Debugger is active!
+2024-12-23 00:55:25,782 INFO werkzeug :  * Debugger PIN: 128-931-358
+2024-12-23 00:55:34,553 INFO utils.scheduler : Iniciando ciclo de verificación de llamadas perdidas
+2024-12-23 00:55:34,554 INFO utils.scheduler : Iniciando verificación programada de llamadas perdidas
+2024-12-23 00:55:34,619 ERROR utils.panel_llamadas : Error al obtener llamadas pendientes: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2024-12-23 00:55:34,620 DEBUG utils.scheduler : Conexión a base de datos verificada, 0 llamadas pendientes
+2024-12-23 00:55:34,626 INFO utils.scheduler : Verificación de llamadas completada
+2024-12-23 00:55:35,757 INFO utils.scheduler : Iniciando ciclo de verificación de llamadas perdidas
+2024-12-23 00:55:35,757 INFO utils.scheduler : Iniciando verificación programada de llamadas perdidas
+2024-12-23 00:55:35,790 ERROR utils.panel_llamadas : Error al obtener llamadas pendientes: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2024-12-23 00:55:35,790 DEBUG utils.scheduler : Conexión a base de datos verificada, 0 llamadas pendientes
+2024-12-23 00:55:35,790 INFO utils.scheduler : Verificación de llamadas completada
+2024-12-23 00:55:55,702 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:55:55] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-12-23 00:56:04,514 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:56:04] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-23 00:56:05,179 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:56:05] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-12-23 00:56:05,319 ERROR routes.main : Error en dashboard: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2024-12-23 00:56:05,373 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:56:05] "GET /dashboard HTTP/1.1" 200 -
+2024-12-23 00:56:06,000 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:56:06] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-23 00:56:06,804 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:56:06] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-12-23 00:56:07,618 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:56:07] "[36mGET /static/css/themes.css HTTP/1.1[0m" 304 -
+2024-12-23 00:56:08,024 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:56:08] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-23 00:56:08,068 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:56:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-12-23 00:56:08,580 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:56:08] "[36mGET /static/img/logo.svg HTTP/1.1[0m" 304 -
+2024-12-23 00:56:08,725 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:56:08] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-23 00:56:09,084 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:56:09] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-23 00:56:09,608 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:56:09] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-23 00:58:10,587 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:58:10] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-12-23 00:58:14,036 ERROR routes.main : Error en dashboard: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2024-12-23 00:58:14,063 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:58:14] "GET /dashboard HTTP/1.1" 200 -
+2024-12-23 00:58:14,751 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:58:14] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-23 00:58:15,974 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:58:15] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-23 00:58:16,745 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:58:16] "[36mGET /static/css/themes.css HTTP/1.1[0m" 304 -
+2024-12-23 00:58:16,760 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:58:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-12-23 00:58:16,827 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 00:58:16] "[36mGET /static/img/logo.svg HTTP/1.1[0m" 304 -
+2024-12-23 01:00:34,627 INFO utils.scheduler : Iniciando verificación programada de llamadas perdidas
+2024-12-23 01:00:34,628 ERROR utils.panel_llamadas : Error al obtener llamadas pendientes: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2024-12-23 01:00:34,628 DEBUG utils.scheduler : Conexión a base de datos verificada, 0 llamadas pendientes
+2024-12-23 01:00:34,629 INFO utils.scheduler : Verificación de llamadas completada
+2024-12-23 01:00:35,791 INFO utils.scheduler : Iniciando verificación programada de llamadas perdidas
+2024-12-23 01:00:35,792 ERROR utils.panel_llamadas : Error al obtener llamadas pendientes: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2024-12-23 01:00:35,792 DEBUG utils.scheduler : Conexión a base de datos verificada, 0 llamadas pendientes
+2024-12-23 01:00:35,792 INFO utils.scheduler : Verificación de llamadas completada
+2024-12-23 01:05:34,629 INFO utils.scheduler : Iniciando verificación programada de llamadas perdidas
+2024-12-23 01:05:34,633 ERROR utils.panel_llamadas : Error al obtener llamadas pendientes: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2024-12-23 01:05:34,641 DEBUG utils.scheduler : Conexión a base de datos verificada, 0 llamadas pendientes
+2024-12-23 01:05:34,643 INFO utils.scheduler : Verificación de llamadas completada
+2024-12-23 01:05:35,792 INFO utils.scheduler : Iniciando verificación programada de llamadas perdidas
+2024-12-23 01:05:35,794 ERROR utils.panel_llamadas : Error al obtener llamadas pendientes: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2024-12-23 01:05:35,794 DEBUG utils.scheduler : Conexión a base de datos verificada, 0 llamadas pendientes
+2024-12-23 01:05:35,795 INFO utils.scheduler : Verificación de llamadas completada
+2024-12-23 01:06:22,179 INFO routes : Inicializando rutas de la aplicación
+2024-12-23 01:06:22,265 INFO utils.call_providers : GestorProveedores inicializado - Modo Netelip único
+2024-12-23 01:06:22,266 INFO utils.call_providers : Netelip token presente: True
+2024-12-23 01:06:22,266 INFO utils.call_providers : Netelip API ID configurado: True
+2024-12-23 01:06:22,281 INFO routes : Rutas inicializadas correctamente
+2024-12-23 01:06:22,282 INFO __main__ : Rutas inicializadas correctamente
+2024-12-23 01:06:23,449 INFO __main__ : Tablas de base de datos creadas correctamente
+2024-12-23 01:06:23,456 INFO utils.scheduler : Iniciando scheduler para verificación de llamadas perdidas
+2024-12-23 01:06:23,459 INFO __main__ : Scheduler de verificación de llamadas iniciado
+2024-12-23 01:06:23,461 INFO calls : Sistema de monitoreo de llamadas inicializado
+2024-12-23 01:06:23,484 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.196.37:5000
+2024-12-23 01:06:23,484 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-12-23 01:06:23,485 INFO werkzeug :  * Restarting with stat
+2024-12-23 01:06:24,243 INFO routes : Inicializando rutas de la aplicación
+2024-12-23 01:06:24,330 INFO utils.call_providers : GestorProveedores inicializado - Modo Netelip único
+2024-12-23 01:06:24,330 INFO utils.call_providers : Netelip token presente: True
+2024-12-23 01:06:24,330 INFO utils.call_providers : Netelip API ID configurado: True
+2024-12-23 01:06:24,343 INFO routes : Rutas inicializadas correctamente
+2024-12-23 01:06:24,344 INFO __main__ : Rutas inicializadas correctamente
+2024-12-23 01:06:24,765 INFO __main__ : Tablas de base de datos creadas correctamente
+2024-12-23 01:06:24,771 INFO utils.scheduler : Iniciando scheduler para verificación de llamadas perdidas
+2024-12-23 01:06:24,773 INFO __main__ : Scheduler de verificación de llamadas iniciado
+2024-12-23 01:06:24,773 INFO calls : Sistema de monitoreo de llamadas inicializado
+2024-12-23 01:06:24,798 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.196.37:5000
+2024-12-23 01:06:24,800 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-12-23 01:06:24,802 INFO werkzeug :  * Restarting with stat
+2024-12-23 01:06:25,336 INFO routes : Inicializando rutas de la aplicación
+2024-12-23 01:06:25,437 INFO utils.call_providers : GestorProveedores inicializado - Modo Netelip único
+2024-12-23 01:06:25,437 INFO utils.call_providers : Netelip token presente: True
+2024-12-23 01:06:25,437 INFO utils.call_providers : Netelip API ID configurado: True
+2024-12-23 01:06:25,451 INFO routes : Rutas inicializadas correctamente
+2024-12-23 01:06:25,451 INFO __main__ : Rutas inicializadas correctamente
+2024-12-23 01:06:25,875 INFO __main__ : Tablas de base de datos creadas correctamente
+2024-12-23 01:06:25,879 INFO utils.scheduler : Iniciando scheduler para verificación de llamadas perdidas
+2024-12-23 01:06:25,880 INFO __main__ : Scheduler de verificación de llamadas iniciado
+2024-12-23 01:06:25,880 INFO calls : Sistema de monitoreo de llamadas inicializado
+2024-12-23 01:06:25,894 WARNING werkzeug :  * Debugger is active!
+2024-12-23 01:06:25,896 INFO werkzeug :  * Debugger PIN: 293-044-412
+2024-12-23 01:06:34,773 INFO utils.scheduler : Iniciando ciclo de verificación de llamadas perdidas
+2024-12-23 01:06:34,773 INFO utils.scheduler : Iniciando verificación programada de llamadas perdidas
+2024-12-23 01:06:34,800 ERROR utils.panel_llamadas : Error al obtener llamadas pendientes: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2024-12-23 01:06:34,802 DEBUG utils.scheduler : Conexión a base de datos verificada, 0 llamadas pendientes
+2024-12-23 01:06:34,802 INFO utils.scheduler : Verificación de llamadas completada
+2024-12-23 01:06:35,880 INFO utils.scheduler : Iniciando ciclo de verificación de llamadas perdidas
+2024-12-23 01:06:35,884 INFO utils.scheduler : Iniciando verificación programada de llamadas perdidas
+2024-12-23 01:06:35,910 ERROR utils.panel_llamadas : Error al obtener llamadas pendientes: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2024-12-23 01:06:35,911 DEBUG utils.scheduler : Conexión a base de datos verificada, 0 llamadas pendientes
+2024-12-23 01:06:35,911 INFO utils.scheduler : Verificación de llamadas completada
+2024-12-23 01:06:39,115 ERROR routes.main : Error en dashboard: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2024-12-23 01:06:39,191 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:39] "GET /dashboard HTTP/1.1" 200 -
+2024-12-23 01:06:39,372 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:39] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-12-23 01:06:40,116 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:40] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-12-23 01:06:41,784 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:41] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-23 01:06:42,223 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:42] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-23 01:06:42,330 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:42] "[36mGET /static/css/themes.css HTTP/1.1[0m" 304 -
+2024-12-23 01:06:42,369 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-12-23 01:06:42,689 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:42] "[36mGET /static/img/logo.svg HTTP/1.1[0m" 304 -
+2024-12-23 01:06:42,840 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:42] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-23 01:06:43,160 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:43] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-23 01:06:54,822 ERROR routes.main : Error en dashboard: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2024-12-23 01:06:54,849 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:54] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-12-23 01:06:54,851 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:54] "GET /dashboard HTTP/1.1" 200 -
+2024-12-23 01:06:55,115 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:55] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-23 01:06:55,241 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:55] "[36mGET /static/css/themes.css HTTP/1.1[0m" 304 -
+2024-12-23 01:06:55,258 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:55] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-23 01:06:55,365 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:55] "[36mGET /static/img/logo.svg HTTP/1.1[0m" 304 -
+2024-12-23 01:06:55,366 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-12-23 01:06:55,429 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:55] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-12-23 01:06:55,685 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:55] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-23 01:06:55,813 INFO werkzeug : 172.31.196.37 - - [23/Dec/2024 01:06:55] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-23 01:07:08,414 INFO werkzeug :  * Detected change in '/home/runner/ReminderTracker/extensions.py', reloading
+2024-12-23 01:07:08,572 INFO werkzeug :  * Restarting with stat
+2024-12-23 01:07:09,155 INFO routes : Inicializando rutas de la aplicación
+2024-12-23 01:07:09,233 INFO utils.call_providers : GestorProveedores inicializado - Modo Netelip único
+2024-12-23 01:07:09,234 INFO utils.call_providers : Netelip token presente: True
+2024-12-23 01:07:09,234 INFO utils.call_providers : Netelip API ID configurado: True
+2024-12-23 01:07:09,247 INFO routes : Rutas inicializadas correctamente
+2024-12-23 01:07:09,248 INFO __main__ : Rutas inicializadas correctamente
+2024-12-23 01:07:09,646 INFO __main__ : Tablas de base de datos creadas correctamente
+2024-12-23 01:07:09,651 INFO utils.scheduler : Iniciando scheduler para verificación de llamadas perdidas
+2024-12-23 01:07:09,652 INFO __main__ : Scheduler de verificación de llamadas iniciado
+2024-12-23 01:07:09,652 INFO calls : Sistema de monitoreo de llamadas inicializado
+2024-12-23 01:07:09,670 WARNING werkzeug :  * Debugger is active!
+2024-12-23 01:07:09,674 INFO werkzeug :  * Debugger PIN: 129-879-173
+2024-12-23 01:07:19,652 INFO utils.scheduler : Iniciando ciclo de verificación de llamadas perdidas
+2024-12-23 01:07:19,653 INFO utils.scheduler : Iniciando verificación programada de llamadas perdidas
+2024-12-23 01:07:19,680 ERROR utils.panel_llamadas : Error al obtener llamadas pendientes: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2024-12-23 01:07:19,681 DEBUG utils.scheduler : Conexión a base de datos verificada, 0 llamadas pendientes
+2024-12-23 01:07:19,681 INFO utils.scheduler : Verificación de llamadas completada

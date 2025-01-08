@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Recordatorios</h1>
+    <div>
+        <button id="eliminarSeleccionados" class="btn btn-danger me-2 d-none">
+            <i data-feather="trash-2"></i> Eliminar Seleccionados
+        </button>
+        <a href="{{ url_for('main.nuevo_recordatorio') }}" class="btn btn-primary">
+            <i data-feather="plus"></i> Nuevo Recordatorio
+        </a>
+    </div>
+</div>
+
+<div id="alertContainer"></div>
+
+<div class="row" id="recordatoriosContainer">
+    {% for recordatorio in recordatorios %}
+    <div class="col-md-6 col-lg-4 mb-4" id="recordatorio-{{ recordatorio.id }}">
+        <div class="card reminder-card">
+            <div class="card-body">
+                <div class="form-check float-end">
+                    <input class="form-check-input recordatorio-checkbox" type="checkbox" 
+                           value="{{ recordatorio.id }}" id="check-{{ recordatorio.id }}">
+                </div>
+                <h5 class="card-title">{{ recordatorio.nombre }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ recordatorio.telefono }}</h6>
+                <p class="card-text text-truncate-2">{{ recordatorio.mensaje }}</p>
+                <div class="mb-2">
+                    <span class="badge bg-primary">{{ recordatorio.tipo }}</span>
+                    <span class="badge bg-info">
+                        {% if recordatorio.repeticion == '0' %}
+                            Sin repetición
+                        {% elif recordatorio.repeticion == '24' %}
+                            Cada 24 horas
+                        {% elif recordatorio.repeticion == '12' %}
+                            Cada 12 horas
+                        {% elif recordatorio.repeticion == '8' %}
+                            Cada 8 horas
+                        {% elif recordatorio.repeticion == '6' %}
+                            Cada 6 horas
+                        {% elif recordatorio.repeticion == '4' %}
+                            Cada 4 horas
+                        {% elif recordatorio.repeticion == '2' %}
+                            Cada 2 horas
+                        {% else %}
+                            Cada hora
+                        {% endif %}
+                    </span>
+                </div>
+                <p class="card-text">
+                    <small class="text-muted">
+                        Próxima llamada: 
+                        {{ recordatorio.fecha.strftime('%d/%m/%Y') }} - 
+                        {{ recordatorio.hora.strftime('%H:%M') }}
+                    </small>
+                </p>
+                <div class="d-flex justify-content-end gap-2">
+                    <a href="{{ url_for('main.realizar_llamada_prueba', recordatorio_id=recordatorio.id) }}" 
+                       class="btn btn-sm btn-outline-success">
+                        <i data-feather="phone-call"></i> Probar
+                    </a>
+                    <a href="{{ url_for('main.editar_recordatorio', recordatorio_id=recordatorio.id) }}" 
+                       class="btn btn-sm btn-outline-primary">
+                        <i data-feather="edit"></i> Editar
+                    </a>
+                    <button onclick="eliminarRecordatorio({{ recordatorio.id }})" 
+                            class="btn btn-sm btn-outline-danger">
+                        <i data-feather="trash-2"></i> Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% if not recordatorios %}
+<div class="text-center py-5">
+    <p class="lead">No hay recordatorios registrados</p>
+    <a href="{{ url_for('main.nuevo_recordatorio') }}" class="btn btn-primary">
+        <i data-feather="plus"></i> Crear primer recordatorio
+    </a>
+</div>
+{% endif %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Manejar checkboxes
+    const checkboxes = document.querySelectorAll('.recordatorio-checkbox');
+    const btnEliminarSeleccionados = document.getElementById('eliminarSeleccionados');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            const checkedBoxes = document.querySelectorAll('.recordatorio-checkbox:checked');
+            btnEliminarSeleccionados.classList.toggle('d-none', checkedBoxes.length === 0);
+        });
+    });
+
+    btnEliminarSeleccionados.addEventListener('click', eliminarSeleccionados);
+});
+
+function mostrarAlerta(mensaje, tipo = 'success') {
+    const alertContainer = document.getElementById('alertContainer');
+    const alert = document.createElement('div');
+    alert.className = `alert alert-${tipo} alert-dismissible fade show`;
+    alert.innerHTML = `
+        ${mensaje}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    alertContainer.appendChild(alert);
+    setTimeout(() => alert.remove(), 5000);
+}
+
+async function eliminarRecordatorio(id) {
+    if (!confirm('¿Estás seguro de que deseas eliminar este recordatorio?')) return;
+
+    try {
+        const response = await fetch(`/eliminar-recordatorio/${id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token() }}'
+            }
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            const elemento = document.getElementById(`recordatorio-${id}`);
+            elemento.remove();
+            mostrarAlerta('Recordatorio eliminado correctamente');
+        } else {
+            mostrarAlerta(data.error || 'Error al eliminar el recordatorio', 'danger');
+        }
+    } catch (error) {
+        mostrarAlerta('Error de conexión al eliminar el recordatorio', 'danger');
+    }
+}
+
+async function eliminarSeleccionados() {
+    const checkedBoxes = document.querySelectorAll('.recordatorio-checkbox:checked');
+    if (!checkedBoxes.length) return;
+
+    if (!confirm(`¿Estás seguro de que deseas eliminar ${checkedBoxes.length} recordatorios?`)) return;
+
+    let errores = 0;
+    for (const checkbox of checkedBoxes) {
+        try {
+            const response = await fetch(`/eliminar-recordatorio/${checkbox.value}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token() }}'
+                }
+            });
+
+            if (response.ok) {
+                const elemento = document.getElementById(`recordatorio-${checkbox.value}`);
+                elemento.remove();
+            } else {
+                errores++;
+            }
+        } catch (error) {
+            errores++;
+        }
+    }
+
+    if (errores === 0) {
+        mostrarAlerta('Todos los recordatorios seleccionados fueron eliminados correctamente');
+    } else {
+        mostrarAlerta(`Se eliminaron ${checkedBoxes.length - errores} recordatorios, pero hubo ${errores} errores`, 'warning');
+    }
+
+    document.getElementById('eliminarSeleccionados').classList.add('d-none');
+}
+</script>
+{% endblock %}

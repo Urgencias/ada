@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}Prueba de Llamada{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h2>Prueba de Llamada</h2>
+            <div class="alert alert-info">
+                Use este formulario para probar el sistema de llamadas
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('test_calls.test_call') }}">
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Número de Teléfono</label>
+                            <input type="tel" class="form-control" id="telefono" name="telefono" 
+                                   placeholder="+34XXXXXXXXX" required>
+                            <small class="form-text text-muted">
+                                Formato: +34 seguido de 9 dígitos
+                            </small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensaje" class="form-label">Mensaje</label>
+                            <textarea class="form-control" id="mensaje" name="mensaje" rows="3"
+                                    placeholder="Escriba el mensaje que desea convertir a voz"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="voz" class="form-label">Voz a utilizar</label>
+                            <select class="form-control" id="voz" name="voz">
+                                <option value="Silvia">Silvia (Por defecto)</option>
+                                <option value="Maria">María</option>
+                                <option value="Laura">Laura</option>
+                                <option value="Antonio">Antonio</option>
+                                <option value="Carlos">Carlos</option>
+                            </select>
+                            <small class="form-text text-muted">
+                                Seleccione la voz para el mensaje
+                            </small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="duracion" class="form-label">Duración máxima (segundos)</label>
+                            <input type="number" class="form-control" id="duracion" name="duracion" 
+                                   value="60" min="15" max="300">
+                            <small class="form-text text-muted">
+                                Duración entre 15 y 300 segundos
+                            </small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Realizar Llamada de Prueba
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Estado del Sistema</h5>
+                </div>
+                <div class="card-body">
+                    <div id="llamada-status" class="alert alert-info d-none">
+                        Procesando llamada...
+                    </div>
+                    <div id="netelip-status" class="alert alert-info">
+                        Verificando estado de Netelip...
+                    </div>
+                    <div id="twilio-status" class="alert alert-info">
+                        Verificando estado de Twilio...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    const llamadaStatus = document.getElementById('llamada-status');
+    const netelipStatus = document.getElementById('netelip-status');
+    const twilioStatus = document.getElementById('twilio-status');
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Mostrar estado de procesamiento
+        llamadaStatus.classList.remove('d-none');
+        llamadaStatus.classList.remove('alert-success', 'alert-danger');
+        llamadaStatus.classList.add('alert-info');
+        llamadaStatus.textContent = 'Procesando llamada...';
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch('{{ url_for("test_calls.test_call") }}', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+
+            llamadaStatus.classList.remove('alert-info');
+            if (response.ok) {
+                llamadaStatus.classList.add('alert-success');
+                llamadaStatus.textContent = 'Llamada iniciada correctamente';
+            } else {
+                llamadaStatus.classList.add('alert-danger');
+                llamadaStatus.textContent = 'Error: ' + result.error;
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            llamadaStatus.classList.remove('alert-info');
+            llamadaStatus.classList.add('alert-danger');
+            llamadaStatus.textContent = 'Error al realizar la llamada';
+        }
+    });
+});
+</script>
+{% endblock %}

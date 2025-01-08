@@ -1,0 +1,9 @@
+
+flask
+flask-cors
+flask-sqlalchemy
+flask-login
+flask-mail
+flask-migrate
+flask-wtf
+email-validator

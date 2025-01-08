@@ -1,0 +1,25 @@
+
+[tool.poetry]
+name = "reminder-tracker"
+version = "0.1.0"
+description = "Aplicación para gestionar recordatorios"
+authors = ["Example <example@example.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+flask = ">=3.1.0"
+flask-cors = ">=4.0.0"
+flask-sqlalchemy = ">=3.1.1"
+flask-login = ">=0.6.3"
+flask-mail = ">=0.10.0"
+flask-migrate = ">=4.0.7"
+flask-wtf = ">=1.2.2"
+email-validator = ">=2.2.0"
+python-dotenv = ">=1.0.1"
+requests = ">=2.32.3"
+gtts = ">=2.5.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

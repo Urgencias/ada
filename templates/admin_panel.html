@@ -1,0 +1,459 @@
+{% extends "base.html" %}
+
+{% block title %}Panel de Administración{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style>
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.45);
+}
+
+.nav-tabs .nav-link {
+    color: #4a90e2;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 5px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.nav-tabs .nav-link:hover {
+    background: rgba(74, 144, 226, 0.1);
+    transform: translateY(-2px);
+}
+
+.nav-tabs .nav-link.active {
+    background: linear-gradient(45deg, rgba(74, 144, 226, 0.2), rgba(99, 179, 237, 0.2));
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    color: #4a90e2;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
+}
+
+.stat-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.45);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    background: linear-gradient(45deg, #4a90e2, #63b3ed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.glow-text {
+    color: #4a90e2;
+    text-shadow: 0 0 10px rgba(74, 144, 226, 0.3);
+}
+
+.glow-button {
+    background: linear-gradient(45deg, #4a90e2, #63b3ed);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+}
+
+.glow-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(74, 144, 226, 0.5);
+    color: white;
+}
+
+.table {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.table th {
+    background: rgba(74, 144, 226, 0.1);
+    color: #4a90e2;
+    font-weight: 600;
+    border: none;
+}
+
+.table td {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.badge {
+    padding: 0.5em 1em;
+    border-radius: 20px;
+    font-weight: 500;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.badge.bg-success {
+    background: linear-gradient(45deg, #28a745, #34ce57) !important;
+}
+
+.badge.bg-warning {
+    background: linear-gradient(45deg, #ffc107, #ffda65) !important;
+}
+
+.badge.bg-danger {
+    background: linear-gradient(45deg, #dc3545, #ff4d5b) !important;
+}
+
+.badge.bg-info {
+    background: linear-gradient(45deg, #17a2b8, #20c997) !important;
+}
+
+.alert {
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(31, 38, 135, 0.2);
+}
+
+.instance-selector {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+}
+
+.instance-badge {
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.instance-badge.active {
+    background: linear-gradient(45deg, #4a90e2, #63b3ed);
+    color: white;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Instance Selector -->
+    <div class="instance-selector">
+        <h5 class="glow-text mb-3">Seleccionar Instancia</h5>
+        <div class="d-flex flex-wrap gap-2">
+            {% for instance in instances %}
+            <div class="instance-badge {% if instance.name == current_instance %}active{% endif %}"
+                 onclick="changeInstance('{{ instance.name }}')">
+                {{ instance.display_name }} ({{ instance.language }})
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h2 class="glow-text mb-4">Panel de Administración</h2>
+            <div class="alert glass-card">
+                <i data-feather="info" class="me-2"></i>
+                Panel de control y monitoreo de consumo de clientes
+            </div>
+        </div>
+    </div>
+
+    <!-- Estadísticas Generales -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="stat-card">
+                <h5 class="glow-text">Total Usuarios</h5>
+                <div class="stat-number">{{ estadisticas.total_usuarios }}</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card">
+                <h5 class="glow-text">Total Llamadas</h5>
+                <div class="stat-number">{{ estadisticas.total_llamadas }}</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card">
+                <h5 class="glow-text">Completadas</h5>
+                <div class="stat-number">{{ estadisticas.llamadas_completadas }}</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card">
+                <h5 class="glow-text">Pendientes</h5>
+                <div class="stat-number">{{ estadisticas.llamadas_pendientes }}</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabla de Consumo por Cliente -->
+    <div class="glass-card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0 glow-text">Consumo por Cliente</h5>
+            <button class="glow-button" onclick="actualizarEstadisticas()">
+                <i data-feather="refresh-cw"></i> Actualizar
+            </button>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Total Llamadas</th>
+                            <th>Completadas</th>
+                            <th>Consumo Mensual</th>
+                            <th>Límite</th>
+                            <th>Duración Total</th>
+                            <th>Estado</th>
+                            <th>Última Actividad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for usuario in estadisticas_usuarios %}
+                        <tr>
+                            <td>{{ usuario.username }}</td>
+                            <td>{{ usuario.total_llamadas }}</td>
+                            <td>
+                                <span class="badge bg-success">
+                                    {{ usuario.llamadas_completadas }}
+                                </span>
+                            </td>
+                            <td>
+                                <div class="progress" style="height: 20px;">
+                                    <div class="progress-bar {% if usuario.consumo_mensual|float > 90 %}bg-danger{% elif usuario.consumo_mensual|float > 75 %}bg-warning{% else %}bg-success{% endif %}" 
+                                         role="progressbar" 
+                                         style="width: {{ usuario.consumo_mensual }}%;" 
+                                         aria-valuenow="{{ usuario.consumo_mensual|float }}" 
+                                         aria-valuemin="0" 
+                                         aria-valuemax="100">
+                                        {{ usuario.consumo_mensual }}%
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{ usuario.limite_llamadas }} llamadas/mes</td>
+                            <td>{{ usuario.duracion_total }}s</td>
+                            <td>
+                                <span class="badge bg-{{ usuario.estado_clase }}">
+                                    {{ usuario.estado }}
+                                </span>
+                            </td>
+                            <td>{{ usuario.ultima_llamada }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pestañas de Navegación -->
+    <ul class="nav nav-tabs mb-4" id="adminTabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard" role="tab">
+                <i data-feather="activity"></i> Dashboard
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="usuarios-tab" data-bs-toggle="tab" href="#usuarios" role="tab">
+                <i data-feather="users"></i> Usuarios
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="llamadas-tab" data-bs-toggle="tab" href="#llamadas" role="tab">
+                <i data-feather="phone"></i> Llamadas
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="proveedores-tab" data-bs-toggle="tab" href="#proveedores" role="tab">
+                <i data-feather="server"></i> Proveedores
+            </a>
+        </li>
+    </ul>
+
+    <!-- Contenido de las Pestañas -->
+    <div class="tab-content" id="adminTabContent">
+        <!-- Dashboard General -->
+        <div class="tab-pane fade show active" id="dashboard" role="tabpanel">
+
+        </div>
+
+        <!-- Pestaña de Usuarios -->
+        <div class="tab-pane fade" id="usuarios" role="tabpanel">
+            <div class="glass-card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 glow-text">Estadísticas por Usuario</h5>
+                    <button class="glow-button" onclick="actualizarEstadisticas()">
+                        <i data-feather="refresh-cw"></i> Actualizar
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Usuario</th>
+                                    <th>Total Llamadas</th>
+                                    <th>Completadas</th>
+                                    <th>Pendientes</th>
+                                    <th>En Curso</th>
+                                    <th>Última Llamada</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for usuario in estadisticas_usuarios %}
+                                <tr>
+                                    <td>{{ usuario.username }}</td>
+                                    <td>{{ usuario.total_llamadas }}</td>
+                                    <td>
+                                        <span class="badge bg-success">
+                                            {{ usuario.llamadas_completadas }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-warning">
+                                            {{ usuario.llamadas_pendientes }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-info">
+                                            {{ usuario.llamadas_en_curso }}
+                                        </span>
+                                    </td>
+                                    <td>{{ usuario.ultima_llamada or 'N/A' }}</td>
+                                    <td>
+                                        <span class="badge bg-{{ usuario.estado_clase }}">
+                                            {{ usuario.estado }}
+                                        </span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pestaña de Llamadas -->
+        <div class="tab-pane fade" id="llamadas" role="tabpanel">
+            <div class="glass-card">
+                <div class="card-header">
+                    <h5 class="mb-0 glow-text">Registro de Llamadas</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Usuario</th>
+                                    <th>Estado</th>
+                                    <th>Proveedor</th>
+                                    <th>Fecha</th>
+                                    <th>Duración</th>
+                                </tr>
+                            </thead>
+                            <tbody id="registro-llamadas">
+                                <!-- Se llenará dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pestaña de Proveedores -->
+        <div class="tab-pane fade" id="proveedores" role="tabpanel">
+            <div class="row">
+                <!-- Estado Netelip -->
+                <div class="col-md-6 mb-4">
+                    <div class="glass-card">
+                        <div class="card-header">
+                            <h5 class="mb-0 glow-text">Netelip (Principal)</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert" id="netelip-status-detail">
+                                <p class="mb-2">Estado: <span id="netelip-estado" class="glow-text">Verificando...</span></p>
+                                <p class="mb-2">Llamadas realizadas: <span id="netelip-llamadas" class="stat-number">0</span></p>
+                                <p class="mb-0">Tasa de éxito: <span id="netelip-exito" class="glow-text">0%</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Estado Twilio -->
+                <div class="col-md-6 mb-4">
+                    <div class="glass-card">
+                        <div class="card-header">
+                            <h5 class="mb-0 glow-text">Twilio (Respaldo)</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert" id="twilio-status-detail">
+                                <p class="mb-2">Estado: <span id="twilio-estado" class="glow-text">Verificando...</span></p>
+                                <p class="mb-2">Llamadas realizadas: <span id="twilio-llamadas" class="stat-number">0</span></p>
+                                <p class="mb-0">Tasa de éxito: <span id="twilio-exito" class="glow-text">0%</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script>
+async function actualizarEstadisticas() {
+    try {
+        const response = await fetch('/admin/actualizar-estadisticas');
+        if (response.ok) {
+            location.reload();
+        } else {
+            alert('Error al actualizar estadísticas');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error de conexión');
+    }
+}
+
+function changeInstance(instanceName) {
+    window.location.href = `/admin?instance=${instanceName}`;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar iconos de Feather
+    feather.replace();
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<style>
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.plan-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 36px 0 rgba(31, 38, 135, 0.45);
+}
+
+.plan-gratuito {
+    border: 2px solid #28a745;
+}
+
+.plan-negocios {
+    border: 2px solid #007bff;
+}
+
+.feature-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.feature-list li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.feature-list li i {
+    margin-right: 0.5rem;
+    color: #28a745;
+}
+
+.badge-plan {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.badge-ancianos {
+    background-color: #28a745;
+    color: white;
+}
+
+.badge-negocios {
+    background-color: #007bff;
+    color: white;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12 text-center mb-4">
+            <h2>Planes de Suscripción</h2>
+            <p class="text-muted">Elige el plan que mejor se adapte a tus necesidades</p>
+        </div>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="row justify-content-center">
+        {% if planes %}
+            {% for plan in planes %}
+                <div class="col-md-6 mb-4">
+                    <div class="plan-card {% if plan.tipo_plan == 'gratuito' %}plan-gratuito{% else %}plan-negocios{% endif %}">
+                        <span class="badge-plan {% if plan.tipo_plan == 'gratuito' %}badge-ancianos{% else %}badge-negocios{% endif %}">
+                            {% if plan.tipo_plan == 'gratuito' %}Para Mayores{% else %}Para Negocios{% endif %}
+                        </span>
+                        <h3 class="text-center mb-4">{{ plan.nombre }}</h3>
+                        <div class="price text-center mb-4">
+                            <h2 class="mb-0">€{{ "%.2f"|format(plan.precio) }}</h2>
+                            <p class="text-muted">por mes</p>
+                        </div>
+                        <ul class="feature-list mb-4">
+                            {% if plan.tipo_plan == 'gratuito' %}
+                                <li><i class="fas fa-check"></i> 100 recordatorios mensuales</li>
+                                <li><i class="fas fa-pills"></i> Recordatorios de medicación</li>
+                                <li><i class="fas fa-calendar-check"></i> Recordatorios de citas médicas</li>
+                                <li><i class="fas fa-phone"></i> Llamadas a números autorizados</li>
+                                <li><i class="fas fa-info-circle"></i> Para personas mayores de 65 años</li>
+                            {% else %}
+                                <li><i class="fas fa-infinity"></i> Llamadas ilimitadas</li>
+                                <li><i class="fas fa-globe"></i> Llamar a cualquier número</li>
+                                <li><i class="fas fa-users"></i> Ideal para gestión de clientes</li>
+                                <li><i class="fas fa-chart-line"></i> Estadísticas detalladas</li>
+                                <li><i class="fas fa-headset"></i> Soporte prioritario 24/7</li>
+                            {% endif %}
+                        </ul>
+                        <div class="text-center">
+                            {% if plan.tipo_plan == 'gratuito' %}
+                                <a href="{{ url_for('main.solicitar_plan_gratuito') }}" class="btn btn-success btn-lg">
+                                    Solicitar Plan Gratuito
+                                </a>
+                            {% else %}
+                                <a href="{{ url_for('main.solicitar_plan_negocios') }}" class="btn btn-primary btn-lg">
+                                    Contratar Plan Negocios
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <div class="alert alert-info text-center">
+                    <h4>Planes no disponibles</h4>
+                    <p>Lo sentimos, los planes no están disponibles en este momento. Por favor, inténtelo más tarde.</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Información Adicional -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card glass-effect">
+                <div class="card-body text-center">
+                    <h4>¿Necesitas más información?</h4>
+                    <p class="mb-4">Contáctanos y te ayudaremos a elegir el plan más adecuado:</p>
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <a href="mailto:soporte@urgencias-ia.com" class="btn btn-outline-success mb-2 me-2">
+                                <i class="fas fa-envelope"></i> Contactar por Email
+                            </a>
+                            <a href="tel:+34640523789" class="btn btn-outline-primary mb-2">
+                                <i class="fas fa-phone"></i> Llamar ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Forzar recarga de estilos
+document.addEventListener('DOMContentLoaded', function() {
+    const timestamp = new Date().getTime();
+    const styleSheets = document.getElementsByTagName('link');
+    for(let i = 0; i < styleSheets.length; i++) {
+        if(styleSheets[i].rel === 'stylesheet') {
+            styleSheets[i].href = styleSheets[i].href + '?v=' + timestamp;
+        }
+    }
+});
+</script>
+{% endblock %}

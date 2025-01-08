@@ -1,0 +1,268 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio - Sistema de Recordatorios{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style>
+.action-button {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 8px 32px 0 rgba(31, 38, 135, 0.37),
+        inset 0 0 32px rgba(74, 144, 226, 0.15);
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    margin: 0.5rem;
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    position: relative;
+    overflow: hidden;
+}
+
+.action-button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+        0 15px 45px rgba(74, 144, 226, 0.4),
+        inset 0 0 48px rgba(74, 144, 226, 0.3);
+    text-decoration: none;
+    color: white;
+}
+
+.action-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.action-button:hover:before {
+    left: 100%;
+}
+
+.action-button i {
+    margin-right: 8px;
+}
+.stat-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 8px 32px 0 rgba(31, 38, 135, 0.37),
+        inset 0 0 32px rgba(74, 144, 226, 0.15);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 15px 45px rgba(74, 144, 226, 0.4),
+        inset 0 0 48px rgba(74, 144, 226, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 70%
+    );
+    transform: rotate(0deg);
+    transition: transform 0.5s ease;
+}
+
+.stat-card:hover::before {
+    transform: rotate(180deg);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 8px rgba(74, 144, 226, 0.5));
+}
+
+.stat-card:hover .stat-icon {
+    transform: scale(1.1) rotate(5deg);
+    color: white;
+    filter: drop-shadow(0 0 12px rgba(74, 144, 226, 0.8));
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: white;
+    text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-number {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(74, 144, 226, 0.8);
+}
+
+.stat-label {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.stat-card:hover .stat-label {
+    color: white;
+    transform: translateY(-2px);
+}
+
+.stat-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-description {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.glow-text {
+    text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+    color: white;
+    animation: glow 3s ease-in-out infinite alternate;
+    position: relative;
+}
+
+.glow-text::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(
+        circle,
+        rgba(74, 144, 226, 0.2) 0%,
+        transparent 70%
+    );
+    filter: blur(8px);
+    z-index: -1;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(74, 144, 226, 0.5),
+                     0 0 20px rgba(74, 144, 226, 0.3);
+    }
+    to {
+        text-shadow: 0 0 15px rgba(74, 144, 226, 0.8),
+                     0 0 30px rgba(74, 144, 226, 0.5);
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12 mb-4">
+            <div class="text-center">
+                <h1 class="display-4 glow-text">Sistema de Recordatorios</h1>
+                <p class="lead">Gestión de llamadas y recordatorios automatizados</p>
+            </div>
+            <div class="text-center mt-4">
+                <a href="{{ url_for('main.nuevo_recordatorio') }}" class="action-button-transparent">
+                    <i data-feather="plus-circle"></i> Nueva Llamada
+                </a>
+                <a href="{{ url_for('main.panel_monitoreo') }}" class="action-button-transparent">
+                    <i data-feather="activity"></i> Monitor
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {% if current_user.is_authenticated %}
+    <div class="row">
+        <div class="col-md-4">
+            <div class="stat-card">
+                <i data-feather="clock" class="stat-icon"></i>
+                <div class="stat-number">{{ estadisticas.llamadas_pendientes }}</div>
+                <div class="stat-label">Pendientes</div>
+                <div class="stat-description">Llamadas programadas por realizar</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <i data-feather="check-circle" class="stat-icon"></i>
+                <div class="stat-number">{{ estadisticas.llamadas_completadas }}</div>
+                <div class="stat-label">Completadas</div>
+                <div class="stat-description">Recordatorios exitosamente realizados</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <i data-feather="calendar" class="stat-icon"></i>
+                <div class="stat-number">{{ estadisticas.llamadas_hoy }}</div>
+                <div class="stat-label">Hoy</div>
+                <div class="stat-description">Llamadas programadas para hoy</div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="stat-card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Acceder al Sistema</h5>
+                    <p class="card-text">
+                        Inicie sesión para comenzar a gestionar sus recordatorios
+                    </p>
+                    <a href="{{ url_for('auth.login') }}" class="action-button">
+                        <i data-feather="log-in"></i>
+                        Iniciar Sesión
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    feather.replace();
+});
+</script>
+{% endblock %}

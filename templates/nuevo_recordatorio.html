@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}Nuevo Recordatorio{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="mb-4">Programar Llamadas de Recordatorio</h1>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <div class="alert alert-info">
+                <h4 class="alert-heading mb-3">
+                    <i data-feather="phone-call" class="me-2"></i>
+                    Sistema de Llamadas Personalizadas
+                </h4>
+                <p class="fs-5 mb-2">Este sistema realizará llamadas telefónicas automáticas usando:</p>
+                <ul class="fs-5">
+                    <li>El número fijo {{ origen_llamada }} como origen de todas las llamadas</li>
+                    <li>El mensaje exactamente como lo escribas en el formulario</li>
+                    <li>La voz de Ada: una voz femenina dulce y clara que susurra en español de España</li>
+                </ul>
+                <p class="fs-5 mb-0">La persona recibirá una llamada y escuchará tu mensaje personalizado suavemente narrado por la voz de Ada.</p>
+            </div>
+
+            <form method="POST" class="needs-validation">
+                {{ form.csrf_token }}
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label for="nombre" class="form-label fs-5">{{ form.nombre.label }}</label>
+                                {{ form.nombre(class="form-control form-control-lg") }}
+                                {% if form.nombre.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.nombre.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                <div class="form-text">
+                                    ¿Quién recibirá la llamada?
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="telefono" class="form-label fs-5">{{ form.telefono.label }}</label>
+                                {{ form.telefono(class="form-control form-control-lg", placeholder="0034XXXXXXXXX") }}
+                                {% if form.telefono.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.telefono.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                <div class="form-text">
+                                    Formato requerido: 0034 seguido de 9 dígitos (ejemplo: 0034612345678)
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="fecha" class="form-label fs-5">{{ form.fecha.label }}</label>
+                                {{ form.fecha(class="form-control form-control-lg") }}
+                                {% if form.fecha.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.fecha.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                <div class="form-text">
+                                    ¿Cuándo quieres que Ada realice la primera llamada?
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="hora" class="form-label fs-5">{{ form.hora.label }}</label>
+                                {{ form.hora(class="form-control form-control-lg") }}
+                                {% if form.hora.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.hora.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                <div class="form-text">
+                                    ¿A qué hora quieres que Ada haga las llamadas?
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="tipo" class="form-label fs-5">{{ form.tipo.label }}</label>
+                                {{ form.tipo(class="form-select form-select-lg") }}
+                                {% if form.tipo.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.tipo.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="repeticion" class="form-label fs-5">{{ form.repeticion.label }}</label>
+                                {{ form.repeticion(class="form-select form-select-lg") }}
+                                {% if form.repeticion.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.repeticion.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-12">
+                                <label for="mensaje" class="form-label fs-5">{{ form.mensaje.label }}</label>
+                                {{ form.mensaje(class="form-control form-control-lg", rows="4", 
+                                              placeholder="Ada leerá tu mensaje con su dulce voz española. Ejemplos:
+- María, es hora de tomar tu medicamento para la tensión
+- Juan, recuerda tu cita con el Dr. García mañana a las 10:00
+- Recordatorio: es momento de hacer los ejercicios de rehabilitación") }}
+                                {% if form.mensaje.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.mensaje.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                <div class="form-text">
+                                    <strong>Importante:</strong> Ada leerá suavemente este mensaje con su dulce voz española cuando la persona reciba la llamada.
+                                    Sé específico y personal, incluyendo el nombre de la persona y los detalles importantes.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ url_for('main.dashboard') }}" class="btn btn-secondary btn-lg">
+                                <i data-feather="x"></i> Cancelar
+                            </a>
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i data-feather="phone"></i> Programar Llamada
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

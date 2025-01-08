@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="display-4 fw-bold">Dashboard</h1>
+                <div>
+                    <a href="{{ url_for('main.panel_monitoreo') }}" class="btn btn-info btn-lg me-2">
+                        <i data-feather="activity"></i> Panel de Monitoreo
+                    </a>
+                    <a href="{{ url_for('main.nuevo_recordatorio') }}" class="btn btn-primary btn-lg">
+                        <i data-feather="plus"></i> Nuevo Recordatorio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pestañas de navegación -->
+    <ul class="nav nav-tabs nav-fill mb-4" id="dashboardTabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active fs-5 py-3" id="resumen-tab" data-bs-toggle="tab" href="#resumen" role="tab">
+                <i data-feather="home" class="me-2"></i> Resumen
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link fs-5 py-3" id="recordatorios-tab" data-bs-toggle="tab" href="#recordatorios" role="tab">
+                <i data-feather="bell" class="me-2"></i> Mis Recordatorios
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link fs-5 py-3" id="historial-tab" data-bs-toggle="tab" href="#historial" role="tab">
+                <i data-feather="clock" class="me-2"></i> Historial
+            </a>
+        </li>
+    </ul>
+
+    <div id="alertContainer"></div>
+
+    <div class="tab-content" id="dashboardTabsContent">
+        <!-- Pestaña de Resumen -->
+        <div class="tab-pane fade show active" id="resumen" role="tabpanel">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-lg rounded-4 overflow-hidden">
+                        <div class="card-body position-relative bg-primary bg-gradient text-white p-4">
+                            <div class="position-absolute top-0 end-0 p-3 opacity-25">
+                                <i data-feather="calendar" style="width: 48px; height: 48px;"></i>
+                            </div>
+                            <h5 class="card-title fs-4 mb-3">Total Llamadas</h5>
+                            <h2 class="display-3 mb-0">{{ estadisticas.total_llamadas }}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-lg rounded-4 overflow-hidden">
+                        <div class="card-body position-relative bg-success bg-gradient text-white p-4">
+                            <div class="position-absolute top-0 end-0 p-3 opacity-25">
+                                <i data-feather="check-circle" style="width: 48px; height: 48px;"></i>
+                            </div>
+                            <h5 class="card-title fs-4 mb-3">Llamadas Completadas</h5>
+                            <h2 class="display-3 mb-0">{{ estadisticas.llamadas_completadas }}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-lg rounded-4 overflow-hidden">
+                        <div class="card-body position-relative bg-info bg-gradient text-white p-4">
+                            <div class="position-absolute top-0 end-0 p-3 opacity-25">
+                                <i data-feather="phone" style="width: 48px; height: 48px;"></i>
+                            </div>
+                            <h5 class="card-title fs-4 mb-3">Llamadas Hoy</h5>
+                            <h2 class="display-3 mb-0">{{ estadisticas.llamadas_hoy }}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pestaña de Recordatorios -->
+        <div class="tab-pane fade" id="recordatorios" role="tabpanel">
+            <div class="row">
+                {% for recordatorio in recordatorios %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">{{ recordatorio.nombre }}</h5>
+                            <p>
+                                <i data-feather="phone" class="me-2"></i>{{ recordatorio.telefono }}<br>
+                                <i data-feather="calendar" class="me-2"></i>{{ recordatorio.fecha.strftime('%d/%m/%Y') }}<br>
+                                <i data-feather="clock" class="me-2"></i>{{ recordatorio.hora.strftime('%H:%M') }}
+                            </p>
+                            <div class="d-flex justify-content-end gap-2">
+                                <a href="{{ url_for('main.realizar_llamada_prueba', recordatorio_id=recordatorio.id) }}" 
+                                   class="btn btn-sm btn-success">
+                                    <i data-feather="phone-call"></i> Llamar
+                                </a>
+                                <a href="{{ url_for('main.editar_recordatorio', recordatorio_id=recordatorio.id) }}" 
+                                   class="btn btn-sm btn-primary">
+                                    <i data-feather="edit-2"></i> Editar
+                                </a>
+                                <button onclick="eliminarRecordatorio({{ recordatorio.id }})" 
+                                        class="btn btn-sm btn-danger">
+                                    <i data-feather="trash-2"></i> Eliminar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Pestaña de Historial -->
+        <div class="tab-pane fade" id="historial" role="tabpanel">
+            <div class="row">
+                {% for llamada in historial_llamadas %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">{{ llamada.recordatorio.nombre }}</h5>
+                            <p>
+                                <i data-feather="calendar" class="me-2"></i>{{ llamada.fecha_llamada.strftime('%d/%m/%Y %H:%M') }}<br>
+                                <i data-feather="user" class="me-2"></i>{{ llamada.recordatorio.user.username }}<br>
+                                <i data-feather="clock" class="me-2"></i>Duración: {{ llamada.duracion or 0 }} seg.
+                            </p>
+                            <span class="badge bg-{{ 'success' if llamada.estado == 'completada' else 'danger' }}">
+                                {{ llamada.estado }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    feather.replace();
+});
+</script>
+{% endblock %}
