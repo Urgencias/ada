@@ -2,8 +2,6 @@ import os
 import requests
 import logging
 import json
-from datetime import datetime
-from models import RegistroLlamada, Recordatorio, User, db
 
 # Configurar logging detallado
 logging.basicConfig(level=logging.DEBUG)
