@@ -1,10 +1,8 @@
 import logging
-from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, TextAreaField, DateField, TimeField
-from wtforms.validators import DataRequired, Length, ValidationError
-from datetime import datetime
+from flask_wtf import FlaskForm, FlaskForm
+from wtforms import DateField, PasswordField, SelectField, StringField, StringField, TextAreaField, TimeField
+from wtforms.validators import DataRequired, DataRequired, Length, ValidationError
 from flask import session
-import re
 
 logger = logging.getLogger(__name__)
 
@@ -110,11 +108,6 @@ class FormularioRecordatorio(FlaskForm):
                 self.telefono.data = ultimo.get('telefono', self.telefono.data)
                 self.tipo.data = ultimo.get('tipo', self.tipo.data)
                 self.repeticion.data = ultimo.get('repeticion', self.repeticion.data)
-
-
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField
-from wtforms.validators import DataRequired
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
