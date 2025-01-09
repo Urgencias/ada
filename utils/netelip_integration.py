@@ -2,6 +2,7 @@ import os
 import requests
 import logging
 from typing import Dict, Optional, Tuple
+from security import safe_requests
 
 logger = logging.getLogger(__name__)
 
@@ -135,7 +136,7 @@ def verificar_credenciales() -> Tuple[bool, str]:
             'format': 'json'
         }
 
-        response = requests.get(url, params=params, timeout=30)
+        response = safe_requests.get(url, params=params, timeout=30)
 
         if response.status_code == 200:
             return True, "Credenciales válidas"
