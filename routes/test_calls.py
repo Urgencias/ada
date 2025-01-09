@@ -107,7 +107,7 @@ def prueba_llamada():
             'error': str(e)
         }), 500
 
-@test_calls_bp.route('/programar-pruebas', methods=['GET', 'POST'])
+@test_calls_bp . ruta (' /programar-pruebas ' ,  métodos = [' CONSEGUIR ' , ' CORREO ' ] )
 @login_required
 def programar_pruebas():
     """Programa varias llamadas de prueba espaciadas"""
