@@ -33,7 +33,7 @@ class BackupSystem:
             # Respaldar archivos de configuración
             config_backup_path = os.path.join(backup_path, 'config')
             os.makedirs(config_backup_path, exist_ok=True)
-            
+
             for file_path in BackupSystem.CONFIG_FILES:
                 if os.path.exists(file_path):
                     # Crear subdirectorios si es necesario
@@ -53,7 +53,7 @@ class BackupSystem:
                         '-F', 'c',  # Formato personalizado
                         '-f', db_backup_path
                     ], capture_output=True, text=True)
-                    
+
                     if result.returncode == 0:
                         logger.info("Base de datos respaldada exitosamente")
                     else:
@@ -104,7 +104,7 @@ class BackupSystem:
                         '-c',  # Limpiar objetos existentes
                         db_backup_path
                     ], capture_output=True, text=True)
-                    
+
                     if result.returncode == 0:
                         logger.info("Base de datos restaurada exitosamente")
                     else:

@@ -10,21 +10,21 @@ logger = logging.getLogger(__name__)
 def exportar_recordatorios(archivo_destino: str) -> bool:
     """
     Exporta los recordatorios a un archivo CSV
-    
+
     Args:
         archivo_destino: Ruta del archivo CSV de destino
-        
+
     Returns:
         bool: True si la exportación fue exitosa
     """
     try:
         recordatorios = Recordatorio.query.all()
-        
+
         with open(archivo_destino, 'w', newline='', encoding='utf-8') as archivo:
             writer = csv.writer(archivo)
             # Escribir encabezados
             writer.writerow(['nombre', 'telefono', 'fecha', 'hora', 'mensaje', 'tipo', 'repeticion'])
-            
+
             # Escribir datos
             for r in recordatorios:
                 writer.writerow([
@@ -36,10 +36,10 @@ def exportar_recordatorios(archivo_destino: str) -> bool:
                     r.tipo,
                     r.repeticion
                 ])
-                
+
         logger.info(f"Exportación exitosa a {archivo_destino}")
         return True
-        
+
     except Exception as e:
         logger.error(f"Error al exportar recordatorios: {str(e)}")
         return False
@@ -47,17 +47,17 @@ def exportar_recordatorios(archivo_destino: str) -> bool:
 def importar_recordatorios(archivo_origen: str) -> tuple[bool, str]:
     """
     Importa recordatorios desde un archivo CSV
-    
+
     Args:
         archivo_origen: Ruta del archivo CSV a importar
-        
+
     Returns:
         tuple: (éxito, mensaje)
     """
     try:
         with open(archivo_origen, 'r', encoding='utf-8') as archivo:
             reader = csv.DictReader(archivo)
-            
+
             for row in reader:
                 recordatorio = Recordatorio(
                     nombre=row['nombre'],
@@ -69,11 +69,11 @@ def importar_recordatorios(archivo_origen: str) -> tuple[bool, str]:
                     repeticion=row['repeticion']
                 )
                 db.session.add(recordatorio)
-            
+
             db.session.commit()
             logger.info(f"Importación exitosa desde {archivo_origen}")
             return True, "Importación completada exitosamente"
-            
+
     except Exception as e:
         logger.error(f"Error al importar recordatorios: {str(e)}")
         return False, f"Error en la importación: {str(e)}"
