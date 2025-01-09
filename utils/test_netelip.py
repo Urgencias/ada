@@ -93,9 +93,8 @@ def realizar_llamada_prueba(mensaje: str = "Esta es una llamada de prueba. Por f
         if exito:
             logger.info(f"Llamada de prueba exitosa (número visible). ID: {id_llamada}")
             return True, id_llamada
-        else:
-            logger.error(f"Error en llamada de prueba: {error}")
-            return False, error
+        logger.error(f"Error en llamada de prueba: {error}")
+        return False, error
 
     except Exception as e:
         logger.error(f"Error en llamada de prueba: {str(e)}")
