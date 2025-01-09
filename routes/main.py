@@ -105,7 +105,7 @@ def configurar_paypal():
 
         if mode not in ['sandbox', 'live']:
             mode = 'sandbox'  # Forzar modo sandbox si el valor no es válido
-            logger.warning(f"Modo PayPal inválido, usando sandbox por defecto")
+            logger.warning("Modo PayPal inválido, usando sandbox por defecto")
 
         try:
             from paypalrestsdk import configure
