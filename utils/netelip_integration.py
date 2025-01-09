@@ -2,10 +2,6 @@ import os
 import requests
 import logging
 from typing import Dict, Optional, Tuple
-import json
-from datetime import datetime, timedelta
-import time
-from urllib.parse import urljoin, urlparse
 
 logger = logging.getLogger(__name__)
 

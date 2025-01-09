@@ -1,6 +1,4 @@
 """Migración para cambiar columnas de Netelip a Twilio"""
-from flask import current_app
-from flask_migrate import Migrate
 from alembic import op
 import sqlalchemy as sa
 
