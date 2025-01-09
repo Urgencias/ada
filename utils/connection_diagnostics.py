@@ -4,6 +4,7 @@ from datetime import datetime
 import json
 import requests
 from flask import current_app
+from security import safe_requests
 
 logger = logging.getLogger(__name__)
 
@@ -54,7 +55,7 @@ class ConnectionDiagnostics:
 
             # Hacer una petición de prueba a la API de Netelip
             start_time = datetime.now()
-            response = requests.get(
+            response = safe_requests.get(
                 'https://api.netelip.com/v1/status',
                 headers={
                     'X-API-TOKEN': netelip_token,
