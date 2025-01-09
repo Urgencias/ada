@@ -1,7 +1,6 @@
 from datetime import datetime
-from sqlalchemy import Boolean, Column, DateTime, Enum, ForeignKey, Integer, String, Text, func
+from sqlalchemy import Boolean, Column, DateTime, Enum, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import relationship, backref
-from sqlalchemy.sql import case
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from extensions import db

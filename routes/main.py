@@ -3,9 +3,8 @@ import time
 from flask import Blueprint, render_template, Response, jsonify, current_app, flash, redirect, url_for, request, session
 from flask_login import login_required, current_user
 from models import RegistroLlamada, Recordatorio, User, NotificacionLlamada, EstadoLlamadaEnum
-from datetime import date, datetime, datetime, timedelta, timedelta
-from sqlalchemy import and_, case, func, func, or_, text, text
-from sqlalchemy.sql import functions
+from datetime import date, datetime, timedelta
+from sqlalchemy import and_, case, func, or_, text
 from sqlalchemy.exc import SQLAlchemyError
 from extensions import db
 from utils.call_providers import gestor_proveedores
@@ -103,7 +102,7 @@ def configurar_paypal():
 
         if mode not in ['sandbox', 'live']:
             mode = 'sandbox'  # Forzar modo sandbox si el valor no es válido
-            logger.warning(f"Modo PayPal inválido, usando sandbox por defecto")
+            logger.warning("Modo PayPal inválido, usando sandbox por defecto")
 
         try:
             from paypalrestsdk import configure
@@ -993,9 +992,7 @@ def recordatorios():
         return redirect(url_for('main.dashboard'))
 
 def actualizar_contadores(user_id):
-    """
-    Actualiza los contadores de llamadas para un usuario específico
-    """
+    """Actualiza los contadores de llamadas para un usuario específico"""
     try:
         logger.info(f"Iniciando actualización de contadores para usuario {user_id}")
 
@@ -1075,9 +1072,7 @@ def actualizar_contadores(user_id):
         raise
 
 def obtener_contadores(user_id=None):
-    """
-    Obtiene los contadores actuales, ya sea para un usuario específico o totales
-    """
+    """Obtiene los contadores actuales, ya sea para un usuario específico o totales"""
     try:
         if user_id:
             query = text("""
