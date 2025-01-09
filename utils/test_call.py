@@ -50,10 +50,8 @@ def realizar_llamada_prueba(numero_destino: str, mensaje: str) -> bool:
         if resultado:
             logger.info("Llamada de prueba realizada exitosamente")
             return True
-        else:
-            logger.error("Error al realizar la llamada de prueba")
-            return False
-            
+        logger.error("Error al realizar la llamada de prueba")
+        return False
     except Exception as e:
         logger.error(f"Error inesperado en llamada de prueba: {str(e)}")
         logger.exception("Stacktrace completo:")

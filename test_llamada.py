@@ -18,9 +18,8 @@ def hacer_llamada_prueba():
     if exito:
         logger.info(f"Llamada exitosa. ID: {id_llamada}")
         return True
-    else:
-        logger.error(f"Error en la llamada: {error}")
-        return False
+    logger.error(f"Error en la llamada: {error}")
+    return False
 
 
 if __name__ == "__main__":
