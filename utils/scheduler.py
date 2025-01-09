@@ -4,8 +4,8 @@ import logging
 import requests
 from datetime import datetime, timedelta
 from utils.panel_llamadas import PanelLlamadas
-from flask import current_app
 from utils.call_providers import gestor_proveedores
+from flask import current_app
 from extensions import db
 from models import RegistroLlamada, NotificacionLlamada
 
