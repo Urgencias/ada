@@ -75,7 +75,8 @@ class FormularioRecordatorio(FlaskForm):
                               "rows": "4"
                           })
 
-    def validate_telefono(self, field):
+    @staticmethod
+    def validate_telefono(field):
         """Valida el formato del número de teléfono"""
         try:
             # Obtener el número y asegurarse que empiece con 0034
