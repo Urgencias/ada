@@ -20,6 +20,9 @@ def exportar_recordatorios(archivo_destino: str) -> bool:
     try:
         recordatorios = Recordatorio.query.all()
         
+        try:
+        recordatorios = Recordatorio.query.all()
+        
         with open(archivo_destino, 'w', newline='', encoding='utf-8') as archivo:
             writer = csv.writer(archivo)
             # Escribir encabezados
