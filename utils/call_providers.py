@@ -1,6 +1,4 @@
-"""
-Sistema de llamadas automatizadas con soporte para múltiples proveedores y líneas
-"""
+"""Sistema de llamadas automatizadas con soporte para múltiples proveedores y líneas"""
 import os
 import logging
 import time
