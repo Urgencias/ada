@@ -109,11 +109,7 @@ class FormularioRecordatorio(FlaskForm):
                 self.telefono.data = ultimo.get('telefono', self.telefono.data)
                 self.tipo.data = ultimo.get('tipo', self.tipo.data)
                 self.repeticion.data = ultimo.get('repeticion', self.repeticion.data)
-
-
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField
-from wtforms.validators import DataRequired
+from wtforms import PasswordField
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
