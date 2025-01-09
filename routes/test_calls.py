@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 test_calls_bp = Blueprint('test_calls', __name__)
 
-@test_calls_bp.route('/prueba-llamada', methods=['GET', 'POST'])
+@test_calls_bp . ruta (' /prueba-llamada ' ,  métodos = [' CONSEGUIR ' , ' CORREO ' ] )
 @login_required
 def prueba_llamada():
     """Endpoint para probar el sistema de llamadas"""
