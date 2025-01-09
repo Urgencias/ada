@@ -20,12 +20,12 @@ def upgrade():
     with op.batch_alter_table('users') as batch_op:
         batch_op.add_column(sa.Column('llamadas_realizadas', sa.Integer(), default=0))
         batch_op.add_column(sa.Column('pago_verificado', sa.Boolean(), default=False))
-        
+
         # Verificar si las columnas existen antes de crearlas
         conn = op.get_bind()
         inspector = sa.inspect(conn)
         columns = [col['name'] for col in inspector.get_columns('users')]
-        
+
         if 'email_verificado' not in columns:
             batch_op.add_column(sa.Column('email_verificado', sa.Boolean(), default=False))
         if 'verification_token' not in columns:
