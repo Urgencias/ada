@@ -7,6 +7,7 @@ import logging
 import json
 from datetime import datetime
 from models import RegistroLlamada, Recordatorio, User, db
+from security import safe_requests
 
 # Configurar logging detallado para SIP y señalización
 logging.basicConfig(level=logging.DEBUG)
@@ -48,7 +49,7 @@ def realizar_llamada(numero_destino: str, mensaje: str, duracion: int = 15, nume
         if not numero_destino.startswith('0034'):
             numero_destino = '0034' + numero_destino.lstrip('34').lstrip('0')
 
-        logger.info(f"=== Configuración de la llamada ===")
+        logger.info("=== Configuración de la llamada ===")
         logger.info(f"Número origen: {origen}")
         logger.info(f"Número destino formateado: {numero_destino}")
         logger.info(f"Duración objetivo: {duracion} segundos")
@@ -131,7 +132,7 @@ def realizar_llamada(numero_destino: str, mensaje: str, duracion: int = 15, nume
             if result.get('response') == '200' or result.get('status') == 'ok':
                 call_id = result.get('ID') or result.get('id')
                 if call_id:
-                    logger.info(f"=== Llamada iniciada exitosamente ===")
+                    logger.info("=== Llamada iniciada exitosamente ===")
                     logger.info(f"ID llamada: {call_id}")
                     logger.info(f"Duración configurada: {duracion} segundos")
                     return True, call_id, None
@@ -180,7 +181,7 @@ def verificar_credenciales() -> tuple[bool, str]:
             'format': 'json'
         }
 
-        response = requests.get(url, params=params, timeout=30)
+        response = safe_requests.get(url, params=params, timeout=30)
 
         if response.status_code == 200:
             return True, "Credenciales válidas"
