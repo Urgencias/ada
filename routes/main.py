@@ -3,8 +3,8 @@ import time
 from flask import Blueprint, render_template, Response, jsonify, current_app, flash, redirect, url_for, request, session
 from flask_login import login_required, current_user
 from models import RegistroLlamada, Recordatorio, User, NotificacionLlamada, EstadoLlamadaEnum
-from datetime import date, datetime, datetime, timedelta, timedelta
-from sqlalchemy import func, func, text, text
+from datetime import date, datetime, timedelta
+from sqlalchemy import func, text
 from sqlalchemy.exc import SQLAlchemyError
 from extensions import db
 from utils.call_providers import gestor_proveedores

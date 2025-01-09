@@ -1,7 +1,7 @@
 import logging
-from flask_wtf import FlaskForm, FlaskForm
-from wtforms import DateField, PasswordField, SelectField, StringField, StringField, TextAreaField, TimeField
-from wtforms.validators import DataRequired, DataRequired, Length, ValidationError
+from flask_wtf import FlaskForm
+from wtforms import DateField, PasswordField, SelectField, StringField, TextAreaField, TimeField
+from wtforms.validators import DataRequired, Length, ValidationError
 from flask import session
 
 logger = logging.getLogger(__name__)
