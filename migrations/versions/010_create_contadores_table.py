@@ -29,7 +29,7 @@ def upgrade():
         sa.ForeignKeyConstraint(['usuario_id'], ['users.id'], ondelete='CASCADE'),
         sa.UniqueConstraint('usuario_id')
     )
-    
+
     # Crear índices para mejorar el rendimiento
     op.create_index('idx_contadores_usuario', 'contadores', ['usuario_id'])
     op.create_index('idx_contadores_ultima_actualizacion', 'contadores', ['ultima_actualizacion'])
@@ -38,6 +38,6 @@ def downgrade():
     # Eliminar índices
     op.drop_index('idx_contadores_ultima_actualizacion')
     op.drop_index('idx_contadores_usuario')
-    
+
     # Eliminar tabla
     op.drop_table('contadores')
