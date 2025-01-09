@@ -6,7 +6,6 @@ import requests
 import logging
 import json
 from datetime import datetime
-from models import RegistroLlamada, Recordatorio, User, db
 
 # Configurar logging detallado para SIP y señalización
 logging.basicConfig(level=logging.DEBUG)
