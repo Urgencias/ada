@@ -24,14 +24,14 @@ def upgrade():
             ['user_id'],
             ['id']
         )
-    
+
     # Asignar un usuario por defecto (admin) a los recordatorios existentes
     op.execute("""
         UPDATE recordatorios
         SET user_id = (SELECT id FROM users WHERE username = 'admin')
         WHERE user_id IS NULL
     """)
-    
+
     # Hacer la columna no nullable después de la migración de datos
     with op.batch_alter_table('recordatorios') as batch_op:
         batch_op.alter_column('user_id', nullable=False)
