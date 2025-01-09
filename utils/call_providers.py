@@ -38,7 +38,7 @@ class GestorProveedores:
         self.intentos_consecutivos = 0
 
         logger.info("=== Inicialización del Gestor de Proveedores ===")
-        logger.info(f"Configuración:")
+        logger.info("Configuración:")
         logger.info(f"- Máximo intentos: {self.MAX_INTENTOS}")
         logger.info(f"- Tiempo entre reintentos: {self.TIEMPO_ESPERA}s")
         logger.info(f"- Duración mínima llamada: {self.MIN_DURACION_LLAMADA}s")
