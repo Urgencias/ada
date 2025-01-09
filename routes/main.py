@@ -4,8 +4,8 @@ from flask import Blueprint, render_template, Response, jsonify, current_app, fl
 from flask_login import login_required, current_user
 from models import RegistroLlamada, Recordatorio, User, NotificacionLlamada, EstadoLlamadaEnum
 from datetime import datetime, date, timedelta
-from sqlalchemy import func, or_, and_, case, text
-from sqlalchemy.sql import functions
+from sqlalchemy import func, text
+from sqlalchemy.exc import SQLAlchemyError
 from extensions import db
 from utils.call_providers import gestor_proveedores
 from utils.timezone_helpers import get_current_time, to_local_time, to_utc, ZONA_HORARIA_MADRID
@@ -13,9 +13,6 @@ import json
 import logging
 import threading
 from werkzeug.security import generate_password_hash
-from datetime import datetime, timedelta
-from sqlalchemy import text, func
-from sqlalchemy.exc import SQLAlchemyError
 
 logger = logging.getLogger(__name__)
 main_bp = Blueprint('main', __name__)
@@ -105,7 +102,7 @@ def configurar_paypal():
 
         if mode not in ['sandbox', 'live']:
             mode = 'sandbox'  # Forzar modo sandbox si el valor no es válido
-            logger.warning(f"Modo PayPal inválido, usando sandbox por defecto")
+            logger.warning("Modo PayPal inválido, usando sandbox por defecto")
 
         try:
             from paypalrestsdk import configure
@@ -995,9 +992,7 @@ def recordatorios():
         return redirect(url_for('main.dashboard'))
 
 def actualizar_contadores(user_id):
-    """
-    Actualiza los contadores de llamadas para un usuario específico
-    """
+    """Actualiza los contadores de llamadas para un usuario específico"""
     try:
         logger.info(f"Iniciando actualización de contadores para usuario {user_id}")
 
@@ -1077,9 +1072,7 @@ def actualizar_contadores(user_id):
         raise
 
 def obtener_contadores(user_id=None):
-    """
-    Obtiene los contadores actuales, ya sea para un usuario específico o totales
-    """
+    """Obtiene los contadores actuales, ya sea para un usuario específico o totales"""
     try:
         if user_id:
             query = text("""
