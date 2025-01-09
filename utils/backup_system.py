@@ -104,6 +104,7 @@ class BackupSystem:
                         '-c',  # Limpiar objetos existentes
                         db_backup_path
                     ], capture_output=True, text=True)
+
                     
                     if result.returncode == 0:
                         logger.info("Base de datos restaurada exitosamente")
