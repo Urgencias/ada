@@ -1,6 +1,4 @@
 """Migración para renombrar columnas de Twilio a nombres genéricos"""
-from flask import current_app
-from flask_migrate import Migrate
 from alembic import op
 import sqlalchemy as sa
 
@@ -11,7 +9,7 @@ def upgrade():
         batch_op.alter_column('id_llamada_twilio', 
                             new_column_name='id_llamada',
                             existing_type=sa.String(100))
-        
+
         # Renombrar respuesta_twilio a respuesta
         batch_op.alter_column('respuesta_twilio', 
                             new_column_name='respuesta',
@@ -24,7 +22,7 @@ def downgrade():
         batch_op.alter_column('id_llamada',
                             new_column_name='id_llamada_twilio',
                             existing_type=sa.String(100))
-        
+
         # Revertir respuesta a respuesta_twilio
         batch_op.alter_column('respuesta',
                             new_column_name='respuesta_twilio',
