@@ -1,13 +1,12 @@
 from datetime import datetime
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Enum, Boolean, Text
+from sqlalchemy import Boolean, Column, DateTime, Enum, ForeignKey, Integer, String, Text, func
 from sqlalchemy.orm import relationship, backref
+from sqlalchemy.sql import case
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from extensions import db
 from enum import Enum as PyEnum
 import logging
-from sqlalchemy import func
-from sqlalchemy.sql import case
 
 logger = logging.getLogger(__name__)
 
