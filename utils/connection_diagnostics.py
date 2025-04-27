@@ -12,7 +12,8 @@ class ConnectionDiagnostics:
         self.last_check: Dict[str, datetime] = {}
         self.status_cache: Dict[str, Dict] = {}
 
-    def check_database_connection(self) -> Dict:
+    @staticmethod
+    def check_database_connection() -> Dict:
         """Verifica la conexión a la base de datos"""
         try:
             from extensions import db
@@ -37,7 +38,8 @@ class ConnectionDiagnostics:
                 'message': 'Error en conexión a base de datos'
             }
 
-    def check_netelip_connection(self) -> Dict:
+    @staticmethod
+    def check_netelip_connection() -> Dict:
         """Verifica la conexión con Netelip"""
         try:
             # Verificar credenciales de Netelip
@@ -110,7 +112,8 @@ class ConnectionDiagnostics:
                 'calls_per_minute': 0
             }
 
-    def _get_calls_per_minute(self) -> int:
+    @staticmethod
+    def _get_calls_per_minute() -> int:
         """Obtiene el número de llamadas por minuto"""
         try:
             from models import RegistroLlamada
@@ -148,7 +151,8 @@ class ConnectionDiagnostics:
         status['overall_status'] = 'active' if all_ok else 'degraded'
         return status
 
-    def format_sse_message(self, data: Dict) -> str:
+    @staticmethod
+    def format_sse_message(data: Dict) -> str:
         """Formatea los datos para Server-Sent Events"""
         return f"data: {json.dumps(data)}\n\n"
 
