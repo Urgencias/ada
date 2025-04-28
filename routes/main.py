@@ -995,9 +995,7 @@ def recordatorios():
         return redirect(url_for('main.dashboard'))
 
 def actualizar_contadores(user_id):
-    """
-    Actualiza los contadores de llamadas para un usuario específico
-    """
+    """Actualiza los contadores de llamadas para un usuario específico"""
     try:
         logger.info(f"Iniciando actualización de contadores para usuario {user_id}")
 
@@ -1077,9 +1075,7 @@ def actualizar_contadores(user_id):
         raise
 
 def obtener_contadores(user_id=None):
-    """
-    Obtiene los contadores actuales, ya sea para un usuario específico o totales
-    """
+    """Obtiene los contadores actuales, ya sea para un usuario específico o totales"""
     try:
         if user_id:
             query = text("""

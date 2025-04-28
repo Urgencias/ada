@@ -48,9 +48,7 @@ def texto_a_voz(texto: str, nombre_archivo: str = None, contexto: str = 'general
         raise
 
 def _optimizar_texto(texto: str, contexto: str) -> str:
-    """
-    Optimiza el texto para mejor comprensión según el contexto
-    """
+    """Optimiza el texto para mejor comprensión según el contexto"""
     # Limpiar espacios extras y normalizar puntuación
     texto = re.sub(r'\s+', ' ', texto).strip()
     texto = re.sub(r'([.,!?])(?=[^\s])', r'\1 ', texto)

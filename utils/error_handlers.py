@@ -103,9 +103,7 @@ def init_error_handlers(app):
 
 # Funciones auxiliares para el manejo de errores
 def log_error(error_type: str, message: str, extra_data: Optional[Dict] = None) -> None:
-    """
-    Registra un error en el log con información adicional
-    """
+    """Registra un error en el log con información adicional"""
     error_info = {
         'tipo': error_type,
         'mensaje': message
@@ -116,9 +114,7 @@ def log_error(error_type: str, message: str, extra_data: Optional[Dict] = None) 
     logger.error(f"Error registrado: {error_info}")
 
 def format_error_response(message: str, details: Optional[Dict] = None) -> Tuple[Dict, int]:
-    """
-    Formatea una respuesta de error para APIs
-    """
+    """Formatea una respuesta de error para APIs"""
     response = {
         'error': True,
         'mensaje': message
