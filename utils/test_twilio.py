@@ -7,9 +7,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 def test_twilio_connection():
-    """
-    Script de prueba para verificar la conexión con Twilio
-    """
+    """Script de prueba para verificar la conexión con Twilio"""
     try:
         # Obtener credenciales
         account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
