@@ -13,8 +13,6 @@ import json
 import logging
 import threading
 from werkzeug.security import generate_password_hash
-from datetime import datetime, timedelta
-from sqlalchemy import text, func
 from sqlalchemy.exc import SQLAlchemyError
 
 logger = logging.getLogger(__name__)
