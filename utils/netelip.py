@@ -4,6 +4,7 @@ import requests
 import logging
 import json
 from datetime import datetime
+from security import safe_requests
 
 # Configurar logging detallado para SIP y señalización
 logging.basicConfig(level=logging.DEBUG)
@@ -177,7 +178,7 @@ def verificar_credenciales() -> tuple[bool, str]:
             'format': 'json'
         }
 
-        response = requests.get(url, params=params, timeout=30)
+        response = safe_requests.get(url, params=params, timeout=30)
 
         if response.status_code == 200:
             return True, "Credenciales válidas"
