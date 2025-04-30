@@ -6,8 +6,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from extensions import db
 from enum import Enum as PyEnum
 import logging
-from sqlalchemy import func
-from sqlalchemy.sql import case
 
 logger = logging.getLogger(__name__)
 

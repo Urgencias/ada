@@ -1,9 +1,7 @@
 import os
 import logging
 import shutil
-from datetime import datetime
-import pytz
-from utils.timezone_helpers import get_current_time, ZONA_HORARIA_MADRID
+from utils.timezone_helpers import get_current_time
 import subprocess
 
 logger = logging.getLogger(__name__)
