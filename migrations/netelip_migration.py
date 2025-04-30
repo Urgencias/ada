@@ -1,6 +1,4 @@
 """Migración para renombrar columnas de Twilio a nombres genéricos"""
-from flask import current_app
-from flask_migrate import Migrate
 from alembic import op
 import sqlalchemy as sa
 

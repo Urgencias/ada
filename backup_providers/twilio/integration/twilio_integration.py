@@ -4,7 +4,6 @@ import logging
 from twilio.rest import Client
 from twilio.base.exceptions import TwilioRestException
 from typing import Tuple, Optional, Dict, Any
-from datetime import datetime, timedelta
 
 logger = logging.getLogger(__name__)
 

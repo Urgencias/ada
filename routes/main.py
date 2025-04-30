@@ -4,8 +4,7 @@ from flask import Blueprint, render_template, Response, jsonify, current_app, fl
 from flask_login import login_required, current_user
 from models import RegistroLlamada, Recordatorio, User, NotificacionLlamada, EstadoLlamadaEnum
 from datetime import datetime, date, timedelta
-from sqlalchemy import func, or_, and_, case, text
-from sqlalchemy.sql import functions
+from sqlalchemy import func, text
 from extensions import db
 from utils.call_providers import gestor_proveedores
 from utils.timezone_helpers import get_current_time, to_local_time, to_utc, ZONA_HORARIA_MADRID

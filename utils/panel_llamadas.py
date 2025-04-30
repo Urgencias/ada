@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from models import Recordatorio, RegistroLlamada, User, EstadoLlamadaEnum
 from extensions import db
 from utils.call_providers import gestor_proveedores
-from sqlalchemy import and_, func
+from sqlalchemy import and_
 
 logger = logging.getLogger(__name__)
 panel_logger = logging.getLogger('panel_control')
