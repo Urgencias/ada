@@ -81,7 +81,7 @@ def realizar_llamada_prueba(mensaje: str = "Esta es una llamada de prueba. Por f
 
     try:
         numero_destino = "0034968972418"  # Número de prueba
-        logger.info(f"=== Iniciando llamada de prueba con número visible ===")
+        logger.info("=== Iniciando llamada de prueba con número visible ===")
         logger.info(f"Número destino: {numero_destino}")
 
         exito, id_llamada, error = realizar_llamada(
@@ -109,7 +109,7 @@ if __name__ == "__main__":
 
     # 1. Probar conexión y visibilidad del número
     success, message, response = test_netelip_connection()
-    print(f"\nPrueba de conexión y visibilidad:")
+    print("\nPrueba de conexión y visibilidad:")
     print(f"{'ÉXITO' if success else 'ERROR'}: {message}")
     if response:
         print(f"Respuesta detallada: {json.dumps(response, indent=2)}")
