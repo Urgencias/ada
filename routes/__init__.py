@@ -1,5 +1,4 @@
 from flask import Flask
-from flask_login import login_required
 import logging
 
 logger = logging.getLogger(__name__)

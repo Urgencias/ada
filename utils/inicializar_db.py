@@ -3,7 +3,6 @@ from typing import Optional
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy import inspect
 from extensions import db
-from models import Recordatorio, RegistroLlamada, User, NotificacionLlamada
 from flask_migrate import upgrade
 
 logger = logging.getLogger(__name__)
