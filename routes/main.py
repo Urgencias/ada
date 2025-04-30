@@ -3,9 +3,10 @@ import time
 from flask import Blueprint, render_template, Response, jsonify, current_app, flash, redirect, url_for, request, session
 from flask_login import login_required, current_user
 from models import RegistroLlamada, Recordatorio, User, NotificacionLlamada, EstadoLlamadaEnum
-from datetime import datetime, date, timedelta
-from sqlalchemy import func, or_, and_, case, text
+from datetime import date, datetime, datetime, timedelta, timedelta
+from sqlalchemy import and_, case, func, func, or_, text, text
 from sqlalchemy.sql import functions
+from sqlalchemy.exc import SQLAlchemyError
 from extensions import db
 from utils.call_providers import gestor_proveedores
 from utils.timezone_helpers import get_current_time, to_local_time, to_utc, ZONA_HORARIA_MADRID
@@ -13,9 +14,6 @@ import json
 import logging
 import threading
 from werkzeug.security import generate_password_hash
-from datetime import datetime, timedelta
-from sqlalchemy import text, func
-from sqlalchemy.exc import SQLAlchemyError
 
 logger = logging.getLogger(__name__)
 main_bp = Blueprint('main', __name__)
