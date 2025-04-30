@@ -18,10 +18,8 @@ def restaurar_configuracion(ruta_backup):
             logger.info(f"Respaldo restaurado exitosamente desde: {ruta_backup}")
             logger.info("Sistema restaurado correctamente")
             return True, "Restauración completada con éxito"
-        else:
-            logger.error(f"Error al restaurar el respaldo: {mensaje}")
-            return False, mensaje
-            
+        logger.error(f"Error al restaurar el respaldo: {mensaje}")
+        return False, mensaje
     except Exception as e:
         logger.error(f"Error durante la restauración: {str(e)}")
         return False, str(e)

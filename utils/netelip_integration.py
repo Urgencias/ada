@@ -143,12 +143,11 @@ def verificar_credenciales() -> Tuple[bool, str]:
 
         if response.status_code == 200:
             return True, "Credenciales válidas"
-        elif response.status_code == 401:
+        if response.status_code == 401:
             return False, "Credenciales inválidas"
-        else:
-            error_msg = f"Error de conexión: {response.status_code}"
-            logger.error(f"{error_msg}. Respuesta: {response.text}")
-            return False, error_msg
+        error_msg = f"Error de conexión: {response.status_code}"
+        logger.error(f"{error_msg}. Respuesta: {response.text}")
+        return False, error_msg
 
     except Exception as e:
         return False, f"Error verificando credenciales: {str(e)}"

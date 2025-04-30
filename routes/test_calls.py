@@ -83,12 +83,11 @@ def prueba_llamada():
                     'success': True,
                     'message': 'Llamada iniciada correctamente'
                 })
-            else:
-                logger.error("Error al iniciar la llamada de prueba")
-                return jsonify({
-                    'success': False,
-                    'error': 'Error al iniciar la llamada'
-                })
+            logger.error("Error al iniciar la llamada de prueba")
+            return jsonify({
+                'success': False,
+                'error': 'Error al iniciar la llamada'
+            })
 
         except Exception as db_error:
             logger.error(f"Error en la base de datos: {str(db_error)}")
