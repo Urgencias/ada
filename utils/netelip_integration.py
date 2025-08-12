@@ -6,6 +6,7 @@ import json
 from datetime import datetime, timedelta
 import time
 from urllib.parse import urljoin, urlparse
+from security import safe_requests
 
 logger = logging.getLogger(__name__)
 
@@ -139,7 +140,7 @@ def verificar_credenciales() -> Tuple[bool, str]:
             'format': 'json'
         }
 
-        response = requests.get(url, params=params, timeout=30)
+        response = safe_requests.get(url, params=params, timeout=30)
 
         if response.status_code == 200:
             return True, "Credenciales válidas"
